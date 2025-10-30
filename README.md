@@ -108,3 +108,18 @@ Cosine similarity ranges from:
 1.0  → identical vectors (perfect match)
 0.0  → orthogonal (no relation)
 -1.0 → opposite meaning (rare in embeddings)
+
+6) Run a sample query Qdrant with text or image using CLIP
+
+```bash
+  python scripts/query_clip_qdrant.py --collection documents --query "A woman with fever and rash" --top-k 3
+```
+
+sample: (replace "A woman with fever and rash" with the below query or your own query)
+
+  A 53-year-old man from Malawi presents with a 3-month history of productive cough, night sweats, and weight loss. He is HIV-positive with advanced immunosuppression (CD4 count 54 cells/μL). Sputum smears for tuberculosis are negative, and chest X-ray shows only bilateral hilar prominence. He has a low-grade fever and mild anaemia
+
+==> After running this query, probably check the result in the 'top_chunks.txt' file
+
+hugging face:
+token: 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

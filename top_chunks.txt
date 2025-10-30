@@ -1,0 +1,52 @@
+Query: A 53-year-old man from Malawi presents with a 3-month history of productive cough, night sweats, and weight loss. He is HIV-positive with advanced immunosuppression (CD4 count 54 cells/μL). Sputum smears for tuberculosis are negative, and chest X-ray shows only bilateral hilar prominence. He has a low-grade fever and mild anaemia
+
+--- Result 1 ---
+ID: 871
+Score: 0.8421549
+File: 33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical-.md
+Text:
+2 clinical presentation of tb in patients with and without immunosuppression hiv-negative or high cd 4 count > 200 μl low cd 4 count 200 μl cough and sputum production severe, productive often mild, small amounts of whitish sputum haemoptysis common rare chest radiography appearance cavities, upper lobe infiltrates and destruction no cav
+Other payload fields:
+  type: text
+  chunk_id: 36
+
+--- Result 2 ---
+ID: 842
+Score: 0.83325124
+File: 33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical-.md
+Text:
+. what is your suspected diagnosis? 2. how would you approach this patient? discussion a53-year-old malawian man presents with chronic cough and constitutional symptoms. a course of oral antibiotics did not yield any improvement. the patient is not aware of any tb contacts. on admission he is newly diagnosed with hiv-infection and advanced immunosuppression. his sputum microscopy is
+Other payload fields:
+  type: text
+  chunk_id: 7
+
+--- Result 3 ---
+ID: 863
+Score: 0.8321341
+File: 33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical-.md
+Text:
+in many parts of sub-saharan africa. co-infection with hiv and tb is common and poses a particular challenge to the clinician. clinical presentation of tb changes with declining peripheral cd 4 counts table 33.2. cavitating smear-positive pulmonary tb, as seen classically in hiv-negative individuals, is uncommon in advanced immuno-suppression. instead, patients more
+Other payload fields:
+  type: text
+  chunk_id: 28
+
+--- Result 4 ---
+ID: 465
+Score: 0.83119535
+File: 23---A-31-Year-Old-HIV-Positive-Business-Traveller-W_2022_Clinical-Cases-in-.md
+Text:
+p should be high up in the dif-ferential of any art-naïve, hiv-positive patient with a low cd 4 count, who presents with progressive shortness of breath on exertion and dry cough, with patchy perihilar infil-trates on the chest radiograph. tuberculosis, atypical bacte-rial pneumonia, cryptococcosis or hi
+Other payload fields:
+  type: text
+  chunk_id: 10
+
+--- Result 5 ---
+ID: 843
+Score: 0.8250373
+File: 33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical-.md
+Text:
+and advanced immunosuppression. his sputum microscopy is negative for acid-fast bacilli afb. chest radiography shows a prominent hilar region but is otherwise normal. answer to question 1 what is your suspected diagnosis? in all hiv-positive patients with cough and weight loss who do not respond to antibiotic therapy, tuberculosis is top of the list of differential diagnoses. in this case the
+Other payload fields:
+  type: text
+  chunk_id: 8
+

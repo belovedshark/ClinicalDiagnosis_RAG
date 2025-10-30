@@ -80,7 +80,8 @@ def main():
         print('Embeddings folder not found:', emb_dir)
         return
 
-    files = sorted(list(emb_dir.glob('*.npy')))
+    # Search recursively so files under embeddings/text/ and embeddings/image/ are found
+    files = sorted(list(emb_dir.rglob('*.npy')))
     if not files:
         print('No .npy files found in', emb_dir)
         return
