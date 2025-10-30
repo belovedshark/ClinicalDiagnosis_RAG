@@ -120,6 +120,3 @@ sample: (replace "A woman with fever and rash" with the below query or your own 
   A 53-year-old man from Malawi presents with a 3-month history of productive cough, night sweats, and weight loss. He is HIV-positive with advanced immunosuppression (CD4 count 54 cells/μL). Sputum smears for tuberculosis are negative, and chest X-ray shows only bilateral hilar prominence. He has a low-grade fever and mild anaemia
 
 ==> After running this query, probably check the result in the 'top_chunks.txt' file
-
-hugging face:
-token: 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
