@@ -27,8 +27,12 @@ def main():
     # connect to local Qdrant server
     client = QdrantClient(url='http://localhost:6333')
 
-    # pick a sample file
-    sample = next(emb_dir.glob('*_text.npy'), None)
+    # pick a sample file: prefer embeddings/text/ subfolder, otherwise search recursively
+    text_dir = emb_dir / 'text'
+    if text_dir.exists():
+        sample = next(text_dir.glob('*_text.npy'), None)
+    else:
+        sample = next(emb_dir.rglob('*_text.npy'), None)
     if sample is None:
         raise SystemExit('No text embedding files found in ' + str(emb_dir))
 
