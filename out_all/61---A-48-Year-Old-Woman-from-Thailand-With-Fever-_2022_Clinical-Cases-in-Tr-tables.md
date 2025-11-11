@@ -1,0 +1,1 @@
+TABLE 61.1 Laboratory Results on Admission Parameter Patient Reference WCC ( 109/L) 30.83.8-11 Haemoglobin (g/dL) 8.212.3-15.3 MCV (fL) 8880-94 Platelets ( 109/L) 592150-400 CRP (mg/L) 267 <5 ESR (mm/h) >110 <20167

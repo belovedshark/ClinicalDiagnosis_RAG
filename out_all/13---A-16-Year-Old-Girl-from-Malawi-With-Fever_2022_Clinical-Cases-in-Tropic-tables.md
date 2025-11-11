@@ -1,0 +1,1 @@
+TABLE 13.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 3.24-10 Haemoglobin (mg/dL) 10.912-14 MCV (fL) 9080-99 Platelets ( 109/L) 164150-400 Creatinine (μmol/L) 71 <8032

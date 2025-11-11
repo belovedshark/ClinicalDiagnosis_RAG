@@ -1,0 +1,3 @@
+TABLE 35.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 3.74-10 Haemoglobin (g/dL) 10.212-16 MCV (fL) 9280-98 Platelets ( 109/L) 91150-350 Fasting blood glucose (mmol/L) 5.435.0-6.7 Malaria RDT Negative Negative 96
+====
+TABLE 35.2 CSF Results on Admission Parameter Patient Reference Leukocytes (cells/μL) 180-5 Protein (g/L) 0.80.15-0.40 Glucose (mmol/L) 1.972.22-3.88 India Ink Negative Negative Culture C. neoformans Negative • Fig. 35.2 Photomicrograph of Cryptococcus neoformans (India Ink stain). (Source: www.cdc.gov; www.cdc.gov/fungal/cryptococco sis-neoformans/) 97

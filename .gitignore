@@ -13,3 +13,5 @@ venv/
 rag/__pycache__/
 scripts/__pycache__/
 Processed_embeddings.zip
+plans/
+out_test/
