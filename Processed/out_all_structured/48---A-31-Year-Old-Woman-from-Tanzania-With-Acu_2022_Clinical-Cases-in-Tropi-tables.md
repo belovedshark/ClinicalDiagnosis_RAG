@@ -1,35 +1,41 @@
-| Flaccid versus Spastic Paraparesis | Clinical Presentation                                      | Neuroanatomical Diagnosis                                                                | Examples of Common Aetiologies in Tropical Countries                                                                   |
-| :--------------------------------- | :--------------------------------------------------------- | :--------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
-| Flaccid paraparesis                | with bladder involvement and/or sensory level              | Acute spinal cord lesion                                                                 | inflammation of the spinal cord (¼ myelitis), ischaemia of the spinal cord (¼ spinal infarction)                       |
-|                                    |                                                            | Acute cauda equina lesion                                                                | metastatic malignancy, schistosomiasis                                                                                 |
-|                                    | without bladder dysfunction, without sensory level         | Polyradiculoneuropathy                                                                   | Guillain-Barr e-syndrome, tuberculous arachnoiditis, CMV in HIV                                                        |
-|                                    |                                                            | Polyneuropathy                                                                           | Diabetes, HIV-related, nutritional                                                                                     |
-| Spastic paraparesis                | Chronic spinal cord lesion                                 | Compression of spinal cord because of Pott´s disease, chronic viral infections such as HTLV-1 and HIV |
+TABLE 48.1 Flaccid versus Spastic Paraparesis
+| Clinical Presentation | Neuroanatomical Diagnosis | Examples of Common Aetiologies in Tropical Countries |
+| :------------------------------------------------------ | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Flaccid paraparesis**                                 |                           |                                                                                                                                                                  |
+| with bladder involvement and/or sensory level           | Acute spinal cord lesion  | inflammation of the spinal cord (¼ myelitis), ischaemia of the spinal cord (¼ spinal infarction)                                                                 |
+| with bladder involvement and/or sensory level           | Acute cauda equina lesion | metastatic malignancy, schistosomiasis                                                                                                                           |
+| without bladder dysfunction, without sensory level      | Polyradiculoneuropathy    | Guillain-Barr e-syndrome, tuberculous arachnoiditis, CMV in HIV                                                                                                  |
+| without bladder dysfunction, without sensory level      | Polyneuropathy            | Diabetes, HIV-related, nutritional                                                                                                                               |
+| **Spastic paraparesis**                                 |                           |                                                                                                                                                                  |
+|                                                         | Chronic spinal cord lesion | Compression of spinal cord because of Pott´s disease, chronic viral infections such as HTLV-1 and HIV                                                            |
 
-| Parameter (Unit)                   | Patient  | Normal range |
-| :--------------------------------- | :------- | :----------- |
-| ESR (mm/h)                         | 19       | 10           |
-| Random blood glucose (mmol/l)      | 5.6      | 3.9-11.1     |
-| HIV-Serology and p24 Antigen       | negative | negative     |
-| VDRL                               | negative | negative     |
-| Schistosomiasis-serology           | negative | negative     |
-| Urine for ova of S. haematobium    | negative | negative     |
-| Stool for ova of S. mansoni        | negative | negative     |
+TABLE 48.2 Laboratory Results on Admission
+| Parameter (Unit)                 | Patient    | Normal range |
+| :------------------------------- | :--------- | :----------- |
+| ESR (mm/h)                       | 19         | 10           |
+| Random blood glucose (mmol/l)    | 5.6        | 3.9-11.1     |
+| HIV-Serology and p24 Antigen     | negative   | negative     |
+| VDRL                             | negative   | negative     |
+| Schistosomiasis-serology         | negative   | negative     |
+| Urine for ova of S. haematobium  | negative   | negative     |
+| Stool for ova of S. mansoni      | negative   | negative     |
 
-| Parameter (Unit)                     | Patient             | Normal range |
-| :----------------------------------- | :------------------ | :----------- |
-| CSF white cell count (cells/μl)      | 11 (90% lymphocytes) | 0-5          |
-| CSF protein (g/L)                    | 1.11                | <0.45        |
-| CSF glucose (mmol/l)                 | 3.9                 | 2.8-3.8\*    |
-| Gram stain                           | negative            | negative     |
-| Ziehl-Neelsen stain                  | negative            | negative     |
-| Xpert MTB/RIF                        | negative            | negative     |
-| VDRL in the CSF                      | negative            | negative     |
-\*1/2 to 2/3 of paired serum glucose sample
+TABLE 48.3 CSF Results
+| Parameter (Unit)                     | Patient             | Normal range    |
+| :----------------------------------- | :------------------ | :-------------- |
+| CSF white cell count (cells/μl)      | 11 (90% lymphocytes) | 0-5             |
+| CSF protein (g/L)                    | 1.11                | <0.45           |
+| CSF glucose (mmol/l)                 | 3.9                 | 2.8-3.8\*       |
+| Gram stain                           | negative            | negative        |
+| Ziehl-Neelsen stain                  | negative            | negative        |
+| Xpert MTB/RIF                        | negative            | negative        |
+| VDRL in the CSF                      | negative            | negative        |
+| \*{1/2} to {2/3} of paired serum glucose sample 133 |                     |                 |
 
-| Pathophysiology of Acute Transverse Myelitis | Pathophysiology                                                                                                                              | Treatment                     |
-| :------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
-| Idiopathic, (majority of the cases)          | Presumably an autoimmune phenomenon<br>Might be a manifestation of a chronic autoimmune demyelinating CNS disease (such as NMO and multiple sclerosis) | Corticosteroids against inflammation |
-| Associated with infection                    | Direct invasion of the spinal cord by microorganisms                                                                                         | Causative treatment e.g. acyclovir for VZV myelitis |
-|                                              | Autoimmune phenomenon as a result of infection elsewhere (“parainfectious”)<br>Might be associated with vaccination against the microorganism | Corticosteroids against inflammation |
-| Associated with a systemic autoimmune disorder | Autoimmune phenomenon<br>Often the autoimmune disorder (e.g. lupus or secondary vasculitis) in the patient is already known                 | Corticosteroids against inflammation |
+TABLE 48.4 Pathophysiology of Acute Transverse Myelitis
+| Pathophysiology                                                                                                                                                      | Treatment                                                                    |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
+| **Idiopathic, (majority of the cases)** <br> Presumably an autoimmune phenomenon <br> Might be a manifestation of a chronic autoimmune demyelinating CNS disease (such as NMO and multiple sclerosis) | Corticosteroids against inflammation                                         |
+| **Associated with infection** <br> Direct invasion of the spinal cord by microorganisms                                                                              | Causative treatment e.g. acyclovir for VZV myelitis                          |
+| **Autoimmune phenomenon as a result of infection elsewhere (“parainfectious”)** <br> Might be associated with vaccination against the microorganism                     | Corticosteroids against inflammation                                         |
+| **Associated with a systemic autoimmune disorder** <br> Autoimmune phenomenon <br> Often the autoimmune disorder (e.g. lupus or secondary vasculitis) in the patient is already known | Corticosteroids against inflammation                                         |

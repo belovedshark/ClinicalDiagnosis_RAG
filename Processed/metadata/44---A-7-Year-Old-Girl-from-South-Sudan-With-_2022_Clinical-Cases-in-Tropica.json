@@ -7,6 +7,8 @@
       "path": "./Processed/images/44---A-7-Year-Old-Girl-from-South-Sudan-With-_2022_Clinical-Cases-in-Tropica/44---A-7-Year-Old-Girl-from-South-Sudan-With-_2022_Clinical-Cases-in-Tropica_p2_img1.jpeg"
     }
   ],
-  "table_text": "| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10^9/L) | 1.3 | 5-10 |\n| Haemoglobin (g/dL) | 6.8 | 12-16 |\n| Platelets (10^9/L) | 98 | 150-300 |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/44---A-7-Year-Old-Girl-from-South-Sudan-With-_2022_Clinical-Cases-in-Tropica-tables.md"
+  "table_text": "TABLE 44.1 Laboratory Results on Admission\n\n| Parameter          | Patient | Reference |\n| :----------------- | :------ | :-------- |\n| WBC (10^9/L)       | 1.3     | 5.4-10    |\n| Haemoglobin (g/dL) | 6.8     | 12-16     |\n| Platelets (10^9/L) | 98      | 150-300   |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/44---A-7-Year-Old-Girl-from-South-Sudan-With-_2022_Clinical-Cases-in-Tropica-tables.md",
+  "table_label": "TABLE 44.1",
+  "table_caption": "Laboratory Results on Admission"
 }

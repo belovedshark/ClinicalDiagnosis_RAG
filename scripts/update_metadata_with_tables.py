@@ -6,15 +6,14 @@ looks for matching table files in a table directory (default: Processed/out_all_
 and writes updated JSONs either in-place (with optional .bak backups) or to an output directory.
 
 Usage examples:
-  python3 scripts/update_metadata_with_tables.py --metadata-dir Processed/metadata \
-      --table-dir Processed/out_all_structured --backup
-
+  python3 scripts/update_metadata_with_tables.py --metadata-dir Processed/metadata --table-dir Processed/out_all_structured --backup --force --log-level INFO
 """
 from __future__ import annotations
 
 import argparse
 import json
 import logging
+import re
 from pathlib import Path
 from typing import Optional
 import shutil
@@ -86,10 +85,58 @@ def process_metadata_file(
         if table_text is not None:
             table_source = str(table_file)
 
+    # If we found table text, try to extract a leading TABLE label and caption
+    # Example formats handled:
+    #   TABLE 4.1 Laboratory results on admission
+    #   Table 4.1. Laboratory results on admission
+    # We preserve the full `table_text` but also expose `table_label` and
+    # `table_caption` in metadata for downstream indexing/filters.
+    table_label = None
+    table_caption = None
+    if table_text:
+        # look for the first line that begins with TABLE or Table followed by a number
+        m = re.search(r'^(TABLE|Table)\s+(\d+(?:\.\d+)*)(?:[.:])?\s*(.*)$', table_text, flags=re.MULTILINE)
+        if m:
+            label_kind = m.group(1)
+            label_num = m.group(2)
+            caption_text = m.group(3).strip()
+            table_label = f"{label_kind} {label_num}"
+            # If caption_text is empty, try to use subsequent non-empty line(s)
+            if not caption_text:
+                lines = table_text.splitlines()
+                # find the matched line index
+                for idx, line in enumerate(lines):
+                    if re.match(rf'^{label_kind}\s+{re.escape(label_num)}', line):
+                        # collect following non-empty lines until a blank or next heading
+                        caption_lines = []
+                        for following in lines[idx + 1 : idx + 6]:
+                            if following.strip() == "":
+                                break
+                            caption_lines.append(following.strip())
+                        caption_text = " ".join(caption_lines).strip()
+                        break
+            table_caption = caption_text or None
+
+    # Attach extracted pieces to metadata (preserve None when absent)
+    if table_label is not None:
+        meta["table_label"] = table_label
+    else:
+        # keep any existing value if present, otherwise explicit None
+        meta.setdefault("table_label", None)
+    if table_caption is not None:
+        meta["table_caption"] = table_caption
+    else:
+        meta.setdefault("table_caption", None)
+
     # If table_text is None, we will set table_text to None in JSON
-    # Decide whether to overwrite existing field
-    if ("table_text" in meta) and (not force):
-        logging.info("Skipping %s: metadata already contains table_text (use --force to overwrite)", meta_path.name)
+    # Decide whether to overwrite existing field: only skip when an existing
+    # table_text is non-null (i.e. there is already meaningful content).
+    existing_has_table = ("table_text" in meta) and (meta.get("table_text") is not None)
+    if existing_has_table and (not force):
+        logging.info(
+            "Skipping %s: metadata already contains non-null table_text (use --force to overwrite)",
+            meta_path.name,
+        )
         return False, "skipped-exists"
 
     meta["table_text"] = table_text

@@ -1,6 +1,5 @@
-```markdown
+TABLE 78.1 Standard Treatment for Human African Trypanosomiasis by Species and Stage
 | Stage        | West African trypanosomiasis (T. brucei gambiense)                                                                                                     | East African trypanosomiasis (T. brucei rhodesiense)                                                                    |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| First stage  | Pentamidine IM or IV OD 7 days or Fexinidazole PO OD 10 days                                                                                             | Suramin IV, 6 injections, e.g. days 0,1,3,7,14, 21. Or Pentamidine IM or IV OD 7 days                                   |
-| Second stage | Nifurtimox-Eflornithine combination therapy (NECT) (Nifurtimox PO TDS 10 days + Eflornithine IV BD 7 days) or Fexinidazole PO OD 10 days                 | Melarsoprol IV OD 10 days                                                                                               |
-```
+| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- |
+| First stage  | Pentamidine IM or IV OD 7 days or Fexinidazole PO OD 10 days                                                                                           | Suramin IV, 6 injections, e.g. days 0,1,3,7,14, 21. Or Pentamidine IM or IV OD 7 days                                   |
+| Second stage | Nifurtimox-Eflornithine combination therapy (NECT) (Nifurtimox PO TDS 10 days + Eflornithine IV BD 7 days) or Fexinidazole PO OD 10 days              | Melarsoprol IV OD 10 days                                                                                               |

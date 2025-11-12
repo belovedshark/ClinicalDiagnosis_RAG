@@ -33,8 +33,8 @@ def extract_table_with_gemini(model, text: str, max_retries: int = 3, backoff: f
     prompt = f"""
 You are a medical data formatter.
 Convert the following unstructured text-based medical table into a clean Markdown table.
-Preserve clinical and diagnostic details. If the input does not contain a table,
-return an empty string.
+Preserve clinical and diagnostic details. After TABLE XX.X, there will be a table caption, so that 
+keep that as part above the table in the output.
 
 Input:
 {text}

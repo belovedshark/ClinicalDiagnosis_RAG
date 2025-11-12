@@ -7,6 +7,8 @@
       "path": "./Processed/images/57---A-37-Year-Old-Woman-from-Malawi-With-H_2022_Clinical-Cases-in-Tropical-/57---A-37-Year-Old-Woman-from-Malawi-With-H_2022_Clinical-Cases-in-Tropical-_p2_img1.jpeg"
     }
   ],
-  "table_text": "```markdown\n| Parameter | Patient | Reference Range |\n|---|---|---|\n| WBC (10^9/L) | 2.8 | 4-10 |\n| Haemoglobin (g/dL) | 8.3 | 12-14 |\n| MCV (fL) | 88 | 80-99 |\n| Platelets (10^9/L) | 130 | 150-400 |\n```",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/57---A-37-Year-Old-Woman-from-Malawi-With-H_2022_Clinical-Cases-in-Tropical--tables.md"
+  "table_text": "TABLE 57.1 Laboratory Results on Admission\n| Parameter          | Patient | Reference Range |\n| :----------------- | :------ | :-------------- |\n| WBC ( 109/L)       | 2.8     | 4-10            |\n| Haemoglobin (g/dL) | 8.3     | 12-14           |\n| MCV (fL)           | 88      | 80-99           |\n| Platelets ( 109/L) | 130     | 150-400         |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/57---A-37-Year-Old-Woman-from-Malawi-With-H_2022_Clinical-Cases-in-Tropical--tables.md",
+  "table_label": "TABLE 57.1",
+  "table_caption": "Laboratory Results on Admission"
 }

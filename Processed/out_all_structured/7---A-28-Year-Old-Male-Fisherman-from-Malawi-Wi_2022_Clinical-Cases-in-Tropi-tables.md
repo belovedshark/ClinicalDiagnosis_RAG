@@ -1,3 +1,4 @@
+TABLE 7.1 Laboratory Results on Admission
 | Parameter | Patient | Reference Range |
 |---|---|---|
 | WBC (10^9/L) | 3.8 | 4-10 |

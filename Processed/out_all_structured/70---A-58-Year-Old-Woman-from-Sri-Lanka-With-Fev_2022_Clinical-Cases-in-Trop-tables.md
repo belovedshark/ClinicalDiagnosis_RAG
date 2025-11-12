@@ -1,3 +1,4 @@
+TABLE 70.1 Laboratory Results on Admission
 | Parameter | Patient | Reference |
 |---|---|---|
 | WBC (10^9/L) | 8.5 | 4-10 |
@@ -11,10 +12,10 @@
 | Creatinine (μmol/L) | 123.8 | 71-106 |
 | C-reactive protein (mg/L) | 48 | <6 |
 
+TABLE 70.2 Cerebrospinal Fluid Results on Admission
 | Parameter | Patient | Reference |
 |---|---|---|
 | Leukocytes (cells/μL) | 35 (80% lymphocytes) | 0-5/μL |
 | Protein (g/L) | 0.64 | 0.15-0.45 |
-| Glucose (mmol/L) | 3.25* | 50-75% of serum glucose |
-
-*Paired random blood glucose 7.17 mmol/L.
+| Glucose (mmol/L) | 3.25\* | 50-75% of serum glucose |
+\*Paired random blood glucose 7.17 mmol/L.

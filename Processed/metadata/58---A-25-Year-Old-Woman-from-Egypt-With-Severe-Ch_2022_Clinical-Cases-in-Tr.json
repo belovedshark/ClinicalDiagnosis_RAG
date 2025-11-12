@@ -11,6 +11,8 @@
       "path": "./Processed/images/58---A-25-Year-Old-Woman-from-Egypt-With-Severe-Ch_2022_Clinical-Cases-in-Tr/58---A-25-Year-Old-Woman-from-Egypt-With-Severe-Ch_2022_Clinical-Cases-in-Tr_p2_img1.jpeg"
     }
   ],
-  "table_text": "| Parameter | Patient | Reference |\n|---|---|---|\n| Potassium (mmol/L) | 2.8 | 3.5-5 |\n| Sodium (mmol/L) | 127 | 136-145 |\n| Calcium, total (mmol/L) | 2.1 | 2.25-2.63 |\n| Albumin (g/L) | 23 | 35-55 |\n| Haemoglobin (g/dL) | 10.8 | 11.5-15.5 |\n| WBC (10^9/L) | 6.6 | 3.8-11 |\n| Eosinophil count (10^9/L) | 0.53 | <0.45 |\n| Platelets (10^9/L) | 350 | 150-350 |\n| Creatinine (μmol/L) | 115 | 53-106 |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/58---A-25-Year-Old-Woman-from-Egypt-With-Severe-Ch_2022_Clinical-Cases-in-Tr-tables.md"
+  "table_text": "TABLE 58.1 Laboratory Results on Admission\n| Parameter                 | Patient | Reference |\n| :------------------------ | :------ | :-------- |\n| Potassium (mmol/L)        | 2.8     | 3.5-5     |\n| Sodium (mmol/L)           | 127     | 136-145   |\n| Calcium, total (mmol/L)   | 2.1     | 2.25-2.63 |\n| Albumin (g/L)             | 23      | 35-55     |\n| Haemoglobin (g/dL)        | 10.8    | 11.5-15.5 |\n| WBC (10^9/L)              | 6.6     | 3.8-11    |\n| Eosinophil count (10^9/L) | 0.53    | <0.45     |\n| Platelets (10^9/L)        | 350     | 150-350   |\n| Creatinine (μmol/L)       | 115     | 53-106    |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/58---A-25-Year-Old-Woman-from-Egypt-With-Severe-Ch_2022_Clinical-Cases-in-Tr-tables.md",
+  "table_label": "TABLE 58.1",
+  "table_caption": "Laboratory Results on Admission"
 }

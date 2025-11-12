@@ -1,6 +1,7 @@
+TABLE 67.1 Laboratory Results on Admission to Emergency Room
 | Parameter | Patient | Reference Range |
 |---|---|---|
-| WBC (10^9/L) | 13.9 | 4-10 |
+| WBC ( 109/L) | 13.944 | 4-10 |
 | Eosinophils (%) | 43 | <5 |
 | Total eosinophil count | 5.97 | <0.5 |
 | Haemoglobin (g/dL) | 12.3 | 12-16 |

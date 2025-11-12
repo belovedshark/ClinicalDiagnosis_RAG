@@ -8,5 +8,7 @@
     }
   ],
   "table_text": null,
-  "table_source": null
+  "table_source": null,
+  "table_label": null,
+  "table_caption": null
 }

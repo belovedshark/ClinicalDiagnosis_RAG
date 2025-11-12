@@ -11,6 +11,8 @@
       "path": "./Processed/images/67---A-24-Year-Old-Woman-from-the-Peruvian-Andes-_2022_Clinical-Cases-in-Tro/67---A-24-Year-Old-Woman-from-the-Peruvian-Andes-_2022_Clinical-Cases-in-Tro_p2_img2.jpeg"
     }
   ],
-  "table_text": "| Parameter | Patient | Reference Range |\n|---|---|---|\n| WBC (10^9/L) | 13.9 | 4-10 |\n| Eosinophils (%) | 43 | <5 |\n| Total eosinophil count | 5.97 | <0.5 |\n| Haemoglobin (g/dL) | 12.3 | 12-16 |\n| AST (U/L) | 34 | 10-40 |\n| ALT (U/L) | 55 | 7-40 |\n| AP (U/L) | 170 | 20-126 |\n| Amylase (U/L) | 75 | 3-100 |\n| Lipase (U/L) | 100 | 10-140 |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/67---A-24-Year-Old-Woman-from-the-Peruvian-Andes-_2022_Clinical-Cases-in-Tro-tables.md"
+  "table_text": "TABLE 67.1 Laboratory Results on Admission to Emergency Room\n| Parameter | Patient | Reference Range |\n|---|---|---|\n| WBC ( 109/L) | 13.944 | 4-10 |\n| Eosinophils (%) | 43 | <5 |\n| Total eosinophil count | 5.97 | <0.5 |\n| Haemoglobin (g/dL) | 12.3 | 12-16 |\n| AST (U/L) | 34 | 10-40 |\n| ALT (U/L) | 55 | 7-40 |\n| AP (U/L) | 170 | 20-126 |\n| Amylase (U/L) | 75 | 3-100 |\n| Lipase (U/L) | 100 | 10-140 |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/67---A-24-Year-Old-Woman-from-the-Peruvian-Andes-_2022_Clinical-Cases-in-Tro-tables.md",
+  "table_label": "TABLE 67.1",
+  "table_caption": "Laboratory Results on Admission to Emergency Room"
 }

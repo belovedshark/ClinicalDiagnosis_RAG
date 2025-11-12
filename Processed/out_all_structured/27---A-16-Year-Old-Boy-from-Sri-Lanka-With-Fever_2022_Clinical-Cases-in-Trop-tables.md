@@ -1,8 +1,10 @@
+TABLE 27.1 Laboratory Results on Admission
+
 | Parameter | Patient | Reference |
 |---|---|---|
-| WBC (10^9/L) (neutrophils: lymphocytes) | 5.7 (68%: 31%) | 4-10 |
+| WBC (10^9^/L) (neutrophils: lymphocytes) | 5.7 (68%: 31%) | 4-10 |
 | Haemoglobin (g/dL) | 14.8 | 12-16 |
-| Platelets (10^9/L) | 96 | 150-350 |
+| Platelets (10^9^/L) | 96 | 150-350 |
 | AST (IU/L) | 64 | 13-33 |
 | ALT (IU/L) | 58 | 3-25 |
 | ALP (IU/L) | 246 | 40-130 |

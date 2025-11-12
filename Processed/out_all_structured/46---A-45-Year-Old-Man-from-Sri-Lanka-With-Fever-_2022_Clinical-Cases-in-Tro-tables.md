@@ -1,9 +1,9 @@
-```markdown
+TABLE 46.1 Laboratory Results at Presentation
 | Parameter | Patient | Reference |
 |---|---|---|
-| WBC (10^9/L) | 14.7 | 4-10 |
+| WBC (10⁹/L) | 14.7 | 4-10 |
 | Haemoglobin (g/dL) | 12.3 | 12-16 |
-| Platelets (10^9/L) | 224 | 150-350 |
+| Platelets (10⁹/L) | 224 | 150-350 |
 | AST (U/L) | 54 | 13-33 |
 | ALT (U/L) | 38 | 3-25 |
 | ALP (U/L) | 446 | 40-130 |
@@ -13,15 +13,16 @@
 | Serum creatinine (μmol/L) | 124 | 71-106 |
 | C-reactive protein (mg/L) | 48 | <6 |
 
+TABLE 46.2 Treatment of Amoebic Liver Abscesses. (After Anesi, J.A., 2015)
 | Agent | Medication | Dose | Duration |
 |---|---|---|---|
 | **Tissue Agents** | | | |
-| | Metronidazole | 500-750 mg IV/PO TDS | 7-10 days |
-| | Tinidazole | 2 g PO OD | 3-5 days |
-| | Ornidazole | 0.5 g IV BD | 3-6 days |
-| | Nitazoxanide | 500 mg PO BD | 3 days |
+| Metronidazole | | 500-750 mg IV/PO TDS | 7-10 days |
+| Tinidazole | | 2 g PO OD | 3-5 days |
+| Ornidazole | | 0.5 g IV BD | 3-6 days |
+| Nitazoxanide | | 500 mg PO BD | 3 days |
 | **Luminal Agents** | | | |
-| | Paromomycin | 8-10 mg/kg PO TDS | 7 days |
-| | Diloxanide Furoate | 500 mg TDS | 10 days |
-| | Iodoquinole (Diiodohydroxyquin) | 650 mg PO TDS after meals | 20 days |
-```
+| Paromomycin | | 8-10 mg/kg PO TDS | 7 days |
+| Diloxanide Furoate | | 500 mg TDS | 10 days |
+| Iodoquinole | (Diiodohydroxyquin) | 650 mg PO TDS after meals | 20 days |
+PO = orally, IV = intravenously, BD = twice daily, TDS = three times a day.

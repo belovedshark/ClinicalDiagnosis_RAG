@@ -11,6 +11,8 @@
       "path": "./Processed/images/20---A-43-Year-Old-Male-Traveller-Returning-from-M_2022_Clinical-Cases-in-Tr/20---A-43-Year-Old-Male-Traveller-Returning-from-M_2022_Clinical-Cases-in-Tr_p2_img1.jpeg"
     }
   ],
-  "table_text": "| Parameter                 | Patient | Reference |\n|---------------------------|---------|-----------|\n| WBC (109/L)               | 9.0     | 4-11.3    |\n| Eosinophils (109/L)       | 2.1     | <0.5      |\n| LDH (U/L)                 | 422     | 135-225   |\n| Creatinine (μmol/L)       | 88.4    | 53-106    |\n| AST/GOT (U/L)             | 106     | 10-50     |\n| ALT/GPT (U/L)             | 179     | 10-50     |\n| GGT (U/L)                 | 186     | <65       |\n| C-reactive protein (mg/L) | 57.9    | <5        |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/20---A-43-Year-Old-Male-Traveller-Returning-from-M_2022_Clinical-Cases-in-Tr-tables.md"
+  "table_text": "TABLE 20.1 Laboratory Results on Admission\n| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10^9/L) | 9.0 | 4-11.3 |\n| Eosinophils (10^9/L) | 2.1 | <0.5 |\n| LDH (U/L) | 422 | 135-225 |\n| Creatinine (μmol/L) | 88.4 | 53-106 |\n| AST/GOT (U/L) | 106 | 10-50 |\n| ALT/GPT (U/L) | 179 | 10-50 |\n| GGT (U/L) | 186 | <65 |\n| C-reactive protein (mg/L) | 57.9 | <5 |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/20---A-43-Year-Old-Male-Traveller-Returning-from-M_2022_Clinical-Cases-in-Tr-tables.md",
+  "table_label": "TABLE 20.1",
+  "table_caption": "Laboratory Results on Admission"
 }

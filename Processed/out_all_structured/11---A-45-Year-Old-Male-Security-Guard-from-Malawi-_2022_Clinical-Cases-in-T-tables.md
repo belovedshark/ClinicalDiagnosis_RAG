@@ -1,4 +1,4 @@
-```
+TABLE 11.1 Important Causes of Spinal Cord Disease in the Tropics and Their Typical Clinical Features
 | Cause | Typical Onset and Course | Clinical Features |
 |---|---|---|
 | Spinal tuberculosis | Insidious onset, chronically progressive over weeks, with months of back pain | Spasticity common, bladder may be spared, spinal deformity on examination |
@@ -6,6 +6,7 @@
 | Transverse myelitis (incl. autoimmune) | Acute onset, often non-progressive | Bladder involvement common |
 | Schistosomiasis | Acute (days) or subacute (a couple of weeks) | Often flaccid paresis, bladder involvement common |
 
+TABLE 11.2 Diagnostic Clues and Possible Treatment Regimens for Important Causes of Spinal Cord Disease in Resource-Limited Settings
 | Cause | Diagnostic Clues | Treatment |
 |---|---|---|
 | Spinal tuberculosis | Typical spinal radiograph (see Box) Epidemiological evidence | Antituberculous treatment Spinal surgery if available and applicable (see Box) |
@@ -13,6 +14,7 @@
 | Transverse myelitis (incl. autoimmune) | Young adults Inflammatory CSF | Corticosteroids |
 | Schistosomiasis | Exposure to freshwater in endemic regions, young adults in endemic countries or non-immune travellers; CSF eosinophilia; other manifestations of schistosomiasis may or may not be present. | Praziquantel, corticosteroids |
 
+TABLE 11.3 Common Complications of Spinal Cord Disease and Their Prevention and Management
 | Complication | Prevention/Management |
 |---|---|
 | Pressure sores | Nursing, training and counselling of guardians (two hourly turning) |
@@ -21,4 +23,3 @@
 | Pain | Pain relief by NSAID/opiates, involvement of local palliative care team |
 | Immobilization | If available, prescription of walking aids/ wheelchairs |
 | Depression | Spiritual and mental support, occupational therapy/community projects, pharmacotherapy, involvement of local palliative care team |
-```
