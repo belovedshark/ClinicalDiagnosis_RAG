@@ -1,0 +1,19 @@
+### TABLE 94.1 Laboratory Results at Presentation
+| Parameter | Patient | Reference |
+|---|---|---|
+| WBC (109/L) (neutrophils: lymphocytes) | 4.4 (73%:21%) | 4-10 |
+| Haemoglobin (g/dL) | 12.3 | 12-16 |
+| ESR | 75 mm/h | <20 mm/h |
+
+### TABLE 94.2 Clinical Characteristics of Viral Infections Presenting With a Vesicular Rash (McCollum, 2014)
+| Clinical Characteristic | Monkeypox | Smallpox | Cowpox | Varicella |
+|---|---|---|---|---|
+| Incubation period (days) | 6-16 | 12-14 | 7-14 | 14-17 |
+| Fever (°C) | 38.5-40.5 | >40 | Rare | <38.8 |
+| Rash | disseminated, uniform | disseminated, uniform | localized singular lesion(s) (rarely disseminated) | disseminated, non-uniform |
+| Lesion distribution | centrifugal | centrifugal-centripetal | | |
+| Lesion progression | homogenous rash (lesions are mostly in one stage of development); slow progression with each stage lasting 1-2 days | homogenous rash (lesions are mostly in one stage of development); slow progression with each stage lasting 1-2 days | - | heterogeneous rash (lesions are often in multiple stages of development on the body; fast progression) |
+| Frequency of lesions on palms or soles of feet | common | common | | rare |
+| Rash period (from the appearance of lesions to desquamation) (days) | 14-21 | 14-21 | 21-56 | 10-21 |
+| Lymphadenopathy | yes | yes | rare | no |
+| Case fatality rate | 1%-10% | 10%-50% | 1%-3% | 0.13% |

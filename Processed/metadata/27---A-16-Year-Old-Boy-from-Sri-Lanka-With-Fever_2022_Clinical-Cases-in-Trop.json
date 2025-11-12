@@ -6,5 +6,7 @@
       "page": 1,
       "path": "./Processed/images/27---A-16-Year-Old-Boy-from-Sri-Lanka-With-Fever_2022_Clinical-Cases-in-Trop/27---A-16-Year-Old-Boy-from-Sri-Lanka-With-Fever_2022_Clinical-Cases-in-Trop_p1_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10^9/L) (neutrophils: lymphocytes) | 5.7 (68%: 31%) | 4-10 |\n| Haemoglobin (g/dL) | 14.8 | 12-16 |\n| Platelets (10^9/L) | 96 | 150-350 |\n| AST (IU/L) | 64 | 13-33 |\n| ALT (IU/L) | 58 | 3-25 |\n| ALP (IU/L) | 246 | 40-130 |\n| Serum bilirubin total (μmol/L) | 77 | 13.7-30.8 |\n| Serum bilirubin direct (μmol/L) | 54.7 | <5 |\n| Blood urea nitrogen (μmol/L) | 20.7 | 2.5-6.4 |\n| Serum creatinine (μmol/L) | 212.2 | 71-106 |\n| C-reactive protein (mg/L) | 48 | <573 |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/27---A-16-Year-Old-Boy-from-Sri-Lanka-With-Fever_2022_Clinical-Cases-in-Trop-tables.md"
 }

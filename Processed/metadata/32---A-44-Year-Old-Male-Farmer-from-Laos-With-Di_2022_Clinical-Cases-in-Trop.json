@@ -10,5 +10,7 @@
       "page": 2,
       "path": "./Processed/images/32---A-44-Year-Old-Male-Farmer-from-Laos-With-Di_2022_Clinical-Cases-in-Trop/32---A-44-Year-Old-Male-Farmer-from-Laos-With-Di_2022_Clinical-Cases-in-Trop_p2_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "| Parameter | Patient | Reference Range |\n|---|---|---|\n| WBC (10^9/L) | 16.2 | 6.0-8.0 |\n| Polymorphs (%) | 92.1 | 45-70 |\n| Haemoglobin (g/dL) | 12.5 | 12.0-16.0 |\n| Platelets (10^9/L) | 112 | 150-300 |\n| Glucose (mmol/L) | 20.6 | 4.1-6.1 |\n| Serum creatinine (μmol/L) | 566 | 2-120 |\n| Urea (mmol/L) | 6.8 | 5.4-16.1 |\n| AST (U/L) | 13 | 10-37 |\n| ALT (U/L) | 83 | 0-40 |\n| Serum total bilirubin (μmol/L) | 111.2 | 1.71-20.5 |\n| Serum direct bilirubin (μmol/L) | 56.4 | 0-787 |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/32---A-44-Year-Old-Male-Farmer-from-Laos-With-Di_2022_Clinical-Cases-in-Trop-tables.md"
 }

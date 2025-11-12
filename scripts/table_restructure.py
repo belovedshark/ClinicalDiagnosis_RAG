@@ -15,7 +15,7 @@ from typing import Optional
 load_dotenv()
 
 # Configure Gemini model (lazy-init after reading API key)
-_MODEL_NAME = "gemini-1.5-flash"
+_MODEL_NAME = "models/gemini-2.5-flash"
 
 
 def make_model(api_key: Optional[str]):
@@ -72,9 +72,21 @@ def process_all(input_dir: Path, output_dir: Path, api_key: Optional[str], dry_r
         return
 
     logging.info("Found %d markdown files in %s", len(md_files), input_dir)
-    for f in md_files:
-        logging.info("Processing %s", f.name)
+    request_count = 0
+    max_requests_per_minute = 15
+    cooldown_seconds = 65  # wait slightly more than a minute
+
+    for idx, f in enumerate(md_files, start=1):
+        logging.info("Processing %s (%d/%d)", f.name, idx, len(md_files))
         raw_text = f.read_text(encoding="utf-8")
+
+        # Skip blank files (zero bytes or only whitespace).
+        # Some records do not contain tables and produce blank extraction files in `out_all`.
+        # In that case we should not call the Gemini model and should move on to the next file.
+        if not raw_text or raw_text.strip() == "":
+            logging.info("Skipping %s: file is blank or contains only whitespace", f.name)
+            continue
+
         if dry_run:
             logging.info("Dry run: skipping API call for %s", f.name)
             continue
@@ -82,13 +94,23 @@ def process_all(input_dir: Path, output_dir: Path, api_key: Optional[str], dry_r
         formatted = extract_table_with_gemini(model, raw_text)
         if formatted is None:
             logging.error("Failed to process %s: no output from model", f.name)
-            continue
+        else:
+            out_path = output_dir / f.name
+            out_path.write_text(formatted or "", encoding="utf-8")
+            logging.info("Wrote restructured output to %s", out_path)
 
-        out_path = output_dir / f.name
-        out_path.write_text(formatted or "", encoding="utf-8")
-        logging.info("Wrote restructured output to %s", out_path)
-        # small pause to be nice to the API
-        time.sleep(0.3)
+        request_count += 1
+        time.sleep(0.3)  # small polite pause between requests
+
+        # If we hit the API rate limit threshold, pause
+        if request_count >= max_requests_per_minute:
+            logging.info(
+                "Reached %d requests. Sleeping for %d seconds to respect rate limit...",
+                max_requests_per_minute,
+                cooldown_seconds,
+            )
+            time.sleep(cooldown_seconds)
+            request_count = 0  # reset the counter
 
 
 def parse_args():

@@ -1,0 +1,7 @@
+| Neuroimaging Stage | Biology | Anticysticercal Treatment |
+|---|---|---|
+| Isointense/isodense to CSF, no contrast enhancement | Vesicular Viable, non-immunogenic, can persist asymptomatically for years | 1-2 cysts Albendazole∗ + steroids for 10-14 days |
+| Enhanced wall (‘ring enhancement’) on contrast imaging, surrounding oedema | Colloidal Viable but degenerating, immunogenic | >2 cysts Albendazole∗ + Praziquantel∗ + steroids for 10-14 days |
+| Thickened retracted cyst without oedema | Granulo-nodular Degenerated | No anthelmintic treatment |
+| Calcification | Calcified Final involuted stage | |
+∗ diffuse cerebral oedema is a contraindication for antihelminthic treatment

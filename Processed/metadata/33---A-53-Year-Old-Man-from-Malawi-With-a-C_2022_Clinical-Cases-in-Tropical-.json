@@ -10,5 +10,7 @@
       "page": 3,
       "path": "./Processed/images/33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical-/33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical-_p3_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10⁹/L) | 3.2 | 4-10 |\n| Haemoglobin (g/dL) | 9.8 | 13-15 |\n| MCV (fL) | 90 | 80-98 |\n| Platelets (10⁹/L) | 305 | 150-350 |\n| CD4 count (cells/μL) | 54 | 500-1200 |\n| Sputum for AFB | 2 negative | Negative |\n| Malaria RDT | Negative | Negative |\n| Thick smear for Plasmodium spp. | Negative | Negative |\n\n| Feature | HIV-negative or high CD4 count (>200/μL) | Low CD4 count (≤200/μL) |\n|---|---|---|\n| Cough and sputum production | Severe, productive | Often mild, small amounts of whitish sputum |\n| Haemoptysis | Common | Rare |\n| Chest radiography appearance | Cavities, upper lobe infiltrates and destruction | No cavities, Infiltrates, Hilar lymphadenopathy, Miliary pattern, May be completely normal |\n| Sputum smear result | Often positive | Often negative |\n| Extrapulmonary and disseminated TB\\* | 20% of TB cases | Common, about 50% |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical--tables.md"
 }

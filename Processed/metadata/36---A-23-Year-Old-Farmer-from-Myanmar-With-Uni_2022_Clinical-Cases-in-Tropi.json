@@ -6,5 +6,7 @@
       "page": 1,
       "path": "./Processed/images/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi_p1_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "| Drug                       | Microfilariae | Adults |\n| :------------------------- | :------------ | :----- |\n| Diethylcarbamazine (DEC)   | ++            | +      |\n| Ivermectin                 | ++            |        |\n| Albendazole                | +             |        |\n| Doxycycline                | ++            | ++     |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi-tables.md"
 }

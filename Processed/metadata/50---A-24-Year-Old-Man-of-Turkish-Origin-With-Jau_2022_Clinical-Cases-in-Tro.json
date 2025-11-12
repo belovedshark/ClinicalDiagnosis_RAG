@@ -14,5 +14,7 @@
       "page": 2,
       "path": "./Processed/images/50---A-24-Year-Old-Man-of-Turkish-Origin-With-Jau_2022_Clinical-Cases-in-Tro/50---A-24-Year-Old-Man-of-Turkish-Origin-With-Jau_2022_Clinical-Cases-in-Tro_p2_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "| Parameter                | Patient | Reference |\n| :----------------------- | :------ | :-------- |\n| AST (U/L)                | 145     | <35       |\n| ALT (U/L)                | 454     | <35       |\n| GGT (U/L)                | 394     | <55       |\n| ALP (U/L)                | 402     | 38-126    |\n| Total bilirubin (μmol/L) | 120     | <19.0     |\n| ESR (mm/h)               | 17/40   | 10/20     |\n| CRP (mg/L)               | 49      | <5139     |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/50---A-24-Year-Old-Man-of-Turkish-Origin-With-Jau_2022_Clinical-Cases-in-Tro-tables.md"
 }
