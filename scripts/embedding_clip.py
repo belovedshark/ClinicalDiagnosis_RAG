@@ -16,6 +16,7 @@ from pathlib import Path
 from tqdm import tqdm
 import numpy as np
 import re
+from typing import List, Dict, Optional
 
 def tokenize_chunks(tokenizer, text: str, max_tokens:int, overlap:int):
     # token_ids = tokenizer.encode(text, add_special_tokens=False)
@@ -86,6 +87,7 @@ def clean_text(text: str) -> str:
     # that accidentally begin with the word 'Page' followed by the article title
     # (some files have long single-line paragraphs). Filter line-by-line
     # and only drop short header lines.
+    original_text = text
     lines = text.splitlines()
     kept_lines = []
     for ln in lines:
@@ -165,6 +167,174 @@ def clean_text(text: str) -> str:
     text = re.sub(r'[ \t]{2,}', ' ', text)
     return text.strip()
 
+
+def extract_tables_from_markdown(text: str) -> List[Dict[str, Optional[str]]]:
+    """Find simple markdown-style tables (pipe-separated) and TABLE label/caption blocks.
+    Returns a list of dicts: {'text': <table_text>, 'label': <label or None>, 'caption': <caption or None>}.
+
+    Heuristic approach:
+    - Detect contiguous blocks where a header line contains '|' and the next line looks like a separator (---|:---)
+      (common markdown table). Capture the whole contiguous block of pipe-containing lines.
+    - For each captured block, look up to 3 non-empty previous lines for a TABLE label/caption like "TABLE 4.1 ..." or "Table 4.1 ...".
+    - Remove found table blocks from the original text by replacing with a single blank line to avoid double-embedding.
+    """
+    lines = text.splitlines()
+    i = 0
+    n = len(lines)
+    tables = []
+    to_remove_ranges = []
+    inline_substrings: List[str] = []
+
+    def find_label_caption(before_lines: List[str]) -> tuple[Optional[str], Optional[str]]:
+        label = None
+        caption = None
+        for ln in reversed(before_lines[-3:]):
+            m = re.match(r'(?i)^(TABLE|Table)\s+([^\-\n\r]+)\s*-?\s*(.*)$', ln.strip())
+            if m:
+                label = m.group(1) + ' ' + m.group(2).strip()
+                # remaining part may be caption
+                rem = m.group(3).strip()
+                if rem:
+                    caption = rem
+                break
+        return label, caption
+
+    while i < n:
+        # pipe-style table detection: a line with | and following line that contains >=3 hyphens or pipes
+        if '|' in lines[i] and i + 1 < n and re.search(r'^[\s\|:>-]*-+[\s\|:-]*$', lines[i+1]):
+            start = i
+            # capture preceding header line if it's part of the table header
+            # grab contiguous pipe-containing lines
+            j = i
+            while j < n and ('|' in lines[j] or re.match(r'^[\s\|:>-]*-+[\s\|:-]*$', lines[j])):
+                j += 1
+            table_block = '\n'.join(lines[start:j]).strip()
+            # look back for label/caption within previous 3 non-empty lines
+            before = [ln for ln in lines[:start] if ln.strip()]
+            label, caption = find_label_caption(before)
+            tables.append({'text': table_block, 'label': label, 'caption': caption})
+            to_remove_ranges.append((start, j))
+            i = j
+            continue
+        # fallback: a standalone TABLE label line followed by an indented/code/table block
+        m = re.match(r'(?i)^(TABLE|Table)\b', lines[i].strip())
+        if m:
+            start = i
+            j = i + 1
+            # include subsequent non-empty lines until a blank line or a heading/page marker
+            # but limit capture to avoid swallowing the whole document when tables are inline in long paragraphs
+            max_lines = 20
+            while j < n and j < start + max_lines and lines[j].strip() and not re.match(r'(?i)^#\s*page\b', lines[j]) and not re.match(r'^#{1,6}\s', lines[j]):
+                j += 1
+            block = '\n'.join(lines[start:j]).strip()
+            label = lines[start].strip()
+            caption = None
+            # try to extract a short caption from the first line after label if present
+            if start + 1 < n and lines[start + 1].strip():
+                caption = lines[start + 1].strip()
+            tables.append({'text': block, 'label': label, 'caption': caption})
+            to_remove_ranges.append((start, j))
+            i = j
+            continue
+
+        # additional heuristic: detect inline 'TABLE' occurrences embedded in paragraphs
+        if re.search(r'(?i)\bTABLE\b', lines[i]) and '|' not in lines[i]:
+            # capture from this line until the next blank line or page/heading marker
+            # but limit the number of lines captured to avoid greedy matches in single-paragraph files
+            start = i
+            j = i + 1
+            max_lines_inline = 10
+            while j < n and j < start + max_lines_inline and lines[j].strip() and not re.match(r'(?i)^#\s*page\b', lines[j]) and not re.match(r'^#{1,6}\s', lines[j]):
+                j += 1
+            # extract the label token from the line if present
+            lm = re.search(r'(?i)(TABLE\s*\d+[\.\d]*)', lines[i])
+            label = lm.group(0) if lm else None
+            caption = None
+            if lm:
+                rest = lines[i][lm.end():].strip()
+                if rest:
+                    caption = rest[:120].strip()
+
+            # If the file is a single very long line or the line itself is huge, extract a window
+            # around the TABLE match instead of swallowing the whole long line.
+            LONG_LINE_THRESHOLD = 800
+            WINDOW = 400
+            line_text = lines[i]
+            if lm and (len(line_text) > LONG_LINE_THRESHOLD or (n == 1 and len(line_text) > 400)):
+                sidx, eidx = lm.span()
+                start_char = max(0, sidx - WINDOW)
+                end_char = min(len(line_text), eidx + WINDOW)
+                block = line_text[start_char:end_char].strip()
+                # record substring to remove later from the large single line
+                inline_substrings.append(block)
+                tables.append({'text': block, 'label': label, 'caption': caption})
+                i = j
+                continue
+
+            block = '\n'.join(lines[start:j]).strip()
+            tables.append({'text': block, 'label': label, 'caption': caption})
+            to_remove_ranges.append((start, j))
+            i = j
+            continue
+
+        i += 1
+
+    # Remove ranges from the original text by replacing with a single blank line (preserve positions roughly)
+    if to_remove_ranges:
+        new_lines = []
+        ri = 0
+        ranges = sorted(to_remove_ranges)
+        for (s, e) in ranges:
+            # append lines before s that haven't been appended
+            while ri < s and ri < n:
+                new_lines.append(lines[ri])
+                ri += 1
+            # insert a blank line placeholder
+            new_lines.append('')
+            ri = e
+        while ri < n:
+            new_lines.append(lines[ri])
+            ri += 1
+        new_text = '\n'.join(new_lines)
+    else:
+        new_text = text
+
+    return tables, new_text
+
+
+def parse_structured_tables_file(text: str) -> List[Dict[str, Optional[str]]]:
+    """Parse an out_all_structured file content into table blocks.
+    Strategy: iterate lines, start a block when a line begins with TABLE/Table, collect until a blank line.
+    Returns list of {'text', 'label', 'caption'}.
+    """
+    lines = text.splitlines()
+    blocks = []
+    i = 0
+    n = len(lines)
+    while i < n:
+        ln = lines[i].strip()
+        if re.match(r'(?i)^(TABLE|Table)\b', ln):
+            start = i
+            # include subsequent lines until a blank line
+            j = i + 1
+            while j < n and lines[j].strip() != '':
+                j += 1
+            block_lines = lines[start:j]
+            block = '\n'.join(block_lines).strip()
+            # extract label and caption from first line
+            m = re.match(r'(?i)^(TABLE\s*[^\s]*)(?:\s*(.*))?$', block_lines[0].strip())
+            if m:
+                label = m.group(1).strip()
+                caption = m.group(2).strip() if m.group(2) else None
+            else:
+                label = None
+                caption = None
+            blocks.append({'text': block, 'label': label, 'caption': caption})
+            i = j
+            continue
+        i += 1
+    return blocks
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-root', default='Processed', help='Root with markdown/ and images/')
@@ -222,7 +392,22 @@ def main():
         # lightweight cleaning to fix OCR/extraction spacing artifacts
         text = clean_text(text)
 
-        # Token-based chunking (preferred)
+        # Prefer structured table files under <input_root>/out_all_structured if present
+        tables = []
+        structured_dir = input_root / 'out_all_structured'
+        if structured_dir.exists():
+            candidates = sorted(structured_dir.glob(f"{stem}*tables.md"))
+            if candidates:
+                for cf in candidates:
+                    s = cf.read_text(encoding='utf-8')
+                    parsed = parse_structured_tables_file(s)
+                    if parsed:
+                        tables.extend(parsed)
+        # If no structured tables found, fall back to inline detection and removal
+        if not tables:
+            tables, text = extract_tables_from_markdown(text)
+
+        # Token-based chunking (preferred) for the remaining prose
         chunks = tokenize_chunks(tokenizer, text, max_tokens=args.max_tokens, overlap=args.token_overlap)
         if not chunks:
             # fallback to char-chunking
@@ -254,6 +439,33 @@ def main():
                     # fallback: try numpy shape attribute (if it's a Tensor)
                     out_dim = int(getattr(model.text_projection, 'shape', (0, 0))[1])
             all_emb = np.zeros((0, out_dim), dtype=np.float32)
+
+        # --- Table embeddings (embed each table block as a single chunk) ---
+        table_emb_path = out_text / (stem + '_table.npy')
+        table_texts = [t['text'] for t in tables]
+        if table_texts:
+            batch_size = 16
+            all_table_embs = []
+            for i in range(0, len(table_texts), batch_size):
+                batch = table_texts[i:i+batch_size]
+                inputs = processor(text=batch, return_tensors='pt', padding=True, truncation=True).to(args.device)
+                with torch.no_grad():
+                    emb = model.get_text_features(**inputs)
+                all_table_embs.append(emb.cpu().numpy())
+            table_all_emb = np.vstack(all_table_embs)
+        else:
+            # if no table texts, create empty array with same dim as text projection
+            try:
+                tdim = int(model.text_projection.out_features)
+            except Exception:
+                try:
+                    tdim = int(model.text_projection.weight.shape[0])
+                except Exception:
+                    tdim = int(getattr(model.text_projection, 'shape', (0, 0))[1])
+            table_all_emb = np.zeros((0, tdim), dtype=np.float32)
+
+        np.save(text_emb_path, all_emb)
+        np.save(table_emb_path, table_all_emb)
 
         np.save(text_emb_path, all_emb)
 
@@ -308,11 +520,16 @@ def main():
         # }
         index = {
             'file': md.name,
-            'n_chunks': len(chunks),
+            'n_chunks': len(chunks) + len(tables),
             'text_embedding': str(text_emb_path),
+            'table_embedding': str(table_emb_path),
             'image_embedding': str(image_emb_path),
             'chunks': [
                 {'id': c['id'], 'text': c['text'], 'type': 'text'} for c in chunks
+            ],
+            'tables': [
+                {'id': idx, 'text': t.get('text'), 'label': t.get('label'), 'caption': t.get('caption'), 'type': 'table'}
+                for idx, t in enumerate(tables)
             ],
             'images': [{'path': p, 'type': 'image'} for p in image_list],
         }
@@ -323,6 +540,7 @@ def main():
         'device': args.device,
         'num_files': len(summary),
         'embedding_dim_text': all_emb.shape[1] if len(summary) and 'text_embedding' in summary[-1] else 0,
+        'embedding_dim_table': table_all_emb.shape[1] if len(summary) and 'table_embedding' in summary[-1] else 0,
         'embedding_dim_image': all_i_emb.shape[1] if len(summary) and 'image_embedding' in summary[-1] else 0
     }
     (out_emb / 'summary.json').write_text(json.dumps(metadata, indent=2))

@@ -11,6 +11,8 @@ Example:
   
   sample: (replace "A woman with fever and rash" with the below query)
   A 53-year-old man from Malawi presents with a 3-month history of productive cough, night sweats, and weight loss. He is HIV-positive with advanced immunosuppression (CD4 count 54 cells/μL). Sputum smears for tuberculosis are negative, and chest X-ray shows only bilateral hilar prominence. He has a low-grade fever and mild anaemia
+  
+  A 67-year-old German woman who has lived as an expatriate in Cameroon for the past 4 years presents with palpitations at a tropical medicine clinic in Germany. She also reports tran-sient subcutaneous swellings for the past year.
 """
 
 import argparse
