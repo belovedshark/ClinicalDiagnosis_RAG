@@ -1,0 +1,1 @@
+TABLE 20.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 9.04-11.3 Eosinophils ( 109/L) 2.1 <0.5 LDH (U/L) 422135-225 Creatinine (μmol/L) 88.453-106 AST/GOT (U/L) 10610-50 ALT/GPT (U/L) 17910-50 GGT (U/L) 186 <65 C-reactive protein (mg/L) 57.9 <5 • Fig. 20.1 Chest radiograph showing nodular changes in the periphery of both lungs. 52

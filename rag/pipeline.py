@@ -15,8 +15,8 @@ class RAGPipeline:
     def query(self, question: str, image_path: str = None, k: int = 5) -> str:
         """Ask a question and/or provide an image → retrieve relevant → generate an answer."""
         if image_path is not None:
-            vector = self.retriever.embed_query(query_image=image_path)
-            contexts = self.retriever.retrieve(query_or_vector=vector, top_k=k)
+            # Retrieve by image path directly (retriever will embed the image)
+            contexts = self.retriever.retrieve(query_image=image_path, top_k=k)
         elif question is not None:
             contexts = self.retriever.retrieve(query_text=question, top_k=k)
         else:

@@ -1,0 +1,3 @@
+TABLE 75.1 Blood Results on Admission Parameter Patient Reference Range WBC ( 109/L) 5.84-10 Haemoglobin (g/dL) 11.012-14 Platelets ( 109/L) 215150-350 CD4 count (cells/μL) 153500-1200 Serum sodium (mmol/L) 135130-145 Serum glucose (mmol/L) 4.53.9-5.5
+====
+TABLE 75.2 CSF Results on Admission Parameter Patient Reference Range Leukocytes (cells/μL) 50-5 CSF protein (g/L) 0.780.25-0.55 CSF glucose (mmol/L) 2.92.25-2.97∗ Cryptococcal antigen (CrAG) Negative Negative India Ink stain Negative Negative Gram stain Negative Negative Ziehl-Neelsen stain Negative Negative ∗½ to ⅔of paired serum glucose sample. 208

@@ -68,6 +68,8 @@ def ingest(emb_dir: Path, collection_name: str, host: str = 'localhost', port: i
         stem = jsonf.stem
         # text and image npy files are stored under text/ and image/ subfolders
         text_npy = emb_dir / 'text' / (stem + '_text.npy')
+        # table embeddings are saved as <stem>_table.npy in the text/ folder by the embedder
+        table_npy = emb_dir / 'text' / (stem + '_table.npy')
         img_npy = emb_dir / 'image' / (stem + '_images.npy')
 
         # ingest text embeddings (or count them in dry-run)
@@ -79,11 +81,46 @@ def ingest(emb_dir: Path, collection_name: str, host: str = 'localhost', port: i
                     # just count candidate
                     total_candidates += 1
                     continue
+                # safe access to the chunk text (avoid IndexError if metadata is inconsistent)
+                chunk_text = ''
+                chunks = meta.get('chunks') or []
+                if i < len(chunks):
+                    chunk_text = chunks[i].get('text', '')
                 payload = {
                     'file': meta.get('file'),
                     'type': 'text',
                     'chunk_id': i,
-                    'text': clean_text(meta.get('chunks', [])[i].get('text', '') if meta.get('chunks') else '')
+                    'text': clean_text(chunk_text)
+                }
+                batch.append(rest.PointStruct(id=next_id, vector=vec.tolist(), payload=payload))
+                next_id += 1
+                if len(batch) >= BATCH_SIZE:
+                    client.upsert(collection_name=collection_name, points=batch)
+                    batch = []
+
+        # ingest table embeddings (if present) and include label/caption in payload
+        if table_npy.exists():
+            arr = np.load(table_npy)
+            total_candidates += int(arr.shape[0])
+            total_tables = int(arr.shape[0])
+            for i, vec in enumerate(arr):
+                if dry_run:
+                    continue
+                tables = meta.get('tables') or []
+                table_text = ''
+                table_label = None
+                table_caption = None
+                if i < len(tables):
+                    table_text = tables[i].get('text', '')
+                    table_label = tables[i].get('label')
+                    table_caption = tables[i].get('caption')
+                payload = {
+                    'file': meta.get('file'),
+                    'type': 'table',
+                    'table_id': i,
+                    'text': clean_text(table_text),
+                    'label': table_label,
+                    'caption': table_caption,
                 }
                 batch.append(rest.PointStruct(id=next_id, vector=vec.tolist(), payload=payload))
                 next_id += 1

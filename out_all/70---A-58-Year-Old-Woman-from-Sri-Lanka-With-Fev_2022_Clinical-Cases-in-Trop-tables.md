@@ -1,0 +1,3 @@
+TABLE 70.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 8.54-10 Haemoglobin (g/dL) 12.412-16 Platelets ( 109/L) 98150-350 AST (U/L) 7413-33 ALT (U/L) 683-25 ALP (U/L) 12640-130 Total bilirubin (μmol/L) 25.713.7-30.8 Blood urea nitrogen (mmol/L) 6.42.5-6.4 Creatinine (μmol/L) 123.871-106 C-reactive protein (mg/L) 48 <6
+====
+TABLE 70.2 Cerebrospinal Fluid Results on Admission Parameter Patient Reference Leukocytes (cells/μL) 35 (80% lymphocytes) 0-5/μL Protein (g/L) 0.640.15-0.45 Glucose (mmol/L) 3.25∗ 50-75% of serum glucose ∗Paired random blood glucose 7.17 mmol/L. 192

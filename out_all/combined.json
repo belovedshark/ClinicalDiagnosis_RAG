@@ -1,0 +1,1145 @@
+[
+  {
+    "source": "Processed/markdown/22---32-Year-Old-Woman-from-Nigeria-With-Jaund_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/13---A-16-Year-Old-Girl-from-Malawi-With-Fever_2022_Clinical-Cases-in-Tropic.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2687,
+        "end_pos": 2885,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 27,
+        "excerpt": "TABLE 13.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 3.24-10 Haemoglobin (mg/dL) 10.912-14 MCV (fL) 9080-99 Platelets ( 109/L) 164150-400 Creatinine (μmol/L) 71 <8032"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/19---A-40-Year-Old-Man-from-Togo-With-Subcutaneou_2022_Clinical-Cases-in-Tro.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/46---A-45-Year-Old-Man-from-Sri-Lanka-With-Fever-_2022_Clinical-Cases-in-Tro.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2238,
+        "end_pos": 2645,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 53,
+        "excerpt": "TABLE 46.1 Laboratory Results at Presentation Parameter Patient Reference WBC ( 109/L) 14.74-10 Haemoglobin (g/dL) 12.312-16 Platelets ( 109/L) 224150-350 AST (U/L) 5413-33 ALT (U/L) 383-25 ALP (U/L) 44640-130 Serum bilirubin total (μmol/L) 10.325.7-30.8 Serum bilirubin direct (μmol/L) 1.51.7-5.1 Blood urea nitrogen (mmol/L) 72.5-6.4 Serum creatinine (μmol/L) 12471-106 C-reactive protein (mg/L) 48 <6126"
+      },
+      {
+        "id": 2,
+        "start_pos": 7490,
+        "end_pos": 7987,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 89,
+        "excerpt": "TABLE 46.2 Treatment of Amoebic Liver Abscesses. (After Anesi, J.A., 2015) Agent Medication Dose Duration Tissue Agents Metronidazole 500-750 mg IV/PO TDS 7-10 days Tinidazole 2 g PO OD 3-5 days Ornidazole 0.5 g IV BD 3-6 days Nitazoxanide 500 mg PO BD 3 days Luminal Agents Paromomycin 8-10 mg/ kg PO TDS 7 days Diloxanide Furoate 500 mg TDS 10 days Iodoquinole (Diiodohydroxyquin) 650 mg PO TDS after meals 20 days PO ¼ orally, IV ¼ intravenously, BD ¼ twice daily, TDS ¼ three times a day. 127"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/92---A-42-Year-Old-Traveller-Returning-from-Thaila_2022_Clinical-Cases-in-Tr.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/44---A-7-Year-Old-Girl-from-South-Sudan-With-_2022_Clinical-Cases-in-Tropica.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2846,
+        "end_pos": 2999,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 20,
+        "excerpt": "TABLE 44.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 1.354-10 Haemoglobin (g/dL) 6.812-16 Platelets ( 109/L) 98150-300121"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/42---A-41-Year-Old-Male-Traveller-Returning-from-Au_2022_Clinical-Cases-in-T.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/23---A-31-Year-Old-HIV-Positive-Business-Traveller-W_2022_Clinical-Cases-in-.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1588,
+        "end_pos": 1898,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 41,
+        "excerpt": "TABLE 23.1 Arterial Blood Gases on Ambient Air Parameter Patient Reference Range pH 7.447.35-7.45 PaO2 (kPa) 7.610.67-13.33 PaCO2 (kPa) 34.67-6.00 HCO3 (mmol/L) 1922-26 Base excess (mmol/L)-3.82 Lactate (mmol/L) 1.60.5-1.6 • Fig. 23.1 Chest radiograph on admission, showing bilateral perihilar infiltrates. 61"
+      },
+      {
+        "id": 2,
+        "start_pos": 5610,
+        "end_pos": 6341,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 101,
+        "excerpt": "TABLE 23.2 Grading of Severity of Pneumocystis Pneumonia Mild Moderate Severe Clinical features Increasing exertional dyspnoea cough and sweats Dyspnoea on minimal exertion, occasional dyspnoea at rest, fever sweats Dyspnoea at rest, tachypnoea at rest, persistent fever, cough Arterial blood gas (room air) PaO2 normal, SaO2 falling on exercise PaO2 ¼ 8.1-11kPa PaO2 < 8.0kPa Chest radiography Normal or minor perihilar infiltrates Diffuse interstitial shadowing Extensive interstitial shadowing diffuse alveolar shadowing (‘white out’), sparing costophrenic angles and apices Source: Farrar, J. et al., 2013. Pneumocystis jirovecii infection, In: Farrar, J., ed. Manson’s Tropical Diseases, 23rd ed. Elsevier, London. Ch. 39. 62"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/30---A-12-Year-Old-Boy-from-Rural-Kenya-With_2022_Clinical-Cases-in-Tropical.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1280,
+        "end_pos": 2191,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 128,
+        "excerpt": "TABLE 30.1 Findings on Inspection of Both Eyes Right Eye Left Eye Lid Fibrotic lids with loss of lid architecture and tightening of palpebral aperture Loss of lashes from lower lid, misdirected and in-turned upper lid lashes (trichiasis) Lids swollen, mucus deposits, eyelashes misdirected Eversion of lower lid margin Conjunctiva Severely inflamed >5 follicles (subepithelial inflammatory foci) identified on eversion of lids Scarring of the upper tarsal conjunctivae Cornea Diffuse corneal opacification (scarring) with central thinning and irregular surface Fibrovascular pannus on the upper cornea Focal inferocentral corneal scars, one with adherent iris indicating previous perforation Thin central cornea Anterior chamber Not visible Shallow Pupil Not visible Distorted towards the leucoma (corneal scar) • Fig. 30.1 The right eye showing lid scarring, trichiasis and extensive corneal opacification. 82"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/16---A-25-Year-Old-Female-School-Teacher-from-Malaw_2022_Clinical-Cases-in-T.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1745,
+        "end_pos": 2014,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 36,
+        "excerpt": "TABLE 16.1 Blood Results on Admission Parameter Patient Reference WBC ( 109/L) 10.54-10 Neutrophil count ( 109/L) 8.92.5-6 Haemoglobin (g/dL) 8.912-14 MCV (fL) 8578-90 Platelets ( 109/L) 255150-400 Creatinine (μmol/L) 10635-106 Random blood glucose (mmol/L) 5.63.9-7.8"
+      },
+      {
+        "id": 2,
+        "start_pos": 2014,
+        "end_pos": 2179,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 20,
+        "excerpt": "TABLE 16.2 Results on Admission Parameter Patient Reference Leukocytes (cells/μL) 35 (60% neutrophils) 0-5/μL Protein (g/L) 2.60.15-0.42 Glucose (mmol/L) 1.22.5-540"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/25---A-72-Year-Old-Male-Farmer-from-Laos-With-Exte_2022_Clinical-Cases-in-Tr.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/84---A-64-Year-Old-Japanese-Man-With-Generalize_2022_Clinical-Cases-in-Tropi.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/81---A-33-Year-Old-Refugee-from-Afghanistan-With-_2022_Clinical-Cases-in-Tro.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/Foreword_2022_Clinical-Cases-in-Tropical-Medicine.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/4---A-4-Year-Old-Girl-from-Uganda-in-a-_2022_Clinical-Cases-in-Tropical-Medi.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 3147,
+        "end_pos": 3311,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 22,
+        "excerpt": "TABLE 4.1 Laboratory Results on Admission Parameter Patient Reference Range Haematocrit (%) 17.630 Platelet count 109/L) 28150-450 Malaria RDT Positive Negative 10"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/8---A-26-Year-Old-Female-Traveller-Returning-from_2022_Clinical-Cases-in-Tro.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/83---An-18-Year-Old-Man-from-India-With-a-Pale-P_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 6274,
+        "end_pos": 6433,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 21,
+        "excerpt": "TABLE 83.1 WHO Classification of Leprosy and Recommended Duration of Treatment Classification Number of Patches Duration of Treatment Paucibacillary 56 months"
+      },
+      {
+        "id": 2,
+        "start_pos": 6433,
+        "end_pos": 6579,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 26,
+        "excerpt": "TABLE 83.2 WHO Treatment of Leprosy (2018) Once Monthly All Other Days Daily Rifampicin 600 mg-Clofazimine 300 mg 50 mg Dapsone 100 mg 100 mg 233"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/89---A-30-Year-Old-Woman-from-Bolivia-With-Ex_2022_Clinical-Cases-in-Tropica.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/9---A-52-Year-Old-Man-from-Vietnam-With-Evo_2022_Clinical-Cases-in-Tropical-.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2330,
+        "end_pos": 2808,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 58,
+        "excerpt": "TABLE 9.1 Laboratory Results on Admission Parameter Patient Reference Range Haemoglobin (g/dL) 14.612.5-17.2 Haematocrit (%) 53.940-52 Platelets ( 109/L) 58160-370 WCC ( 109/L) 2.13.6-10.5 Neutrophils ( 109/L) 0.91.5-7.7 Lymphocytes ( 109/L) 0.81.1-4.0 C-reactive protein (mg/L) 20 <4 Urea (mmol/L) 7.82.5-7.8 Creatinine (μmol/L) 11462-115 Alanine aminotransferase (U/L) 8127-40 Alkaline phosphatase (U/L) 26030-130 Total bilirubin (μmol/L) 180-20 Lactate (mmol/L) 3.50.6-1.422"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/57---A-37-Year-Old-Woman-from-Malawi-With-H_2022_Clinical-Cases-in-Tropical-.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2919,
+        "end_pos": 3095,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 24,
+        "excerpt": "TABLE 57.1 Laboratory Results on Admission Parameter Patient Reference Range WBC ( 109/L) 2.84-10 Haemoglobin (g/dL) 8.312-14 MCV (fL) 8880-99 Platelets ( 109/L) 130150-400157"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 7976,
+        "end_pos": 8242,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 42,
+        "excerpt": "TABLE 36.1 Direct Effect of Most Commonly Used Drugs on Different Stages of W. bancrofti and Brugia species Microfilariae Adults Diethylcarbamazine (DEC) ++ + Ivermectin ++ Albendazole + Doxycycline ++ ++ ¼ most eliminated; + ¼ few/some eliminated; ¼ no effect. 100"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/55---A-40-Year-Old-Male-Farmer-from-Peru-With-Ch_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 5484,
+        "end_pos": 6544,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 139,
+        "excerpt": "TABLE 55.1 Differences Between the Main Clinical Forms of Paracoccidioidomycosis Paracoccidioidomycosis Chronic (Adult) Form Acute (Juvenile) Form Epidemiology >90% of cases <10% of cases Infected Population Men >30 years old (male:female ratio 14:1) Children and young adults, both sexes HIV patients (rare) Clinical Characteristics Chronic Slow progression Reactivation years after initial exposure Lung (always) Dissemination to liver and lymph nodes can occur Mucocutaneous lesions ( 70%) (face, nasal and oral cavity) Acute or sub-acute Rapidly progressive Develops after recent exposure Systemic disease of reticuloendothelial system with dissemination from lung to liver, spleen, lymph nodes and bone marrow Mucosal lesions (rarely) HIV patients: similar plus cutaneous lesions and severe pulmonary involvement Differential Diagnoses Mimics other chronic fungal infections and pulmonary TB Mimics leukaemia, lymphoma, severe disseminated TB Treatment Azoles (itraconazole) Co-trimoxazole Azoles (itraconazole) Amphotericin B (HIV or severe disease) 153"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/Preface_2022_Clinical-Cases-in-Tropical-Medicine.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/Copyright_2022_Clinical-Cases-in-Tropical-Medicine.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 4301,
+        "end_pos": 5086,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 105,
+        "excerpt": "TABLE 3.3 Clinical and CSF Features of Acute Bacterial, Tuberculous and Cryptococcal Meningitis Bacterial Pathogen Clinical Features CSF Features Acute Bacterial Meningitis Streptococcus pneumoniae, Neisseria meningitidis, Streptococcus suis (Asia) Often very rapid onset with high fever and meningism, cranial nerve involvement less common Often cloudy, high leukocyte cell count, predominance of polymorphs, low glucose Tuberculous Meningitis Mycobacterium tuberculosis Often a history of several days of illness, onset less abrupt, cranial nerve involvement common Often clear, high CSF protein, low CSF glucose Cryptococcal Meningitis Cryptococcus neoformans Often subacute onset, severe headache common, cranial nerve involvement common CSF can be normal in at least 25% of cases"
+      },
+      {
+        "id": 2,
+        "start_pos": 5086,
+        "end_pos": 5315,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 32,
+        "excerpt": "TABLE 3.1 Blood Results on Admission Parameter Patient Reference WBC ( 109/L) 3.24-10 Hb (g/dL) 10.212-14 Platelets ( 109/L) 155150-350 Serum glucose (mmol/L) 4.03.9-11.1 Thick film for malaria and trypanosomes Negative Negative"
+      },
+      {
+        "id": 3,
+        "start_pos": 5315,
+        "end_pos": 5513,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 30,
+        "excerpt": "TABLE 3.2 CSF Results on Admission Parameter Patient Reference White cell count (/μL) 540-5 CSF protein (g/L) 3.00.25-0.55 CSF glucose (mmol/L) 1.32.0-2.64∗ ∗½ to ⅔of paired serum glucose sample. 8"
+      },
+      {
+        "id": 4,
+        "start_pos": 8294,
+        "end_pos": 9591,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 179,
+        "excerpt": "TABLE 3.4 The Four Pillars of Clinical Diagnosis of Tuberculous Meningitis Clinical Criteria Symptom duration >5 days Systemic symptoms suggestive of tuberculosis (one or more of the following): weight loss (or poor weight gain in children), night sweats, or persistent cough for more than 2 weeks History of close contact with an individual with pulmonary tuberculosis or a positive tuberculin skin test within the past year Focal neurological deficit Cranial nerve palsy Altered consciousness CSF Criteria Clear appearance Leukocytes: 10-500/μL Lymphocytic predominance (>50%) Protein concentration >1g/L CSF to plasma-glucose ratio <50% or absolute CSF glucose concentration <2.2mmol/L Neuroimaging Criteria Hydrocephalus Basal meningeal enhancement Tuberculoma Infarct Pre-contrast basal hyperdensity Evidence of TB Elsewhere Chest radiography suggestive of active TB Evidence for TB outside the CNS on CT, MRI or ultrasound AFB identified or M. tuberculosis cultured from another source (sputum, lymph node, gastric washing, urine, blood culture) Positive commercial M. tuberculosis-PCR from extraneural specimen Footnote: Marais, S., Thwaites, G., Schoeman, J.F., etal., 2010. Tuberculous meningitis: a uniform case definition for use in clinical research. Lancet Infect Dis. 10, 803-812. 9"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/54---A-52-Year-Old-Male-Safari-Tourist-Returning-fro_2022_Clinical-Cases-in-.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 6090,
+        "end_pos": 6878,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 105,
+        "excerpt": "TABLE 54.1 Overview of Rickettsial Infections and their Vectors Tick-borne Mite-borne Louse-borne Flea-borne Synonyms Spotted fevers Scrub typhus, Tsutsugamushi fever, Japanese river fever Epidemic typhus Murine typhus, Endemic typhus, Shop typhus Classification Spotted Fever (SF) Group Scrub typhus Group Typhus Group Typhus Group Pathogens Many, e.g. R. africae (African tick bite fever) R. conorii (Mediterranean SF) R. rickettsii (Rocky mountain SF) R. australis (Queensland tick typhus) Orientia tsutsugamushi O. sp. nov. chuto (UAE) R. prowazekii R. typhi Vector Ticks Trombiculid mites (chigger mites, jungle mites) Pediculus humanus corporis (human body lice) Xenopsylla cheopis (rat flea) Reservoir Mammals Rodents Marsupials.... Mites (transovarian) Rodents Humans Rodents 150"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/69---A-22-Year-Old-Male-Farmer-from-Rural-Ethiop_2022_Clinical-Cases-in-Trop.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/76---A-55-Year-Old-Woman-from-Turkey-With-Feve_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/87---A-27-Year-Old-Male-Traveller-Returning-from-the_2022_Clinical-Cases-in-.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 5371,
+        "end_pos": 6978,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 215,
+        "excerpt": "TABLE 87.1 Characteristics of Human Pathogenic Alphaviruses Virus Epidemiology and Endemic Regions Occurrence and Number of Reported Cases Frequency of Main Symptoms (%) Chikungunya Tropical and subtropical regions of Asia, Africa and Latin America Large sporadic epidemics Fever: 90 Rash: 40-50 Myalgia: 90 Arthralgia/arthritis: >95 Sindbis Virus Group Eurasia, Africa, Australia, Oceania; primarily reported from West Russia (“Karelian fever”), Finland (“Pogosta disease”), and Sweden (“Ockelbo disease”) Geographically most widely distributed alphavirus (lack of data on human cases) Karelian fever: rare (no data) Pogosta disease: 140 cases (range 1-1282)/year Ockelbo disease: 30 cases/year Fever: 15-40 Rash: 90 Myalgia: 50 Arthralgia/arthritis: 95 Ross River Australia, Papua New Guinea, West Papua 5000 cases per year in Australia; in 1979-1980 an epidemic with >60000 cases hit some pacific islands (New Caledonia, Fiji, Samoa, Cook Islands) Fever: 20-60 Rash: 40-60 Myalgia: 40-80 Arthralgia/arthritis: 80-100 Barmah Forest Australia 2000 cases/year Fever: 50 Rash: 40-60 Myalgia: 50-80 Arthralgia or arthritis: 70-95 O’Nyong Nyong East Africa Rare epidemics; >2 million cases in 1959-1961 Fever: 80-100 Rash: 70-90 Myalgia: 70 Arthralgia/arthritis: 60-100 Mayaro South America, primarily the Amazonian rainforest, Caribbean Sporadic single cases and small outbreaks (involving 10-100 cases) Fever: 100 Rash: 30-50 Myalgia: 75 Arthralgia/arthritis: 50-90 Adapted from Suhrbier, A., Jaffar-Bandjee, M.C., Gasque, P., 2012. Arthritogenic alphaviruses-an overview. Nat Rev Rheumatol, 8(7):420-9. 243"
+      },
+      {
+        "id": 2,
+        "start_pos": 10497,
+        "end_pos": 11150,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 90,
+        "excerpt": "TABLE 87.2 Results of the Serological Testing for Alphavirus Infections Performed in Our Case Blood Sample Taken on 29 August Blood Sample Taken on 12 September Virus IgM-IFA IgG-IFA PRNT IgM-IFA IgG-IFA PRNT Interpretation of test result Mayaro 1280256040402560160 positive Sindbis <20160 <20 <20160 <20 negative Chikungunya <20160 n.d. <20160 n.d. negative Ross River <20160 n.d. <20160 n.d. negative Barmah Forest <2020 n.d. <2020 n.d. negative IFA: indirect immunofluorescence assay (screening assay) PRNT: plaque reduction neutralization test (confirmatory assay) n.d.: not done (screening assay negative [and epidemiologically not supported]) 244"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/17---A-34-Year-Old-Man-from-Thailand-With-Feve_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/94---A-20-Year-Old-Woman-from-the-Democratic-Republic-_2022_Clinical-Cases-i.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1423,
+        "end_pos": 1676,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 36,
+        "excerpt": "TABLE 94.1 Laboratory Results at Presentation Parameter Patient Reference WBC ( 109/L) (neutrophils: lymphocytes) 4.4 (73%:21%) 4-10 Haemoglobin (g/dL) 12.312-16 ESR 75 mm/h <20 mm/h • Fig. 94.1 Vesiculopustular skin rash seen at hospital admission 262"
+      },
+      {
+        "id": 2,
+        "start_pos": 3751,
+        "end_pos": 4746,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 131,
+        "excerpt": "TABLE 94.2 Clinical Characteristics of Viral Infections Presenting With a Vesicular Rash (McCollum, 2014)2 Monkeypox Smallpox Cowpox Varicella Incubation period (days) 6-1612-147-1414-17 Fever (°C) 38.5-40.5 >40 Rare <38.8 Rash disseminated, uniform disseminated, uniform localized singular lesion(s) (rarely disseminated) disseminated, non-uniform Lesion distribution centrifugal centrifugal-centripetal Lesion progression homogenous rash (lesions are mostly in one stage of development); slow progression with each stage lasting 1-2 days homogenous rash (lesions are mostly in one stage of development); slow progression with each stage lasting 1-2 days-heterogeneous rash (lesions are often in multiple stages of development on the body; fast progression Frequency of lesions on palms or soles of feet common common-rare Rash period (from the appearance of lesions to desquamation) (days) 14-2114-2121-5610-21 Lymphadenopathy yes yes rare no Case fatality rate 1%-10% 10%-50% 1%-3% 0.13% 263"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/45---A-2-Month-Old-Girl-from-Laos-With-Dyspnoea-_2022_Clinical-Cases-in-Trop.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1742,
+        "end_pos": 1994,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 33,
+        "excerpt": "TABLE 75.1 Blood Results on Admission Parameter Patient Reference Range WBC ( 109/L) 5.84-10 Haemoglobin (g/dL) 11.012-14 Platelets ( 109/L) 215150-350 CD4 count (cells/μL) 153500-1200 Serum sodium (mmol/L) 135130-145 Serum glucose (mmol/L) 4.53.9-5.5"
+      },
+      {
+        "id": 2,
+        "start_pos": 1994,
+        "end_pos": 2348,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 47,
+        "excerpt": "TABLE 75.2 CSF Results on Admission Parameter Patient Reference Range Leukocytes (cells/μL) 50-5 CSF protein (g/L) 0.780.25-0.55 CSF glucose (mmol/L) 2.92.25-2.97∗ Cryptococcal antigen (CrAG) Negative Negative India Ink stain Negative Negative Gram stain Negative Negative Ziehl-Neelsen stain Negative Negative ∗½ to ⅔of paired serum glucose sample. 208"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/33---A-53-Year-Old-Man-from-Malawi-With-a-C_2022_Clinical-Cases-in-Tropical-.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1427,
+        "end_pos": 1820,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 57,
+        "excerpt": "TABLE 33.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 3.24-10 Haemoglobin (g/dL) 9.813-15 MCV (fL) 9080-98 Platelets ( 109/L) 305150-350 CD4 count (cells/μL) 54500-1200 Sputum for AFB 2 negative Negative Malaria RDT Negative Negative Thick smear for Plasmodium spp. Negative Negative • Fig. 33.1 Chest radiograph on admission showing a prominent hilar region. 90"
+      },
+      {
+        "id": 2,
+        "start_pos": 10460,
+        "end_pos": 11158,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 99,
+        "excerpt": "TABLE 33.2 Clinical Presentation of TB in Patients With and Without Immunosuppression HIV-negative or high CD4 count (>200/μL) Low CD4 count ( 200/μL) Cough and sputum production Severe, productive Often mild, small amounts of whitish sputum Haemoptysis Common Rare Chest radiography appearance Cavities, upper lobe infiltrates and destruction No cavities Infiltrates Hilar lymphadenopathy Miliary pattern May be completely normal Sputum smear result Often positive Often negative Extrapulmonary and disseminated TB∗ 20% of TB cases Common, about 50% ∗Disseminated ¼ involving two or more non-contiguous organs concomitantly. (After Harries, A.D., et al., 2004. and Sharma, S.K., et al., 2005.) 92"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/7---A-28-Year-Old-Male-Fisherman-from-Malawi-Wi_2022_Clinical-Cases-in-Tropi.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1509,
+        "end_pos": 1804,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 43,
+        "excerpt": "TABLE 7.1 Laboratory Results on Admission Parameter Patient Reference Range WBC ( 109/L) 3.84-10 Haemoglobin (mg/dL) 6.013-15 MCV (fL) 9280-99 Platelets ( 109/L) 187150-400 Creatinine (μmol/L) 1200 <120 BUN (mmol/L) 89.3 <17.9 K+ (mmol/l) 7.23.5-5.2 • Fig. 7.1 Chest radiograph on admission. 17"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2282,
+        "end_pos": 2631,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 50,
+        "excerpt": "TABLE 52.1 Blood Results on Admission Parameter Patient Reference Range WBC ( 109/L) 14.94-10 Neutrophils ( 109/L) 13.11.8-7.2 Lymphocytes ( 109/L) 0.91.5-4 Band forms (%) 40-5 Haemoglobin (g/dL) 613-15 Reticulocytes (%) 80.5-1.5 Platelets ( 109/L) 454150-350 LDH (U/L) 1500 <250 Total bilirubin (μmol/L) 239 <19 Direct bilirubin (μmol/L) 103 <5144"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/15---A-3-Year-Old-Boy-from-Laos-With-Right-Sup_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/5---A-4-Year-Old-Boy-from-Laos-With-a-Lesion-o_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/79---A-34-Year-Old-Male-Immigrant-from-Peru-With-Ch_2022_Clinical-Cases-in-T.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1456,
+        "end_pos": 1869,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 54,
+        "excerpt": "TABLE 79.1 Laboratory Results Parameter Patient Reference WBC ( 109/L) 11.74.5-11.0 Platelets ( 109/L) 644150-450 Haemoglobin (g/dL) 12.413.5-17.5 Protein (g/dL) 4.96.0-8.0 Albumin (g/dL) 2.23.5-5.0 ESR (mm/h) 261-14 HIV test negative-• Fig. 79.1 Duodenal biopsy with signs of chronic duodenitis and mul-tiple elongated structures (arrows) compatible with a helminth infection (H&E stain, magnification 400). 220"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/78---A-42-Year-Old-British-Man-Living-in-Malawi_2022_Clinical-Cases-in-Tropi.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 5595,
+        "end_pos": 6277,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 113,
+        "excerpt": "TABLE 78.1 Standard Treatment for Human African Trypanosomiasis by Species and Stage West African trypanosomiasis (T. brucei gambiense) East African trypanosomiasis (T. brucei rhodesiense) First stage Pentamidine IM or IV OD 7 days or Fexinidazole PO OD 10 days Suramin IV, 6 injections, e.g. days 0,1,3,7,14, 21. Or Pentamidine IM or IV OD 7 days Second stage Nifurtimox-Eflornithine combination therapy (NECT) (Nifurtimox PO TDS 10 days+ Eflornithine IV BD 7 days) or Fexinidazole PO OD 10 days Melarsoprol IV OD 10 days IM ¼ intramuscularly, IV ¼ intravenously, PO ¼ orally, OD ¼ once daily, BD ¼ twice daily, TDS ¼ three times a day After B€uscher, P., et al. 2017. Lancet. 218"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/93---A-35-Year-Old-Male-Logger-from-Peru-With-Fe_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1995,
+        "end_pos": 2756,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 112,
+        "excerpt": "TABLE 93.1 Laboratory Results on Admission Parameter Result (Reference Range) Haematocrit 30% (41-53) White cell count 8700/μL (4500-11000) Bands: 4% (0-10) Neutrophils: 62% (40-70) Eosinophils: 0% (0-8) Basophils: 0% (0-3) Monocytes: 6% (4-11) Lymphocytes: 28% (22-44) Platelets 110000/μL (150000-450000) AST (GOT) ALT (GPT) 2890 U/L (0-35) 2676 U/L (0-35) AP 496 U/L (38-126) Total Bilirubin Direct Bilirubin 11.6 mg/dL (0.3-1.2) 9.2 mg/dL (0-0.4) Urea Creatinine 89 mg/dL (17-49) 1.2 mg/dL (0.6-1.2) Glucose 80 mg/dL (70-110) Serum Protein Albumin 4.2 g/L (5.5-8.0) 2.8 g/L (3.5-5.5) Prothrombin Time INR aPTT 17 s (11.1-13.1) 2.6 (0.9-1.3) 80 s (22.1-35.1) Fibrinogen 250 mg/dL (150-400) CK 6200 U/L (52-336) Urine Proteins 3+, RBC: 50-60/f, WBC: 4-6/f 259"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/21---A-35-Year-Old-American-Man-With-Fatigue-_2022_Clinical-Cases-in-Tropica.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/61---A-48-Year-Old-Woman-from-Thailand-With-Fever-_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1756,
+        "end_pos": 1971,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 31,
+        "excerpt": "TABLE 61.1 Laboratory Results on Admission Parameter Patient Reference WCC ( 109/L) 30.83.8-11 Haemoglobin (g/dL) 8.212.3-15.3 MCV (fL) 8880-94 Platelets ( 109/L) 592150-400 CRP (mg/L) 267 <5 ESR (mm/h) >110 <20167"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2604,
+        "end_pos": 2815,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 33,
+        "excerpt": "TABLE 39.1 Laboratory Results on Admission Parameter (unit) Patient Reference range ALT (U/L) 301 <40 AST (U/L) 230 <37 ALP (U/L) 470 <120 Total bilirubin (μmol/L) 14 <14.5 Direct bilirubin (μmol/L) 6.4 <4.3108"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/1---A-20-Year-Old-Woman-from-Sudan-With-Fever--_2022_Clinical-Cases-in-Tropi.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/24---A-14-Year-Old-Boy-from-Rural-Tanzania-With_2022_Clinical-Cases-in-Tropi.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/47---A-32-Year-Old-Man-from-Malawi-With-a-Pain_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/86---A-14-Year-Old-Girl-in-the-Solomon-Islands-W_2022_Clinical-Cases-in-Trop.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/20---A-43-Year-Old-Male-Traveller-Returning-from-M_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1339,
+        "end_pos": 1701,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 54,
+        "excerpt": "TABLE 20.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 9.04-11.3 Eosinophils ( 109/L) 2.1 <0.5 LDH (U/L) 422135-225 Creatinine (μmol/L) 88.453-106 AST/GOT (U/L) 10610-50 ALT/GPT (U/L) 17910-50 GGT (U/L) 186 <65 C-reactive protein (mg/L) 57.9 <5 • Fig. 20.1 Chest radiograph showing nodular changes in the periphery of both lungs. 52"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/66---A-32-Year-Old-Man-from-Malawi-With-Pain-in-the-_2022_Clinical-Cases-in-.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/48---A-31-Year-Old-Woman-from-Tanzania-With-Acu_2022_Clinical-Cases-in-Tropi.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 5037,
+        "end_pos": 5774,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 91,
+        "excerpt": "TABLE 48.1 Flaccid versus Spastic Paraparesis Clinical Presentation Neuroanatomical Diagnosis Examples of Common Aetiologies in Tropical Countries Flaccid paraparesis with bladder involvement and/or sensory level Acute spinal cord lesion inflammation of the spinal cord (¼ myelitis), ischaemia of the spinal cord (¼ spinal infarction) Acute cauda equina lesion metastatic malignancy, schistosomiasis without bladder dysfunction, without sensory level Polyradiculoneuropathy Guillain-Barr e-syndrome, tuberculous arachnoiditis, CMV in HIV Polyneuropathy Diabetes, HIV-related, nutritional Spastic paraparesis Chronic spinal cord lesion Compression of spinal cord because of Pott´s disease, chronic viral infections such as HTLV-1 and HIV"
+      },
+      {
+        "id": 2,
+        "start_pos": 5774,
+        "end_pos": 6122,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 47,
+        "excerpt": "TABLE 48.2 Laboratory Results on Admission Parameter (Unit) Patient Normal range ESR (mm/h) 1910 Random blood glucose (mmol/l) 5.63.9-11.1 HIV-Serology and p24 Antigen negative negative VDRL negative negative Schistosomiasis-serology negative negative Urine for ova of S. haematobium negative negative Stool for ova of S. mansoni negative negative"
+      },
+      {
+        "id": 3,
+        "start_pos": 6122,
+        "end_pos": 6486,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 54,
+        "excerpt": "TABLE 48.3 CSF Results Parameter (Unit) Patient Normal range CSF white cell count (cells/μl) 11 (90% lymphocytes) 0-5 CSF protein (g/L) 1.11 <0.45 CSF glucose (mmol/l) 3.92.8-3.8∗ Gram stain negative negative Ziehl-Neelsen stain negative negative Xpert MTB/RIF negative negative VDRL in the CSF negative negative ∗{1/2} to {2/3} of paired serum glucose sample 133"
+      },
+      {
+        "id": 4,
+        "start_pos": 9206,
+        "end_pos": 10025,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 103,
+        "excerpt": "TABLE 48.4 Pathophysiology of Acute Transverse Myelitis Pathophysiology Treatment Idiopathic, (majority of the cases) Presumably an autoimmune phenomenon Might be a manifestation of a chronic autoimmune demyelinating CNS disease (such as NMO and multiple sclerosis) Corticosteroids against inflammation Associated with infection Direct invasion of the spinal cord by microorganisms Causative treatment e.g. acyclovir for VZV myelitis Autoimmune phenomenon as a result of infection elsewhere (“parainfectious”) Might be associated with vaccination against the microorganism Corticosteroids against inflammation Associated with a systemic autoimmune disorder Autoimmune phenomenon Often the autoimmune disorder (e.g. lupus or secondary vasculitis) in the patient is already known Corticosteroids against inflammation 134"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/77---A-51-Year-Old-Female-Traveller-Returning-from-Cen_2022_Clinical-Cases-i.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 4343,
+        "end_pos": 4855,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 70,
+        "excerpt": "TABLE 77.1 Comparative Clinical Symptom Patterns Observed in Dengue, Chikungunya and Zika Infections. Dengue Chikungunya Zika Incubation period (days) 4-103-73-12 Asymptomatic infection (%) 50-803-2880 Fever +++ +++ + Headache +++ ++ + Conjunctivitis--++ Arthralgias ++ +++ + Myalgias ++ + + Skin rash ++ ++ +++ Peripheral oedema--++ Haemorrhagic manifestations ++ (+)-Circulatory collapse/ shock +--Thrombocytopenia ++ ++-Lymphadenopathy ++ ++ + • Fig. 77.2 Kinetics of the different arboviral test parameters."
+      },
+      {
+        "id": 2,
+        "start_pos": 4855,
+        "end_pos": 5555,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 96,
+        "excerpt": "TABLE 77.2 Blood Test Results First serum sample† Second serum sample‡ Interpretation Dengue IgM IIFT negative negative negative Dengue IgG IIFT 1:201:5120 cross-reactivity Dengue NS1-Ag negative negative negative Chikungunya IgM ELISA negative ND negative Chikungunya IgM IIFT ND negative negative Chikungunya IgG IIFT ND negative negative Zika IgM IIFT negative 1:640 positive Zika IgG IIFT 1:201:5120 positive Zika RT-PCR positive ND positive †obtained 6 days after onset of symptoms ‡obtained 7 days after the first serum sample IIFT: Indirect Immunofluorescence Test; RT-PCR: real-time reverse transcription polymerase chain reaction; ELISA: Enzyme-linked Immunosorbent Assay; ND: not done. 215"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/12---A-29-Year-Old-Man-from-The-Gambia-With-G_2022_Clinical-Cases-in-Tropica.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/91---A-20-Year-Old-Male-from-India-With-Fever-_2022_Clinical-Cases-in-Tropic.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2449,
+        "end_pos": 3002,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 56,
+        "excerpt": "TABLE 91.1 Clinical Mimics of Rabies Syndrome or Disease Guillain Barr e Syndrome Post-vaccination encephalomyelitis NMDAR antibody-mediated/Autoimmune encephalitis Campylobacter-associated summer paralysis syndrome Cerebral malaria Herpes simplex encephalitis Arthropod-borne encephalitides (e.g. Japanese encephalitis, West Nile Virus encephalitis, etc.) Poliomyelitis B-virus (Cercopithecine herpesvirus 1) encephalomyelitis Tetanus Snake-or Scorpion-envenomation Organophosphate poisoning Illicit drug use, CNS intoxicants Psychiatric disorders 253"
+      },
+      {
+        "id": 2,
+        "start_pos": 5902,
+        "end_pos": 7215,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 177,
+        "excerpt": "TABLE 91.2 Tests for Laboratory Diagnosis of Rabies Sample(s) Test(s) Detection Sensitivity Remarks Ante-mortem Diagnosis∗ Saliva RT-PCR Viral nucleic acid Moderate to high sensitivity Testing serial/pooled samples recommended to increase sensitivity Nuchal skin biopsy RT-PCR Viral nucleic acid Moderate to high sensitivity Full thickness biopsy and adequate hair follicles required CSF, Urine RT-PCR Viral nucleic acid Low sensitivity CSF, Serum RFFIT, FAVN, ELISA Neutralizing Antibodies (RFFIT, FAVN); Antibodies against viral glycoprotein (ELISA) Low sensitivity in first week of illness; rises with increased duration of survival (>90% by 2 weeks) Presence of antibodies in CSF (irrespective of prior vaccination status) and serum (in previously unvaccinated cases) diagnostic of rabies Post-mortem Diagnosis∗∗ Brain tissue dFA, RT-PCR Viral antigen High sensitivity (nearly 100%) Gold standard for laboratory confirmation (dFA) RT-PCR: Reverse transcriptase polymerase chain reaction; RFFIT: Rapid fluorescent focus inhibition test; FAVN: Fluorescent antibody virus neutralization; dFA: Direct fluorescent antibody ∗A positive test confirms rabies; negative test results cannot rule out a diagnosis of rabies completely ∗∗A positive test on brain tissue confirms rabies; negative test rules out rabies 254"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/64---A-40-Year-Old-Woman-from-Thailand-and-Her-Bro_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2191,
+        "end_pos": 2550,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 56,
+        "excerpt": "TABLE 64.1 Laboratory Results at Presentation in the Clinic Parameter (units) Patient Reference WBC ( 109/L) 12.34-10 Eosinophils ( 109/L) 2.34 <0.5 Haemoglobin (mg/dL) 11.712-14 MCV (fL) 7083-103 Platelets ( 109/L) 330150-350 ESR (mm/h) 2010 IgE (U/mL) 944 <100 Creatinine (μmol/L) 62 <80 ALT (U/L) 28 <30 GGT (U/L) 35 <40 C-reactive protein (mg/L) <5 <5176"
+      },
+      {
+        "id": 2,
+        "start_pos": 5550,
+        "end_pos": 6391,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 111,
+        "excerpt": "TABLE 64.2 Main Causes and Characteristics of Parasitic Eosinophilic Meningitis Pathogen Incubation Period Source of Infection Geography Clinical Features Serology Angiostrongylus cantonensis 2-35 days Consumption of infected crustaceans, snails, prawns, crabs, frogs, and/or contaminated vegetables South-east Asia, Pacific basin, Australia, Caribbean Paraesthesia of trunk, limbs, or face Western blot of antibodies against 31kD antigen∗ Gnathostoma spinigerum Days to months Consumption of infected poultry or fish, snakes, frogs South-east Asia (mainly Thailand), emerging in sub-Saharan Africa Migrating subcutaneous swellings, creeping eruption, sharp radicular pain at onset Western blot of antibodies against 24kD antigen∗ ∗Serology can be negative in acute state and a paired convalescence sample should be taken after 4 weeks. 177"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/65---A-4-Year-Old-Girl-from-Bolivia-With-a-Dar_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/40---A-62-Year-Old-Woman-from-Ethiopia-With-D_2022_Clinical-Cases-in-Tropica.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/26---A-14-Year-Old-Boy-from-Malawi-Who-Has-Bee_2022_Clinical-Cases-in-Tropic.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2136,
+        "end_pos": 2316,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 24,
+        "excerpt": "TABLE 26.1 Laboratory Results on Admission Parameter Patient Reference Range WBC ( 109/L) 194-10 Haemoglobin (mg/dL) 9.512-14 Platelets ( 109/L) 60150-400 K+ (mmol/L) 4.23.5-5.270"
+      },
+      {
+        "id": 2,
+        "start_pos": 9063,
+        "end_pos": 10435,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 159,
+        "excerpt": "TABLE 26.2 Principal Effects of African Snake Venoms in Humans Venom Activity Clinical Manifestations African Snake Responsible Cytotoxic Massive local swelling, blistering, necrosis; plasma extravasation with consecutive fluid loss, hypotension. Eye: keratoconjunctivitis, corneal ulcer, blindness (spitting cobra) Puff-adder and other large Bitis species, saw-scaled vipers (Echis), burrowing asps (Atractaspis species); spitting cobra Auto-pharmacological Release of vasoactive compounds (e.g. NO, histamine, serotonin, bradykinin); anaphylaxis, acute profound hypotension, urticaria, vomiting, diarrhoea Burrowing asps (Atractaspis spp.), Bitis species, boomslang Haematotoxic Spontaneous systemic bleeding (gums, brain, gastrointestinal, uterine), bleeding from trauma and recent wounds Puff-adder and other large Bitis spp., saw-scaled vipers, boomslang, vine snake Cardiotoxic Hypotension, shock, arrhythmias, conduction abnormalities Puff-adder and other large Bitis species, burrowing asps Neurotoxic Cranial nerve palsies, bulbar and respiratory paralysis Elapids (mamba, cobra, rinkhals) berg adder, Peringuey’s adder Myotoxic Trismus; rhabdomyolysis with myalgias, myoglobinuria, renal failure, hyperkalaemia, respiratory failure Sea snake Nephrotoxic Acute kidney injury, renal necrosis Boomslang, vine snake, saw-scaled vipers Source: After Warrell, 2013372"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/88---A-74-Year-Old-Man-from-Japan-With-Fever--_2022_Clinical-Cases-in-Tropic.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2598,
+        "end_pos": 2887,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 39,
+        "excerpt": "TABLE 88.1 Laboratory Results on Admission Parameter Patient Reference Range WBC ( 109/L) 5.33.3-8.6 Haemoglobin (g/dL) 17.713.7-16.8 Platelets ( 109/L) 90158-348 AST (U/L) 41313-30 ALT (U/L) 9510-42 LDH (U/L) 1025124-222 CK (U/L) 744259-248 CK-MB (U/L) 410-15 CRP (mg/dL) 0.10.00-0.14245"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/62---A-28-Year-Old-Man-from-Ghana-With-a-Chron_2022_Clinical-Cases-in-Tropic.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 6778,
+        "end_pos": 7216,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 60,
+        "excerpt": "TABLE 62.1 Laboratory Results Parameter Patient initial visit Patient 6 years later Reference Range WBC ( 109/L) 17.69.24-10 Haemoglobin (g/dL) 6.98.313-15 Platelet ( 109/L) Adequate 364150-400 Fasting blood glucose (mmol/L) 4.8 Not done 4.4-6.1 • Fig. 62.2 Patient’s blood film: irreversibly sickled cells (S), polychroma-sia (P), target cells (TC), nucleated red cells (NRC)-note similarity with lymphocyte (L). Adequate platelets. 171"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/58---A-25-Year-Old-Woman-from-Egypt-With-Severe-Ch_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1432,
+        "end_pos": 1875,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 61,
+        "excerpt": "TABLE 58.1 Laboratory Results on Admission Parameter Patient Reference Potassium (mmol/L) 2.83.5-5 Sodium (mmol/L) 127136-145 Calcium, total (mmol/L) 2.12.25-2.63 Albumin (g/L) 2335-55 Haemoglobin (g/dL) 10.811.5-15.5 WBC ( 109/L) 6.63.8-11 Eosinophil count ( 109/L) 0.53 <0.45 Platelets ( 109/L) 350150-350 Creatinine (μmol/L) 11553-106 • Fig. 58.1 Helminth ova in a stool sample of a 25-year-old woman from Egypt with chronic diarrhoea. 160"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/Acknowledgements_2022_Clinical-Cases-in-Tropical-Medicine.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/50---A-24-Year-Old-Man-of-Turkish-Origin-With-Jau_2022_Clinical-Cases-in-Tro.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 5560,
+        "end_pos": 5785,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 36,
+        "excerpt": "TABLE 50.1 Laboratory Results on Presentation Parameter Patient Reference AST (U/L) 145 <35 ALT (U/L) 454 <35 GGT (U/L) 394 <55 ALP (U/L) 40238-126 Total bilirubin (μmol/L) 120 <19.0 ESR (mm/h) 17/4010/20 CRP (mg/L) 49 <5139"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/Front-Matter_2022_Clinical-Cases-in-Tropical-Medicine.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/68---A-31-Year-Old-Woman-from-Malawi-With-a-Gene_2022_Clinical-Cases-in-Trop.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/34---A-35-Year-Old-Male-Farmer-from-Peru-With-a-Chro_2022_Clinical-Cases-in-.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/51---A-34-Year-Old-HIV-Positive-Woman-from-Malawi-W_2022_Clinical-Cases-in-T.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/10---A-55-Year-Old-Indigenous-Woman-from-Australia-W_2022_Clinical-Cases-in-.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/60---A-6-Year-Old-Boy-from-Malawi-With-Proptos_2022_Clinical-Cases-in-Tropic.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/List-of-Contributors_2022_Clinical-Cases-in-Tropical-Medicine.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/41---A-7-Year-Old-Girl-from-West-Africa-With-Two-Ski_2022_Clinical-Cases-in-.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 6143,
+        "end_pos": 6522,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 48,
+        "excerpt": "TABLE 85.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 10.254-10 % Neutrophils 86.545-75 Haemoglobin (g/dL) 11.812-17 Platelets ( 109/L) 56200-400 Creatinine (mg/dL) 0.860.7-1.5 Blood urea nitrogen (mg/dL) 77-20 Na+ (mmol/l) 137135-150 K+ (mmol/l) 3.23.5-5.5 Random blood glucose (mmol/L) 15.43.9-7.8 HbA1c (%) 8.54-7 Lactate (mmol/L) 11.20.5-2.2238"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/32---A-44-Year-Old-Male-Farmer-from-Laos-With-Di_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1990,
+        "end_pos": 2380,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 48,
+        "excerpt": "TABLE 32.1 Laboratory Results Parameter Patient Reference Range WBC ( 109/L) 16.26.0-8.0 Polymorphs (%) 92.145-70 Haemoglobin (g/dL) 12.512.0-16.0 Platelets ( 109/L) 112150-300 Glucose (mmol/L) 20.64.1-6.1 Serum creatinine (μmol/L) 5662-120 Urea (mmol/L) 6.85.4-16.1 AST (U/L) 1310-37 ALT (U/L) 830-40 Serum total bilirubin (μmol/L) 111.21.71-20.5 Serum direct bilirubin (μmol/L) 56.40-787"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/14---A-22-Year-Old-Woman-from-Bangladesh-With-P_2022_Clinical-Cases-in-Tropi.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1826,
+        "end_pos": 2191,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 50,
+        "excerpt": "TABLE 14.1 Laboratory Results on Admission Parameter Patient Reference Range Sodium 143.8 mmol/L (135-145 mmol/L Potassium 3.0 mmol/L (3.5-5.0 mmol/L) Chloride 103.8 mmol/L (98-108 mmol/L) Bicarbonate 11.4 mmol/L (23-28 mmol/L) Lactic acid (venous) 4.1 mmol/L (0.67-1.8 mmol/L) Creatine 203 μmol/L (62-115 μmol/L) Blood Urea Nitrogen 8.6 mmol/L (2.9-7.1 mmol/L) 34"
+      },
+      {
+        "id": 2,
+        "start_pos": 4264,
+        "end_pos": 5146,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 133,
+        "excerpt": "TABLE 14.3 Approach to Rehydration in Patients with Cholera Depending on the Degree of Clinical Dehydration (After Harris J.B., et al.) No Dehydration (<5%) Some Dehydration (5-10%) Severe Dehydration (>10%) Requirement for Fluid Replacement Ongoing losses only 75mL/kg in the first 24 hours in addition to ongoing losses >100mL/kg in the first 24 hours in addition to ongoing losses Preferred Route of Administration Oral Oral or intravenous Intravenous Timing Usually guided by thirst Replace fluids over 3-4 hours As rapidly as possible until circulation is restored, then complete the remainder of fluids within 3 hours Monitoring Observe until ongoing losses can definitely be adequately replaced by ORS Observe every 1-2 hours until all signs of dehydration resolve and patient urinates Once circulation is established monitor every 1-2 hours ORS ¼ oral rehydration solution."
+      },
+      {
+        "id": 3,
+        "start_pos": 5146,
+        "end_pos": 5642,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 70,
+        "excerpt": "TABLE 14.2 Clinical Assessment of Dehydration in Patients with Suspected Cholera (After Harris J.B., et al.) No Dehydration (<5%) Some Dehydration (5-10%) Severe Dehydration (>10%) General Appearance Well, alert Restless, irritable Lethargic or unconscious Eyes Normal Sunken Sunken Thirst Drinks normally Thirsty, drinks eagerly Drinks poorly or is unable to drink Skin Turgor Instantaneous recoil Non-instantaneous recoil Very slow recoil (>2s) Pulse Normal Rapid, low volume Weak or absent 35"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/73---A-21-Year-Old-Male-Migrant-from-Rural-Mali-_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1948,
+        "end_pos": 2439,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 70,
+        "excerpt": "TABLE 73.1 Laboratory Results at First Presentation Parameter Patient Reference Range WBC ( 109/L) 3.34-10 Neutrophils ( 109/L) 2.291.8-7.2 Lymphocytes ( 109/L) 1.41.5-4 Monocytes ( 109/L) 0.280.2-0.5 Eosinophils ( 109/L) 0.12 <0.5 Haemoglobin (g/dL) 13.813-15 Platelets ( 109/L) 124150-350 LDH (U/L) 185 <220 Total bilirubin (mg/dL) 0.50.2-1.2 IgM (g/l) 8.590.4-2.3 CRP 0.5 <0.5 ESR mm/h 9/21 <15/30 Plasmodium spp. (thick and thin film) negative negative P. falciparum IFAT 1:256 <1:32202"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/67---A-24-Year-Old-Woman-from-the-Peruvian-Andes-_2022_Clinical-Cases-in-Tro.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2037,
+        "end_pos": 2341,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 44,
+        "excerpt": "TABLE 67.1 Laboratory Results on Admission to Emergency Room Parameter Patient Reference Range WBC ( 109/L) 13.944-10 Eosinophils (%) 43 <5 Total eosinophil count 5.97 <0.5 Haemoglobin (g/dL) 12.312-16 AST (U/L) 3410-40 ALT (U/L) 557-40 AP (U/L) 17020-126 Amylase (U/L) 753-100 Lipase (U/L) 10010-140183"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/53---A-24-Year-Old-Woman-from-Uganda-With-Fe_2022_Clinical-Cases-in-Tropical.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/70---A-58-Year-Old-Woman-from-Sri-Lanka-With-Fev_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1645,
+        "end_pos": 1993,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 46,
+        "excerpt": "TABLE 70.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 8.54-10 Haemoglobin (g/dL) 12.412-16 Platelets ( 109/L) 98150-350 AST (U/L) 7413-33 ALT (U/L) 683-25 ALP (U/L) 12640-130 Total bilirubin (μmol/L) 25.713.7-30.8 Blood urea nitrogen (mmol/L) 6.42.5-6.4 Creatinine (μmol/L) 123.871-106 C-reactive protein (mg/L) 48 <6"
+      },
+      {
+        "id": 2,
+        "start_pos": 1993,
+        "end_pos": 2244,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 33,
+        "excerpt": "TABLE 70.2 Cerebrospinal Fluid Results on Admission Parameter Patient Reference Leukocytes (cells/μL) 35 (80% lymphocytes) 0-5/μL Protein (g/L) 0.640.15-0.45 Glucose (mmol/L) 3.25∗ 50-75% of serum glucose ∗Paired random blood glucose 7.17 mmol/L. 192"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/43---A-35-Year-Old-Malawian-Woman-With-a-Pain_2022_Clinical-Cases-in-Tropica.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/74---A-28-Year-Old-Woman-from-Sierra-Leone-With-_2022_Clinical-Cases-in-Trop.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 4685,
+        "end_pos": 5331,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 86,
+        "excerpt": "TABLE 11.1 Important Causes of Spinal Cord Disease in the Tropics and Their Typical Clinical Features Typical Onset and Course Clinical Features Spinal tuberculosis Insidious onset, chronically progressive over weeks, with months of back pain Spasticity common, bladder may be spared, spinal deformity on examination Spinal metastases Subacute onset, chronically progressive over weeks Spasticity or flaccidity, bladder may be spared Transverse myelitis (incl. autoimmune) Acute onset, often non-progressive Bladder involvement common Schistosomiasis Acute (days) or subacute (a couple of weeks) Often flaccid paresis, bladder involvement common"
+      },
+      {
+        "id": 2,
+        "start_pos": 5331,
+        "end_pos": 6142,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 100,
+        "excerpt": "TABLE 11.2 Diagnostic Clues and Possible Treatment Regimens for Important Causes of Spinal Cord Disease in Resource-Limited Settings Diagnostic Clues Treatment Spinal tuberculosis Typical spinal radiograph (see Box) Epidemiological evidence Antituberculous treatment Spinal surgery if available and applicable (see Box) Spinal metastases Clinical evidence of the primary tumour (e.g. prostate, breast) Very limited options: radiotherapy rarely available; corticosteroids to decrease oedema Transverse myelitis (incl. autoimmune) Young adults Inflammatory CSF Corticosteroids Schistosomiasis Exposure to freshwater in endemic regions, young adults in endemic coutries or non-immune travellers; CSF eosinophilia; other manifestations of schistosomiasis may or may not be present. Praziquantel, corticosteroids 27"
+      },
+      {
+        "id": 3,
+        "start_pos": 9785,
+        "end_pos": 10637,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 109,
+        "excerpt": "TABLE 11.3 Common Complications of Spinal Cord Disease and Their Prevention and Management Complication Prevention/Management Pressure sores Nursing, training and counselling of guardians (two hourly turning) Urinary retention Catheterization Contractures Physiotherapy, training of guardians for home-based physiotherapy Pain Pain relief by NSAID/opiates, involvement of local palliative care team Immobilization If available, prescription of walking aids/ wheelchairs Depression Spiritual and mental support, occupational therapy/community projects, pharmacotherapy, involvement of local palliative care team • Fig. 11.2 AP radiograph demonstrating a paravertebral soft tissue mass in the lower dorsal region with collapse of the T11 vertebral body. (Waldman, S.D., Campbell, R.S.D., 2011. Imaging of Pain, 1st ed. Saunders, Amsterdam. pp. 147-8) 28"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/90---A-55-Year-Old-Couple-Both-Returning-from-Chile-a_2022_Clinical-Cases-in.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1859,
+        "end_pos": 2321,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 60,
+        "excerpt": "TABLE 80.1 Laboratory Results of the Thai Patient With a Liver Mass Parameter Patient Reference AST (U/L) 264-36 ALT (U/L) 3212-32 ALP (U/L) 8442-121 Total bilirubin (mg/dL) 0.60.3-1.5 Direct bilirubin (mg/dL) 0.20.0-0.5 HBsAg (MEIA) Negative Negative Anti-HBs (ELISA, IU/L) 24.130.0-10.0 HBeAg (ELISA) Negative Negative Anti-HBc (ELISA) Positive Negative Anti-HCV Negative Negative AFP (U/mL) 2.80.0-10.0 CEA (μg/L) 18.960.0-2.5 CA19-9 (U/mL) 342.800.0-37.0223"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/2---A-7-Year-Old-Girl-from-Peru-With-a-Chron_2022_Clinical-Cases-in-Tropical.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1852,
+        "end_pos": 2095,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 33,
+        "excerpt": "TABLE 35.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 3.74-10 Haemoglobin (g/dL) 10.212-16 MCV (fL) 9280-98 Platelets ( 109/L) 91150-350 Fasting blood glucose (mmol/L) 5.435.0-6.7 Malaria RDT Negative Negative 96"
+      },
+      {
+        "id": 2,
+        "start_pos": 6617,
+        "end_pos": 6973,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 41,
+        "excerpt": "TABLE 35.2 CSF Results on Admission Parameter Patient Reference Leukocytes (cells/μL) 180-5 Protein (g/L) 0.80.15-0.40 Glucose (mmol/L) 1.972.22-3.88 India Ink Negative Negative Culture C. neoformans Negative • Fig. 35.2 Photomicrograph of Cryptococcus neoformans (India Ink stain). (Source: www.cdc.gov; www.cdc.gov/fungal/cryptococco sis-neoformans/) 97"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/82---A-31-Year-Old-Man-from-Guatemala-With-Acute-_2022_Clinical-Cases-in-Tro.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/37---A-29-Year-Old-Woman-from-Malawi-With-Confusi_2022_Clinical-Cases-in-Tro.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/28---A-67-Year-Old-Female-Expatriate-Living-in-Came_2022_Clinical-Cases-in-T.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1573,
+        "end_pos": 1918,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 48,
+        "excerpt": "TABLE 28.1 Full Blood Count Results at Presentation Parameter Patient Reference WBC ( 109/L) 6.204-10 Haemoglobin (g/dL) 13.812-15 Platelets ( 109/L) 155150-450 Neutrophils (%) 4520-50 Eosinophils (%) 140-6 Absolute eosinophil count ( 109/L) 0.868 <0.45 Band neutrophils (%) 10-5 Lymphocytes (%) 3620-40 Monocytes (%) 40-10 Basophils (%) 00-276"
+      },
+      {
+        "id": 2,
+        "start_pos": 4521,
+        "end_pos": 5491,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 148,
+        "excerpt": "TABLE 28.2 Treatment of Loiasis Matched to Levels of Microfilaraemia (After Boussinesq 2012) Level of Microfilaraemia Recommended Drug Regimen High (>8000mfa/mL) Albendazole 200mg bd for 21 days, followed by ivermectin 150μg/kg stat, then DEC at slowly increasing doses. Moderate (2000-8000mf/mL) Ivermectin 150 μg/kg stat, repeat after 1-3 months until microfilaraemia is <2000 mf/mL, this is followed by treatment with DEC. Low (<2000mf/mL) DEC: start with low doses of 3-6mg/d if there are parasites in the blood, 50 mg/ d if amicrofilaraemic, divided into 2-3 doses. The dose is doubled every day up to 400mg/d, still divided into 2-3 doses. Start treatment in hospital. Oral antihistamines or corticosteroids may be useful during the first days of treatment to reduce side effects (arthralgias, pruritus, headache, fever). Several 3-to 4-week courses of DEC administered at intervals of 2-3 weeks may be required to achieve a complete cure. mfa ¼ microfilariae. 77"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/63---A-38-Year-Old-European-Expatriate-Living-in-M_2022_Clinical-Cases-in-Tr.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/31---A-6-Year-Old-Boy-from-Malawi-With-Fever--Cou_2022_Clinical-Cases-in-Tro.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/49---A-33-Year-Old-Male-Traveller-to-India-With-Di_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2868,
+        "end_pos": 4150,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 143,
+        "excerpt": "TABLE 49.1 Clinical Clues to Pathology and Possible Aetiological Agents of Diarrhoeal Disease Clinical Observation Pathophysiology Possible Aetiology Few, bulky or large watery stools Small bowel, secretory Enterotoxigenic Escherichia coli (ETEC), enteropathogenic E. coli (EPEC), Salmonella, Vibrio parahaemolyticus, Giardia, possibly Shigella Large volume, watery diarrhoea Small bowel, enterotoxin mediated Vibrio cholerae, ETEC, Cryptosporidium Many, small volume stools Large bowel Shigella, Salmonella, Campylobacter, Yersinia enterocolitica, Clostridium perfringens, Entamoeba histolytica Tenesmus, faecal urgency, dysentery Colitis E. histolytica, enteroinvasive E. coli (EIEC), enterohaemorrhagic E. coli (EHEC), Shigella, Campylobacter, Y. enterocolitica, Clostridioides difficile Associated with vomiting Gastroenteritis or toxin mediated Noroviruses, rotavirus in children, Bacillus cereus, Staphylococcus aureus (food poisoning) Associated with fever Mucosal invasion or in children E. histolytica, EIEC, EHEC, Shigella, Salmonella, C. difficile, Campylobacter, viral agents Persistent diarrhoea (>2 weeks) Secondary malabsorption, invasion Giardia, Cryptosporidium, E. histolytica, Aeromonas. In immunosuppression: Cystoisospora belli, Cryptosporidium, Microsporidium"
+      },
+      {
+        "id": 2,
+        "start_pos": 4150,
+        "end_pos": 4913,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 81,
+        "excerpt": "TABLE 49.2 Common Complications of Acute Enteric Infections Complication Pathogen Carbohydrate intolerance or malabsorption Giardia lamblia/intestinalis, rotavirus and other forms of viral gastroenteritis, Fat malabsorption Giardia lamblia/intestinalis Haemolytic uraemic syndrome Enterohaemorrhagic Escherichia coli (EHEC), Shigella dysenteriae Guillain-Barr e syndrome Campylobacter jejuni Reactive arthritis Campylobacter, Salmonella, Shigella, Yersinia spp. Erythema nodosum Campylobacter, Salmonella, Shigella, Yersinia spp Enteritis necroticans Clostridium perfringens type C Liver abscess and other forms of extraintestinal amoebiasis Entamoeba histolytica Chronic fatigue syndrome Giardia lamblia/intestinalis, particularly described from Scandinavia 136"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/56---A-21-Year-Old-Pregnant-Woman-from-The-Ga_2022_Clinical-Cases-in-Tropica.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/29---A-35-Year-Old-Woman-from-Malawi-With-Feve_2022_Clinical-Cases-in-Tropic.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 2756,
+        "end_pos": 2926,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 23,
+        "excerpt": "TABLE 29.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 3.04-10 Haemoglobin (mg/dL) 4.812-14 MCV (fL) 9080-99 Platelets ( 109/L) 112150-40079"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/72---A-4-Year-Old-Boy-from-Mozambique-With-Sever_2022_Clinical-Cases-in-Trop.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/59---A-24-Year-Old-Man-from-Malawi-With-Skin-Le_2022_Clinical-Cases-in-Tropi.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1561,
+        "end_pos": 1907,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 48,
+        "excerpt": "TABLE 71.1 Full Blood Count Results at Presentation Parameter Patient Reference WBC ( 109/L) 6.54-10 Haemoglobin (g/dL) 15.314-16 Platelets ( 109/L) 190150-300 Neutrophils (%) 46.130-80 Lymphocytes (%) 38.615-50 Monocytes (%) 6.41-12 Eosinophils (%) 8.30-6 Total eosinophil count ( 109/L) 0.54 <0.45 Basophils (%) 0.60-2 IgE (U/mL) 185.7 <100195"
+      },
+      {
+        "id": 2,
+        "start_pos": 5151,
+        "end_pos": 5643,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 68,
+        "excerpt": "TABLE 71.2 Predominant Paragonimus Species by Region Region Predominant Paragonimus spp. East Asia P. westermani P. skrijabinia South and South-east Asia P. heterotremusb Africa P. africanus P. uterobilateralis North America P. kelicottii Central and South America P. mexicanus asyn. P. myazakii. bException: Philippines-P. westermani. • Fig. 71.2 Chest x-ray of a patient with acute paragonimiasis, showing right-sided pleural effusion. • Fig. 71.3 Paragonimus westermani egg in sputum. 197"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/38---A-24-Year-Old-Female-Globetrotter-With-Strange_2022_Clinical-Cases-in-T.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 7721,
+        "end_pos": 8422,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 83,
+        "excerpt": "TABLE 38.1 Stages of Cysticercal Cyst and Treatment Recommendations4 Neuroimaging Stage Biology Anticysticercal Treatment Isointense/isodense to CSF, no contrast enhancement Vesicular Viable, non-immunogenic, can persist asymptomatically for years 1-2 cysts Albendazole∗+ steroids for 10-14 days Enhanced wall (‘ring enhancement’) on contrast imaging, surrounding oedema Colloidal Viable but degenerating, immunogenic >2 cysts Albendazole∗+ Praziquantel∗ + steroids for 10-14 days Thickened retracted cyst without oedema Granulo-nodular Degenerated No anthelmintic treatment Calcification Calcified Final involuted stage ∗diffuse cerebral oedema is a contraindication for antihelminthic treatment 107"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/Inside-Front-Cover_2022_Clinical-Cases-in-Tropical-Medicine.md",
+    "tables": []
+  },
+  {
+    "source": "Processed/markdown/27---A-16-Year-Old-Boy-from-Sri-Lanka-With-Fever_2022_Clinical-Cases-in-Trop.md",
+    "tables": [
+      {
+        "id": 1,
+        "start_pos": 1681,
+        "end_pos": 2124,
+        "start_line": 1,
+        "end_line": 1,
+        "word_count": 59,
+        "excerpt": "TABLE 27.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) (neutrophils: lymphocytes) 5.7 (68%: 31%) 4-10 Haemoglobin (g/dL) 14.812-16 Platelets ( 109/L) 96150-350 AST (IU/L) 6413-33 ALT (IU/L) 583-25 ALP (IU/L) 24640-130 Serum bilirubin total (μmol/L) 7713.7-30.8 Serum bilirubin direct (μmol/L) 54.7 <5 Blood urea nitrogen (μmol/L) 20.72.5-6.4 Serum creatinine (μmol/L) 212.271-106 C-reactive protein (mg/L) 48 <573"
+      }
+    ]
+  },
+  {
+    "source": "Processed/markdown/6---A-36-Year-Old-Male-Traveller-Returning-from-B_2022_Clinical-Cases-in-Tro.md",
+    "tables": []
+  }
+]

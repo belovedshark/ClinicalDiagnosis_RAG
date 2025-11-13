@@ -1,0 +1,1 @@
+TABLE 52.1 Blood Results on Admission Parameter Patient Reference Range WBC ( 109/L) 14.94-10 Neutrophils ( 109/L) 13.11.8-7.2 Lymphocytes ( 109/L) 0.91.5-4 Band forms (%) 40-5 Haemoglobin (g/dL) 613-15 Reticulocytes (%) 80.5-1.5 Platelets ( 109/L) 454150-350 LDH (U/L) 1500 <250 Total bilirubin (μmol/L) 239 <19 Direct bilirubin (μmol/L) 103 <5144

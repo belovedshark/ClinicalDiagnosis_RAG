@@ -10,5 +10,9 @@
       "page": 2,
       "path": "./Processed/images/61---A-48-Year-Old-Woman-from-Thailand-With-Fever-_2022_Clinical-Cases-in-Tr/61---A-48-Year-Old-Woman-from-Thailand-With-Fever-_2022_Clinical-Cases-in-Tr_p2_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "TABLE 61.1 Laboratory Results on Admission\n| Parameter | Patient | Reference |\n|---|---|---|\n| WCC (109/L) | 30.8 | 3.8-11 |\n| Haemoglobin (g/dL) | 8.2 | 12.3-15.3 |\n| MCV (fL) | 88 | 80-94 |\n| Platelets (109/L) | 592 | 150-400 |\n| CRP (mg/L) | 267 | <5 |\n| ESR (mm/h) | >110 | <20 |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/61---A-48-Year-Old-Woman-from-Thailand-With-Fever-_2022_Clinical-Cases-in-Tr-tables.md",
+  "table_label": "TABLE 61.1",
+  "table_caption": "Laboratory Results on Admission"
 }

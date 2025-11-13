@@ -1,0 +1,9 @@
+TABLE 54.1 Overview of Rickettsial Infections and their Vectors
+
+| Category | Tick-borne | Mite-borne | Louse-borne | Flea-borne |
+|---|---|---|---|---|
+| **Synonyms** | Spotted fevers | Scrub typhus, Tsutsugamushi fever, Japanese river fever | Epidemic typhus | Murine typhus, Endemic typhus, Shop typhus |
+| **Classification** | Spotted Fever (SF) Group | Scrub typhus Group | Typhus Group | Typhus Group |
+| **Pathogens** | Many, e.g. R. africae (African tick bite fever) R. conorii (Mediterranean SF) R. rickettsii (Rocky mountain SF) R. australis (Queensland tick typhus) | Orientia tsutsugamushi O. sp. nov. chuto (UAE) | R. prowazekii | R. typhi |
+| **Vector** | Ticks | Trombiculid mites (chigger mites, jungle mites) | Pediculus humanus corporis (human body lice) | Xenopsylla cheopis (rat flea) |
+| **Reservoir** | Mammals Rodents Marsupials.... Mites (transovarian) | Rodents | Humans | Rodents |

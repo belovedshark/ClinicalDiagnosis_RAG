@@ -1,0 +1,1 @@
+TABLE 4.1 Laboratory Results on Admission Parameter Patient Reference Range Haematocrit (%) 17.630 Platelet count 109/L) 28150-450 Malaria RDT Positive Negative 10

@@ -10,5 +10,9 @@
       "page": 3,
       "path": "./Processed/images/23---A-31-Year-Old-HIV-Positive-Business-Traveller-W_2022_Clinical-Cases-in-/23---A-31-Year-Old-HIV-Positive-Business-Traveller-W_2022_Clinical-Cases-in-_p3_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "TABLE 23.1 Arterial Blood Gases on Ambient Air\n| Parameter | Patient | Reference Range |\n| :---------------------- | :-------- | :-------------- |\n| pH | 7.44 | 7.35-7.45 |\n| PaO2 (kPa) | 7.6 | 10.67-13.33 |\n| PaCO2 (kPa) | 3 | 4.67-6.00 |\n| HCO3 (mmol/L) | 19 | 22-26 |\n| Base excess (mmol/L) | -3.82 | |\n| Lactate (mmol/L) | 1.6 | 0.5-1.6 |\n\nTABLE 23.2 Grading of Severity of Pneumocystis Pneumonia\n| | Mild | Moderate | Severe |\n| :--------------------------- | :------------------------------------------------------ | :---------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |\n| Clinical features | Increasing exertional dyspnoea cough and sweats | Dyspnoea on minimal exertion, occasional dyspnoea at rest, fever sweats | Dyspnoea at rest, tachypnoea at rest, persistent fever, cough |\n| Arterial blood gas (room air) | PaO2 normal, SaO2 falling on exercise | PaO2 ¼ 8.1-11kPa | PaO2 < 8.0kPa |\n| Chest radiography | Normal or minor perihilar infiltrates | Diffuse interstitial shadowing | Extensive interstitial shadowing diffuse alveolar shadowing (‘white out’), sparing costophrenic angles and apices |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/23---A-31-Year-Old-HIV-Positive-Business-Traveller-W_2022_Clinical-Cases-in--tables.md",
+  "table_label": "TABLE 23.1",
+  "table_caption": "Arterial Blood Gases on Ambient Air"
 }

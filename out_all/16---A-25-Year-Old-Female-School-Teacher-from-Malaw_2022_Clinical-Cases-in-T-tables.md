@@ -1,0 +1,3 @@
+TABLE 16.1 Blood Results on Admission Parameter Patient Reference WBC ( 109/L) 10.54-10 Neutrophil count ( 109/L) 8.92.5-6 Haemoglobin (g/dL) 8.912-14 MCV (fL) 8578-90 Platelets ( 109/L) 255150-400 Creatinine (μmol/L) 10635-106 Random blood glucose (mmol/L) 5.63.9-7.8
+====
+TABLE 16.2 Results on Admission Parameter Patient Reference Leukocytes (cells/μL) 35 (60% neutrophils) 0-5/μL Protein (g/L) 2.60.15-0.42 Glucose (mmol/L) 1.22.5-540

@@ -1,0 +1,13 @@
+# Example config for extract_tables_md.py
+start_signal_regex: '(?i)\bTABLE\s+\d+(?:\.\d+)?\b'
+end_signals:
+  - '(?i)\bTABLE\b'
+  - '(?i)\bFIGURE\b'
+  - '(?i)\bCHAPTER\b'
+  - '(?m)^#'
+  - '#'
+  - '(?i)\bREFERENCES\b'
+max_words: 500
+include_end_signal_line: false
+context_lines: 0
+case_sensitive: false
