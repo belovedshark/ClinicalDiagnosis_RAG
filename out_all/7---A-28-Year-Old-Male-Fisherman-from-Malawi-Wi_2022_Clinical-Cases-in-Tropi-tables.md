@@ -1,0 +1,1 @@
+TABLE 7.1 Laboratory Results on Admission Parameter Patient Reference Range WBC ( 109/L) 3.84-10 Haemoglobin (mg/dL) 6.013-15 MCV (fL) 9280-99 Platelets ( 109/L) 187150-400 Creatinine (μmol/L) 1200 <120 BUN (mmol/L) 89.3 <17.9 K+ (mmol/l) 7.23.5-5.2 • Fig. 7.1 Chest radiograph on admission. 17

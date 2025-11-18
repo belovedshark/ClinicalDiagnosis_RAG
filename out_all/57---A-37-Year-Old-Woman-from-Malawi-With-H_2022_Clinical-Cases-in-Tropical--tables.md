@@ -1,0 +1,1 @@
+TABLE 57.1 Laboratory Results on Admission Parameter Patient Reference Range WBC ( 109/L) 2.84-10 Haemoglobin (g/dL) 8.312-14 MCV (fL) 8880-99 Platelets ( 109/L) 130150-400157

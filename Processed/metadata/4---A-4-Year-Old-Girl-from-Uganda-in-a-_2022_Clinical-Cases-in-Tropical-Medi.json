@@ -10,5 +10,9 @@
       "page": 2,
       "path": "./Processed/images/4---A-4-Year-Old-Girl-from-Uganda-in-a-_2022_Clinical-Cases-in-Tropical-Medi/4---A-4-Year-Old-Girl-from-Uganda-in-a-_2022_Clinical-Cases-in-Tropical-Medi_p2_img2.jpeg"
     }
-  ]
+  ],
+  "table_text": "TABLE 4.1 Laboratory Results on Admission\n| Parameter                 | Patient  | Reference Range |\n| :------------------------ | :------- | :-------------- |\n| Haematocrit (%)           | 17.6     | >30             |\n| Platelet count (10^9/L)   | 28       | 150-450         |\n| Malaria RDT               | Positive | Negative        |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/4---A-4-Year-Old-Girl-from-Uganda-in-a-_2022_Clinical-Cases-in-Tropical-Medi-tables.md",
+  "table_label": "TABLE 4.1",
+  "table_caption": "Laboratory Results on Admission"
 }

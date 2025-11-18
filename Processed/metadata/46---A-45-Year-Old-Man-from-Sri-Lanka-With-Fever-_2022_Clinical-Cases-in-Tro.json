@@ -1,5 +1,9 @@
 {
   "filename": "46---A-45-Year-Old-Man-from-Sri-Lanka-With-Fever-_2022_Clinical-Cases-in-Tro.pdf",
   "markdown_path": "./Processed/markdown/46---A-45-Year-Old-Man-from-Sri-Lanka-With-Fever-_2022_Clinical-Cases-in-Tro.md",
-  "images": []
+  "images": [],
+  "table_text": "TABLE 46.1 Laboratory Results at Presentation\n| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10⁹/L) | 14.7 | 4-10 |\n| Haemoglobin (g/dL) | 12.3 | 12-16 |\n| Platelets (10⁹/L) | 224 | 150-350 |\n| AST (U/L) | 54 | 13-33 |\n| ALT (U/L) | 38 | 3-25 |\n| ALP (U/L) | 446 | 40-130 |\n| Serum bilirubin total (μmol/L) | 10.3 | 25.7-30.8 |\n| Serum bilirubin direct (μmol/L) | 1.5 | 1.7-5.1 |\n| Blood urea nitrogen (mmol/L) | 7 | 2.5-6.4 |\n| Serum creatinine (μmol/L) | 124 | 71-106 |\n| C-reactive protein (mg/L) | 48 | <6 |\n\nTABLE 46.2 Treatment of Amoebic Liver Abscesses. (After Anesi, J.A., 2015)\n| Agent | Medication | Dose | Duration |\n|---|---|---|---|\n| **Tissue Agents** | | | |\n| Metronidazole | | 500-750 mg IV/PO TDS | 7-10 days |\n| Tinidazole | | 2 g PO OD | 3-5 days |\n| Ornidazole | | 0.5 g IV BD | 3-6 days |\n| Nitazoxanide | | 500 mg PO BD | 3 days |\n| **Luminal Agents** | | | |\n| Paromomycin | | 8-10 mg/kg PO TDS | 7 days |\n| Diloxanide Furoate | | 500 mg TDS | 10 days |\n| Iodoquinole | (Diiodohydroxyquin) | 650 mg PO TDS after meals | 20 days |\nPO = orally, IV = intravenously, BD = twice daily, TDS = three times a day.",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/46---A-45-Year-Old-Man-from-Sri-Lanka-With-Fever-_2022_Clinical-Cases-in-Tro-tables.md",
+  "table_label": "TABLE 46.1",
+  "table_caption": "Laboratory Results at Presentation"
 }

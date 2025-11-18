@@ -1,5 +1,9 @@
 {
   "filename": "88---A-74-Year-Old-Man-from-Japan-With-Fever--_2022_Clinical-Cases-in-Tropic.pdf",
   "markdown_path": "./Processed/markdown/88---A-74-Year-Old-Man-from-Japan-With-Fever--_2022_Clinical-Cases-in-Tropic.md",
-  "images": []
+  "images": [],
+  "table_text": "TABLE 88.1 Laboratory Results on Admission\n| Parameter          | Patient | Reference Range |\n| :----------------- | :------ | :-------------- |\n| WBC (10^9/L)       | 5.3     | 3.3-8.6         |\n| Haemoglobin (g/dL) | 17.7    | 13.7-16.8       |\n| Platelets (10^9/L) | 90      | 158-348         |\n| AST (U/L)          | 413     | 13-30           |\n| ALT (U/L)          | 95      | 10-42           |\n| LDH (U/L)          | 1025    | 124-222         |\n| CK (U/L)           | 744     | 259-248         |\n| CK-MB (U/L)        | 4       | 10-15           |\n| CRP (mg/dL)        | 0.1     | 0.00-0.14       |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/88---A-74-Year-Old-Man-from-Japan-With-Fever--_2022_Clinical-Cases-in-Tropic-tables.md",
+  "table_label": "TABLE 88.1",
+  "table_caption": "Laboratory Results on Admission"
 }

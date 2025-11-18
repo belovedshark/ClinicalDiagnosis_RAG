@@ -10,5 +10,9 @@
       "page": 2,
       "path": "./Processed/images/7---A-28-Year-Old-Male-Fisherman-from-Malawi-Wi_2022_Clinical-Cases-in-Tropi/7---A-28-Year-Old-Male-Fisherman-from-Malawi-Wi_2022_Clinical-Cases-in-Tropi_p2_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "TABLE 7.1 Laboratory Results on Admission\n| Parameter | Patient | Reference Range |\n|---|---|---|\n| WBC (10^9/L) | 3.8 | 4-10 |\n| Haemoglobin (mg/dL) | 6.0 | 13-15 |\n| MCV (fL) | 92 | 80-99 |\n| Platelets (10^9/L) | 187 | 150-400 |\n| Creatinine (μmol/L) | 1200 | <120 |\n| BUN (mmol/L) | 89.3 | <17.9 |\n| K+ (mmol/l) | 7.2 | 3.5-5.2 |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/7---A-28-Year-Old-Male-Fisherman-from-Malawi-Wi_2022_Clinical-Cases-in-Tropi-tables.md",
+  "table_label": "TABLE 7.1",
+  "table_caption": "Laboratory Results on Admission"
 }

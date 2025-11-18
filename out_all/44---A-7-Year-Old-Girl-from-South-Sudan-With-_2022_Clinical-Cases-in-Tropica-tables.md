@@ -1,0 +1,1 @@
+TABLE 44.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 1.354-10 Haemoglobin (g/dL) 6.812-16 Platelets ( 109/L) 98150-300121

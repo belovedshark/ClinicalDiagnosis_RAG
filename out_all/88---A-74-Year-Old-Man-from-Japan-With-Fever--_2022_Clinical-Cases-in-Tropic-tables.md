@@ -1,0 +1,1 @@
+TABLE 88.1 Laboratory Results on Admission Parameter Patient Reference Range WBC ( 109/L) 5.33.3-8.6 Haemoglobin (g/dL) 17.713.7-16.8 Platelets ( 109/L) 90158-348 AST (U/L) 41313-30 ALT (U/L) 9510-42 LDH (U/L) 1025124-222 CK (U/L) 744259-248 CK-MB (U/L) 410-15 CRP (mg/dL) 0.10.00-0.14245

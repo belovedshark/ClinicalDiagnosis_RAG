@@ -1,0 +1,1 @@
+TABLE 67.1 Laboratory Results on Admission to Emergency Room Parameter Patient Reference Range WBC ( 109/L) 13.944-10 Eosinophils (%) 43 <5 Total eosinophil count 5.97 <0.5 Haemoglobin (g/dL) 12.312-16 AST (U/L) 3410-40 ALT (U/L) 557-40 AP (U/L) 17020-126 Amylase (U/L) 753-100 Lipase (U/L) 10010-140183

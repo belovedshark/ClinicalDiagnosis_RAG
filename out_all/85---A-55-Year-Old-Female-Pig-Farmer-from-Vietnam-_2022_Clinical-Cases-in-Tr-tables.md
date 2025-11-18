@@ -1,0 +1,1 @@
+TABLE 85.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) 10.254-10 % Neutrophils 86.545-75 Haemoglobin (g/dL) 11.812-17 Platelets ( 109/L) 56200-400 Creatinine (mg/dL) 0.860.7-1.5 Blood urea nitrogen (mg/dL) 77-20 Na+ (mmol/l) 137135-150 K+ (mmol/l) 3.23.5-5.5 Random blood glucose (mmol/L) 15.43.9-7.8 HbA1c (%) 8.54-7 Lactate (mmol/L) 11.20.5-2.2238

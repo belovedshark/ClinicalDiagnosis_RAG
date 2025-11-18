@@ -6,5 +6,9 @@
       "page": 2,
       "path": "./Processed/images/28---A-67-Year-Old-Female-Expatriate-Living-in-Came_2022_Clinical-Cases-in-T/28---A-67-Year-Old-Female-Expatriate-Living-in-Came_2022_Clinical-Cases-in-T_p2_img1.jpeg"
     }
-  ]
+  ],
+  "table_text": "TABLE 28.1 Full Blood Count Results at Presentation\n| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10^9/L) | 6.2 | 4-10 |\n| Haemoglobin (g/dL) | 13.8 | 12-15 |\n| Platelets (10^9/L) | 155 | 150-450 |\n| Neutrophils (%) | 45 | 20-50 |\n| Eosinophils (%) | 14 | 0-6 |\n| Absolute eosinophil count (10^9/L) | 0.868 | <0.45 |\n| Band neutrophils (%) | 1 | 0-5 |\n| Lymphocytes (%) | 36 | 20-40 |\n| Monocytes (%) | 4 | 0-10 |\n| Basophils (%) | 0 | 0-2 |\n\nTABLE 28.2 Treatment of Loiasis Matched to Levels of Microfilaraemia (After Boussinesq 2012)\n| Level of Microfilaraemia | Recommended Drug Regimen |\n|---|---|\n| High (>8000mfa/mL) | Albendazole 200mg bd for 21 days, followed by ivermectin 150μg/kg stat, then DEC at slowly increasing doses. |\n| Moderate (2000-8000mf/mL) | Ivermectin 150 μg/kg stat, repeat after 1-3 months until microfilaraemia is <2000 mf/mL, this is followed by treatment with DEC. |\n| Low (<2000mf/mL) | DEC: start with low doses of 3-6mg/d if there are parasites in the blood, 50 mg/d if amicrofilaraemic, divided into 2-3 doses. The dose is doubled every day up to 400mg/d, still divided into 2-3 doses. Start treatment in hospital. Oral antihistamines or corticosteroids may be useful during the first days of treatment to reduce side effects (arthralgias, pruritus, headache, fever). Several 3-to 4-week courses of DEC administered at intervals of 2-3 weeks may be required to achieve a complete cure. |\n\nmfa = microfilariae.",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/28---A-67-Year-Old-Female-Expatriate-Living-in-Came_2022_Clinical-Cases-in-T-tables.md",
+  "table_label": "TABLE 28.1",
+  "table_caption": "Full Blood Count Results at Presentation"
 }

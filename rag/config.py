@@ -11,3 +11,5 @@ LLM_MODEL = "google/gemma-2b-it"   # or "google/gemma-7b-it" if you have GPU VRA
 # LLM_MODEL = "google/gemma-1.1-2b-it"
 
 DEVICE = "auto"  # "cuda" | "cpu" | "mps"
+# How much to boost table-matching points when the user query contains a table
+TABLE_QUERY_BOOST = 1.5

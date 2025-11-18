@@ -1,0 +1,1 @@
+TABLE 36.1 Direct Effect of Most Commonly Used Drugs on Different Stages of W. bancrofti and Brugia species Microfilariae Adults Diethylcarbamazine (DEC) ++ + Ivermectin ++ Albendazole + Doxycycline ++ ++ ¼ most eliminated; + ¼ few/some eliminated; ¼ no effect. 100
