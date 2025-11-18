@@ -1,4 +1,4 @@
-• Fig. 93.1 Extended ecchymoses in a febrile Peruvian logger with fever and jaundice 260 CHAPTER 93 A 35-Year-Old Male Logger from Peru With Fever, Jaundice and Bleeding # Page 3 SUMMARY BOX Yellow Fever Yellow fever is and arboviral infection caused by a flavivirus and transmitted by Aedes and Haemagogus mosquitoes.
+• Fig. 93.1 Extended ecchymoses in a febrile Peruvian logger with fever and jaundice.
 
 ![figure](../images/93---A-35-Year-Old-Male-Logger-from-Peru-With-Fe_2022_Clinical-Cases-in-Trop/93---A-35-Year-Old-Male-Logger-from-Peru-With-Fe_2022_Clinical-Cases-in-Trop_p2_img1.jpeg)
 

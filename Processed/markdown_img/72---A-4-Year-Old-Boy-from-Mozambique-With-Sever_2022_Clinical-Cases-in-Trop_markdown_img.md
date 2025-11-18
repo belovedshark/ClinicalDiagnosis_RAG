@@ -1,4 +1,5 @@
-• Fig. 72.1 A 5-year-old boy with generalized oedema.
+• Fig. 72.1 A 5-year-old boy with generalized oedema. .The skin i shyper
+pigmented and dry. It is peeling off like‘flakypaint’.Underneath, the skin is hypopigmented.
 
 ![figure](../images/72---A-4-Year-Old-Boy-from-Mozambique-With-Sever_2022_Clinical-Cases-in-Trop/72---A-4-Year-Old-Boy-from-Mozambique-With-Sever_2022_Clinical-Cases-in-Trop_p1_img1.jpeg)
 
