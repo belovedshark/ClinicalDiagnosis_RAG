@@ -19,7 +19,7 @@ import argparse
 import numpy as np
 from qdrant_client import QdrantClient
 from qdrant_client.http import models as rest
-from transformers import CLIPModel, CLIPProcessor
+from transformers import CLIPModel, CLIPProcessor, AutoTokenizer, AutoModel
 from PIL import Image
 import torch
 
@@ -29,64 +29,85 @@ def main():
     parser.add_argument('--host', default='http://localhost:6333', help='Qdrant URL')
     parser.add_argument('--query', type=str, help='Text query')
     parser.add_argument('--image', type=str, help='Path to image query')
-    parser.add_argument('--model', default='openai/clip-vit-base-patch32', help='CLIP model name')
+    parser.add_argument('--text-model', default='thenlper/gte-small', help='Text embedding model (must match ingestion)')
+    parser.add_argument('--image-model', default='openai/clip-vit-base-patch32', help='Image embedding model (CLIP)')
     parser.add_argument('--device', default='cpu', help='torch device (cpu or cuda)')
     parser.add_argument('--top-k', type=int, default=5, help='Number of results to retrieve')
     parser.add_argument('--dump-top-chunks', type=str, default=None,
                         help='Path to write the top-k chunk contents for debugging')
     args = parser.parse_args()
 
-    # Load CLIP
-    model = CLIPModel.from_pretrained(args.model).to(args.device)
-    processor = CLIPProcessor.from_pretrained(args.model)
+    # Load models based on query type
+    text_model = None
+    text_tokenizer = None
+    clip_model = None
+    clip_processor = None
+    
+    if args.query:
+        # Load text embedding model (same as used in ingestion)
+        print(f"Loading text model: {args.text_model}")
+        text_tokenizer = AutoTokenizer.from_pretrained(args.text_model)
+        text_model = AutoModel.from_pretrained(args.text_model).to(args.device)
+    
+    if args.image:
+        # Load CLIP for image queries
+        print(f"Loading image model: {args.image_model}")
+        clip_model = CLIPModel.from_pretrained(args.image_model).to(args.device)
+        clip_processor = CLIPProcessor.from_pretrained(args.image_model)
 
     # Connect to Qdrant
     client = QdrantClient(url=args.host)
     print(f"Connected to Qdrant at {args.host}")
 
     # Create query vector (text or image)
+    is_image_query = False
     if args.query:
-        inputs = processor(text=args.query, return_tensors='pt', truncation=True).to(args.device)
+        # Use text embedding model (GTE) for text queries
+        inputs = text_tokenizer(args.query, return_tensors='pt', padding=True, truncation=True, max_length=512).to(args.device)
         with torch.no_grad():
-            query_emb = model.get_text_features(**inputs).cpu().numpy()[0]
-        print(f"Generated text embedding for query: {args.query}")
+            outputs = text_model(**inputs)
+            # Use mean pooling for GTE model
+            if hasattr(outputs, 'pooler_output') and outputs.pooler_output is not None:
+                query_emb = outputs.pooler_output.cpu().numpy()[0]
+            else:
+                # Mean pooling
+                token_embeddings = outputs.last_hidden_state
+                attention_mask = inputs['attention_mask']
+                input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+                sum_embeddings = torch.sum(token_embeddings * input_mask_expanded, 1)
+                sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+                query_emb = (sum_embeddings / sum_mask).cpu().numpy()[0]
+        print(f"Generated text embedding (384-dim) for query: {args.query[:60]}...")
+        vector_name = 'text'
 
     elif args.image:
+        # Use CLIP for image queries
         img = Image.open(args.image).convert('RGB')
-        inputs = processor(images=img, return_tensors='pt').to(args.device)
+        inputs = clip_processor(images=img, return_tensors='pt').to(args.device)
         with torch.no_grad():
-            query_emb = model.get_image_features(**inputs).cpu().numpy()[0]
-        print(f"Generated image embedding for {args.image}")
+            query_emb = clip_model.get_image_features(**inputs).cpu().numpy()[0]
+        print(f"Generated image embedding (512-dim) for {args.image}")
+        vector_name = 'image'
+        is_image_query = True
 
     else:
         raise ValueError("Provide either --query (text) or --image (path).")
 
-    # Search Qdrant. Different qdrant-client versions expose different methods.
-    # Prefer `search` (returns a list of scored points). Fall back to `query_points`
-    # for older/newer variants if needed.
-    if hasattr(client, 'search'):
-        results = client.search(
-            collection_name=args.collection,
-            query_vector=query_emb.tolist(),
-            limit=args.top_k,
-            with_payload=True,
-        )
-    else:
-        # Older API variant used in some client versions
-        results = client.query_points(
-            collection_name=args.collection,
-            query_vector=query_emb.tolist(),
-            limit=args.top_k
-        )
+    # Search Qdrant using named vectors
+    # For qdrant-client v1.16.0+, use query with NamedVector
+    from qdrant_client.models import NamedVector, QueryRequest
+    
+    results = client.query_points(
+        collection_name=args.collection,
+        query=query_emb.tolist(),
+        using=vector_name,
+        limit=args.top_k,
+        with_payload=True,
+    ).points
 
-    # Display results (handle both return shapes)
+    # Display results
     print(f"\nTop {args.top_k} results:")
-
-    # `results` may be an object with `.points` (query_points) or a list (search)
-    if hasattr(results, 'points'):
-        points = results.points
-    else:
-        points = results
+    points = results
 
     # If requested, dump the full content of each top chunk to a file for debugging
     if args.dump_top_chunks:

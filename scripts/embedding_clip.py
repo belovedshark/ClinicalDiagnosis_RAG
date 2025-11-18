@@ -39,6 +39,38 @@ except Exception:
 
 # ------------------ Utilities ------------------
 
+def clean_text(text: str) -> str:
+    """Clean and normalize text for embedding and storage."""
+    if not text:
+        return text
+
+    # replace non-breaking spaces with normal spaces
+    text = text.replace('\u00A0', ' ')
+
+    # remove control characters (including those strange 0x01/0x03 artifacts)
+    text = re.sub(r'[\x00-\x1F\x7F]+', ' ', text)
+
+    # normalize various dash characters to simple hyphen
+    text = re.sub(r'[–—―]+', '-', text)
+
+    # collapse multiple whitespace into single space/newline preserving newlines
+    # normalize newlines first
+    text = re.sub(r'\r\n?', '\n', text)
+    # collapse runs of spaces/tabs
+    text = re.sub(r'[ \t]+', ' ', text)
+
+    # fix split numbers (like "4 8" -> "48")
+    text = re.sub(r'(?<=\d)\s+(?=\d)', '', text)
+
+    # normalize hyphen spacing
+    text = re.sub(r'\s*-\s*', '-', text)
+
+    # collapse multiple blank lines
+    text = re.sub(r'\n\s*\n+', '\n\n', text)
+
+    return text.strip()
+
+
 def safe_read_text(p: Path) -> str:
     try:
         return p.read_text(encoding='utf-8')
@@ -493,7 +525,7 @@ def main():
             for i in range(0, len(text_chunks), bs):
                 batch = [c['text'] for c in text_chunks[i:i+bs]]
                 try:
-                    inputs = text_tokenizer(batch, return_tensors='pt', padding=True, truncation=True).to(device)
+                    inputs = text_tokenizer(batch, return_tensors='pt', padding=True, truncation=True, max_length=512).to(device)
                     with torch.no_grad():
                         outputs = text_model(**inputs)
                         if hasattr(outputs, 'pooler_output') and outputs.pooler_output is not None:
@@ -506,7 +538,7 @@ def main():
                     # try one-by-one fallback
                     for s in batch:
                         try:
-                            inp = text_tokenizer(s, return_tensors='pt', padding=True, truncation=True).to(device)
+                            inp = text_tokenizer(s, return_tensors='pt', padding=True, truncation=True, max_length=512).to(device)
                             with torch.no_grad():
                                 out = text_model(**inp)
                                 if hasattr(out, 'pooler_output') and out.pooler_output is not None:
@@ -528,7 +560,7 @@ def main():
             all_tab_embs = []
             for i in range(0, len(table_chunks), bs):
                 batch = [c['text'] for c in table_chunks[i:i+bs]]
-                inputs = text_tokenizer(batch, return_tensors='pt', padding=True, truncation=True).to(device)
+                inputs = text_tokenizer(batch, return_tensors='pt', padding=True, truncation=True, max_length=512).to(device)
                 with torch.no_grad():
                     outputs = text_model(**inputs)
                     if hasattr(outputs, 'pooler_output') and outputs.pooler_output is not None:
@@ -637,7 +669,9 @@ def main():
         'num_files': len(summary)
     }
     write_json(out_emb / 'summary.json', meta)
-    print('Done. Saved embeddings to', out_emb)
+    print(f'\n✨ Done! Successfully processed {len(summary)} files.')
+    print(f'📁 Embeddings saved to: {out_emb}')
+    print(f'📊 Summary: {out_emb / "summary.json"}')
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 # rag/retriever.py
 import os
 from qdrant_client import QdrantClient
-from transformers import CLIPModel, CLIPProcessor
+from transformers import CLIPModel, CLIPProcessor, AutoTokenizer, AutoModel
 from PIL import Image
 import torch
 import numpy as np
@@ -13,9 +13,10 @@ from .config import TABLE_QUERY_BOOST
 class Retriever:
     def __init__(self,
                  collection="documents",
-                 model_name="openai/clip-vit-base-patch32",
+                 text_model_name="thenlper/gte-small",
+                 image_model_name="openai/clip-vit-base-patch32",
                  device="cpu"):
-        """Retriever that queries Qdrant Cloud and uses CLIP for query encoding.
+        """Retriever that queries Qdrant and uses appropriate models for encoding.
 
         Qdrant URL and API key are read from environment variables if present:
         - QDRANT_URL
@@ -35,33 +36,53 @@ class Retriever:
         self.client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
         print(f"🔗 Connected to Qdrant at {qdrant_url}")
 
-        # Load CLIP model
-        print(f"🧠 Loading CLIP model: {model_name} (device={device})")
-        # Normalize device string for torch
+        # Load text embedding model (for text queries)
+        print(f"🧠 Loading text model: {text_model_name} (device={device})")
         try:
-            self.model = CLIPModel.from_pretrained(model_name).to(device)
-        except Exception:
-            # Fall back to CPU if an invalid device string was passed
-            print(f"Warning: failed to load CLIP on device '{device}', falling back to cpu")
-            self.model = CLIPModel.from_pretrained(model_name).to("cpu")
+            self.text_tokenizer = AutoTokenizer.from_pretrained(text_model_name)
+            self.text_model = AutoModel.from_pretrained(text_model_name).to(device)
+        except Exception as e:
+            print(f"Warning: failed to load text model on device '{device}', falling back to cpu: {e}")
+            self.text_model = AutoModel.from_pretrained(text_model_name).to("cpu")
             self.device = "cpu"
 
-        self.processor = CLIPProcessor.from_pretrained(model_name)
+        # Load CLIP model (for image queries)
+        print(f"🧠 Loading CLIP model: {image_model_name} (device={device})")
+        try:
+            self.clip_model = CLIPModel.from_pretrained(image_model_name).to(device)
+        except Exception:
+            print(f"Warning: failed to load CLIP on device '{device}', falling back to cpu")
+            self.clip_model = CLIPModel.from_pretrained(image_model_name).to("cpu")
+
+        self.clip_processor = CLIPProcessor.from_pretrained(image_model_name)
 
     def embed_query(self, query_text=None, query_image=None):
-        """Generate CLIP embeddings from text or image query."""
+        """Generate embeddings from text or image query using appropriate models."""
         if query_text:
-            inputs = self.processor(text=query_text, return_tensors='pt', truncation=True)
+            # Use GTE text model for text queries (384-dim)
+            inputs = self.text_tokenizer(query_text, return_tensors='pt', padding=True, truncation=True, max_length=512)
             inputs = {k: v.to(self.device) for k, v in inputs.items()}
             with torch.no_grad():
-                emb = self.model.get_text_features(**inputs).cpu().numpy()[0]
+                outputs = self.text_model(**inputs)
+                # Use mean pooling for GTE model
+                if hasattr(outputs, 'pooler_output') and outputs.pooler_output is not None:
+                    emb = outputs.pooler_output.cpu().numpy()[0]
+                else:
+                    # Mean pooling
+                    token_embeddings = outputs.last_hidden_state
+                    attention_mask = inputs['attention_mask']
+                    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+                    sum_embeddings = torch.sum(token_embeddings * input_mask_expanded, 1)
+                    sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+                    emb = (sum_embeddings / sum_mask).cpu().numpy()[0]
             return emb
         elif query_image:
+            # Use CLIP for image queries (512-dim)
             img = Image.open(query_image).convert('RGB')
-            inputs = self.processor(images=img, return_tensors='pt')
+            inputs = self.clip_processor(images=img, return_tensors='pt')
             inputs = {k: v.to(self.device) for k, v in inputs.items()}
             with torch.no_grad():
-                emb = self.model.get_image_features(**inputs).cpu().numpy()[0]
+                emb = self.clip_model.get_image_features(**inputs).cpu().numpy()[0]
             return emb
         else:
             raise ValueError("Provide either query_text or query_image.")
@@ -73,6 +94,8 @@ class Retriever:
         # retrieval is biased towards table chunks.
         table_query = False
         parsed_table = None
+        is_image_query = query_image is not None
+        
         if query_text and is_table_query(query_text):
             table_query = True
             parsed_table = parse_query_table(query_text)
@@ -81,31 +104,23 @@ class Retriever:
         else:
             query_emb = self.embed_query(query_text, query_image)
 
-        # Use `search` if available (returns scored points), otherwise fall back
-        # to `query_points`. Request a larger pool so we can boost table candidates
-        # and then take the top_k after re-scoring.
-        pool_k = max(top_k * 10, top_k + 10)
-        if hasattr(self.client, 'search'):
-            results = self.client.search(
-                collection_name=self.collection,
-                query_vector=query_emb.tolist(),
-                limit=pool_k,
-                with_payload=True,
-            )
-        else:
-            # Older client variants
-            results = self.client.query_points(
-                collection_name=self.collection,
-                query_vector=query_emb.tolist(),
-                limit=pool_k,
-                with_payload=True,
-            )
+        # Determine which named vector to search (text or image)
+        vector_name = 'image' if is_image_query else 'text'
 
-        # Normalize results to an iterable of points
-        if hasattr(results, 'points'):
-            points = results.points
-        else:
-            points = results
+        # Use query_points with named vectors. Request a larger pool so we can boost 
+        # table candidates and then take the top_k after re-scoring.
+        pool_k = max(top_k * 10, top_k + 10)
+        
+        results = self.client.query_points(
+            collection_name=self.collection,
+            query=query_emb.tolist(),
+            using=vector_name,
+            limit=pool_k,
+            with_payload=True,
+        )
+        
+        # Extract points from results
+        points = results.points if hasattr(results, 'points') else results
 
         if not points:
             print("⚠️ No results found.")
