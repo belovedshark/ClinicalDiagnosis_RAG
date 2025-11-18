@@ -38,11 +38,26 @@ except Exception:
 
 
 PROMPT_TEMPLATE = (
-    "Given this record content:\n\n{CONTEXT}\n\n"
-    "Produce up to 3 clinically meaningful questions (include patient situations context, image path or table (in markdown format)) that can be answered ONLY by information inside this record. "
-    "For each question return JSON only with fields `question`, `gold_answer`, and `gold_evidence` (exact supporting sentence(s) from the record). "
-    "The `question` should include: most likely diagnosis, key differential(s), and a brief recommended management approach when applicable. Return JSON only."
-)
+    """
+    Given this record content:\n\n{CONTEXT}\n\n
+    You are creating evaluation data for a medical RAG system. Your job is to generate questions that are 100% answerable ONLY using the content of the provided medical record.
+    You must strictly avoid external medical knowledge, reasoning beyond the text, or fabricated clinical details.
+    Produce up to 3 clinically meaningful questions (include patient situations context, table (in markdown format)) that can be answered ONLY by information inside this record.
+
+    Generate exactly 3 clinically meaningful questions that:
+    - MUST be fully answerable using ONLY information inside this record.
+    - MUST reflect the exact wording and facts from the record.
+    - MUST be short and about a single part (ideal length: 1-3 sentences) since the maximum CLIP token limit is 77 tokens.
+    - MUST NOT require external medical knowledge, assumptions, or reasoning beyond the text.
+
+    
+    For each question, provide:
+    1. "question": A clear question using ONLY record-specific information.
+    2. "gold_answer": A correct, concise answer derived EXACTLY from the record.
+    3. "gold_evidence": The exact sentences, clauses, or lines in the record that support the answer. 
+    The `question` should include: most likely diagnosis, key differential(s), and a brief recommended management approach when applicable. Return JSON only.
+    """
+   )
 
 
 def safe_parse_json(text: str) -> Optional[dict]:
