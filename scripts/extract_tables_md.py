@@ -17,14 +17,14 @@ import re
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple
 
-
+# create a compiled regex with optional case-insensitive flag
 def compile_regex(pattern: str, case_sensitive: bool) -> re.Pattern:
     flags = re.MULTILINE
     if not case_sensitive:
         flags |= re.IGNORECASE
     return re.compile(pattern, flags)
 
-
+# Find all positions where the start signal matches (ex: Tbal)
 def find_start_matches(text: str, start_re: re.Pattern) -> List[re.Match]:
     return list(start_re.finditer(text))
 
