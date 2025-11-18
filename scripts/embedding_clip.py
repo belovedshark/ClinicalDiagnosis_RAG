@@ -2,12 +2,18 @@
 """
 embedding_clip.py
 
-Chunk markdowns under <input_root>/markdown and compute CLIP text & image embeddings.
-Saves embeddings to <output_root>/embeddings.
+Upgraded embedding pipeline:
+- Reading-order assembly from: markdown (text), markdown_img (captions + image paths), out_all_structured (tables), images dir
+- Semantic chunking (sentence split -> group to target token count with overlap)
+- Text & table embeddings with a GTE-style model (default: thelper/gte-small)
+- Image embeddings with CLIP image encoder (openai/clip-vit-base-patch32)
+- Avoid passing long text to CLIP (CLIP used only for images)
+- Outputs per-case .npy embeddings and a JSON index preserving reading order
 
-python scripts/embedding_clip.py --input-root Processed --output-root Processed_embeddings --model openai/clip-vit-base-patch32 --device cpu
+Usage example:
+python scripts/embedding_clip.py --input-root Processed --output-root Processed_embeddings \
+  --text-model thelper/gte-small --image-model openai/clip-vit-base-patch32 --device cpu
 
-Usage:
 """
 from __future__ import annotations
 import argparse
@@ -16,535 +22,560 @@ from pathlib import Path
 from tqdm import tqdm
 import numpy as np
 import re
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
+import sys
+import os
 
-def tokenize_chunks(tokenizer, text: str, max_tokens:int, overlap:int):
-    # token_ids = tokenizer.encode(text, add_special_tokens=False)
-    encoded = tokenizer(text, add_special_tokens=False)['input_ids']
-    chunks = []
-    step = max_tokens - overlap if max_tokens > overlap else max_tokens
-    i = 0
-    cid = 0
-    while i < len(encoded):
-        chunk_ids = encoded[i:i+max_tokens]
-        chunk_text = tokenizer.decode(chunk_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)
-        chunks.append({'id': cid, 'text': chunk_text, 'start_token': i, 'end_token': i+len(chunk_ids)})
-        cid += 1
-        if i + max_tokens >= len(encoded):
-            break
-        i += step
-    chunks = merge_short_chunks(chunks)
-    return chunks
+# try to import nltk punkt
+try:
+    import nltk
+    nltk.data.find('tokenizers/punkt')
+except Exception:
+    try:
+        import nltk
+        nltk.download('punkt')
+    except Exception:
+        pass
 
-def chunk_text_charwise(text: str, max_chars:int, overlap:int):
-    if not text:
-        return []
-    chunks = []
-    start = 0
-    step = max_chars - overlap if max_chars > overlap else max_chars
-    cid = 0
-    while start < len(text):
-        end = min(start + max_chars, len(text))
-        snippet = text[start:end].strip()
-        if snippet:
-            chunks.append({'id': cid, 'text': snippet, 'start_char': start, 'end_char': end})
-            cid += 1
-        if end == len(text):
-            break
-        start += step
-    return chunks
+# ------------------ Utilities ------------------
 
-def merge_short_chunks(chunks, min_len=50):
+def safe_read_text(p: Path) -> str:
+    try:
+        return p.read_text(encoding='utf-8')
+    except Exception:
+        try:
+            return p.read_text(encoding='latin-1')
+        except Exception:
+            return ''
+
+
+def write_json(path: Path, obj):
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+# simple caption parser for markdown_img files
+CAPTION_LINE_RE = re.compile(r"^\s*(?:[-*\u2022]?\s*)?(Fig(?:ure)?\.?)\s*\d+(?:\.\d+)*(?:[A-Za-z])?\b.*", re.I)
+IMAGE_MD_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
+PATH_SUFFIX_RE = re.compile(r"\.(?:jpe?g|png|webp|bmp)$", re.I)
+
+
+def parse_markdown_img(md_text: str) -> List[Dict[str, str]]:
+    """Parse a markdown_img file into a list of {'label','caption','path'} preserving order."""
+    lines = md_text.splitlines()
+    items: List[Dict[str, str]] = []
+    for ln in lines:
+        ln_strip = ln.strip()
+        # try line-level caption
+        if CAPTION_LINE_RE.match(ln_strip):
+            # capture the caption line and find any path within same or next lines
+            caption = ln_strip
+            items.append({'label': None, 'caption': caption, 'path': None})
+            continue
+        # try inline image markdown
+        m = IMAGE_MD_RE.search(ln)
+        if m:
+            path = m.group(1).strip()
+            # attach to last caption if present and missing path
+            if items and items[-1]['path'] is None:
+                items[-1]['path'] = path
+            else:
+                items.append({'label': None, 'caption': None, 'path': path})
+    # normalize paths (strip surrounding quotes, spaces)
+    for it in items:
+        if it['path']:
+            it['path'] = it['path'].strip().strip('"').strip("'")
+    return items
+
+
+# ------------------ Chunking ------------------
+
+def sentence_split(text: str) -> List[str]:
+    try:
+        from nltk.tokenize import sent_tokenize
+        sents = sent_tokenize(text)
+        return [s.strip() for s in sents if s.strip()]
+    except Exception:
+        # fallback simple split
+        sents = [s.strip() for s in re.split(r'(?<=[\.\?\!])\s+', text) if s.strip()]
+        return sents
+
+def merge_short_chunks(chunks, min_len=80):
+    """
+    Merge adjacent chunks that are too short so we avoid tiny meaningless fragments.
+    chunks = list of {'id','text',...}
+    """
+    if not chunks:
+        return chunks
+
     merged = []
-    buffer = ""
-    for c in chunks:
-        if len(c["text"]) < min_len:
-            buffer += " " + c["text"]
+    buf = chunks[0]['text']
+
+    for c in chunks[1:]:
+        if len(buf) < min_len:
+            buf += " " + c['text']
         else:
-            if buffer:
-                merged.append({"id": len(merged), "text": buffer.strip()})
-                buffer = ""
-            merged.append(c)
-    if buffer:
-        merged.append({"id": len(merged), "text": buffer.strip()})
+            merged.append({'id': 0, 'text': buf})
+            buf = c['text']
+
+    merged.append({'id': 0, 'text': buf})
+    # reassign proper IDs
+    for i, m in enumerate(merged):
+        m['id'] = i
+
     return merged
 
+def semantic_chunker_using_tokenizer(tokenizer, text: str, chunk_tokens: int, overlap_tokens: int) -> List[Dict]:
+    """Split by sentences then group sentences until chunk_tokens (approx via tokenizer)"""
+    if not text or text.strip() == '':
+        return []
+    sents = sentence_split(text)
+    sent_tokens: List[int] = []
+    for s in sents:
+        try:
+            ids = tokenizer(s, add_special_tokens=False)['input_ids']
+            sent_tokens.append(len(ids))
+        except Exception:
+            sent_tokens.append(max(1, len(s.split())))
 
-def clean_text(text: str) -> str:
-    """Lightweight cleaning for OCR/extraction artifacts:
-    - remove page header lines like 'page 12' or '# page 12'
-    - collapse spaces between digits (e.g. '1 4' -> '14')
-    - normalize spaces around hyphens (e.g. ' - ' -> '-')
-    - collapse extra whitespace and trim
-    """
-    if not text:
-        return text
-
-    # Normalize unicode whitespace (non-breaking, zero-width) to regular spaces
-    text = re.sub(r'[\u00A0\u200B\u202F]+', ' ', text)
-
-    # Remove page header lines like '# Page 12' but avoid removing long lines
-    # that accidentally begin with the word 'Page' followed by the article title
-    # (some files have long single-line paragraphs). Filter line-by-line
-    # and only drop short header lines.
-    original_text = text
-    lines = text.splitlines()
-    kept_lines = []
-    for ln in lines:
-        if re.match(r'(?i)^[#\s]*page\b', ln):
-            # drop only if the line looks like a short page header
-            if len(ln.strip()) < 120:
-                continue
-        kept_lines.append(ln)
-    text = "\n".join(kept_lines)
-
-    # Remove obvious image/file markers like '_2022_' or 'img 1'
-    text = re.sub(r'[_\-]*\s*\d{4}\s*[_\-]*', ' ', text)
-    text = re.sub(r'img\s*\d+', '', text, flags=re.IGNORECASE)
-
-    # Remove underscores and multiple hyphens
-    text = re.sub(r'[_\-]{2,}', '-', text)
-
-    # Collapse spaced-out letters/numbers: '2 0 2 2' -> '2022', 'c a s e' -> 'case'
-    text = re.sub(r'(?<=\b\w)\s+(?=\w\b)', '', text)
-
-    # Remove isolated underscores and stray punctuation
-    text = re.sub(r'[_/\\]+', ' ', text)
-
-    # Normalize spaces around hyphens or commas
-    text = re.sub(r'\s*-\s*', '-', text)
-    text = re.sub(r'\s*,\s*', ', ', text)
-
-    # Collapse multiple spaces or tabs
-    text = re.sub(r'[ \t]+', ' ', text)
-
-    # Collapse multiple blank lines
-    text = re.sub(r'\n\s*\n+', '\n\n', text)
-
-    # Remove leftover punctuation artifacts
-    text = re.sub(r'[-–]{2,}', '-', text)
-    text = re.sub(r'[()]', '', text)
-    
-    # Join split words from OCR (e.g. "infec- tion" → "infection")
-    text = re.sub(r'(\w+)-\s+(\w+)', r'\1\2', text)
-    
-    # Normalize spacing around punctuation
-    text = re.sub(r'\s+([.,;:!?])', r'\1', text)
-
-    # --- Additional safe fixes for numeric and OCR artifacts ---
-    # Join digit groups that were split by spaces (e.g. '1 0 3' -> '103')
-    # Join any whitespace between digits (covers NBSP/zero-width added above)
-    text = re.sub(r'(?<=\d)\s+(?=\d)', '', text)
-    # Ensure a space before common medical units when they were glued to numbers
-    text = re.sub(r'(?i)(\d+)(?=(mmhg|bpm|kg|cm|%))', r"\1 ", text)
-    # Normalize common unit casing
-    text = re.sub(r'(?i)\bmmhg\b', 'mmHg', text)
-    # --- Blood-pressure reconstruction heuristic ---
-    # Convert four-digit numbers followed by mmHg (e.g. '9060 mmHg') into '90/60 mmHg'
-    # only when the split into two 2-digit numbers yields plausible BP values.
-    def _format_bp(match):
-        num = match.group(1)
-        unit = match.group(2)
-        # split into two 2-digit parts
-        a = int(num[:2])
-        b = int(num[2:])
-        # sanity ranges: systolic 30-250, diastolic 20-200
-        if 30 <= a <= 250 and 20 <= b <= 200:
-            return f"{a}/{b} {unit}"
-        return match.group(0)
-
-    text = re.sub(r'\b(\d{4})\s*(mmHg)\b', _format_bp, text)
-    # Fix decimals where spaces surround the dot: '39 . 6' -> '39.6'
-    text = re.sub(r'(?<=\d)\s*\.\s*(?=\d)', '.', text)
-    # Remove spaces between digits and percent sign: '1 5 %' -> '15%'
-    text = re.sub(r'(?<=\d)\s+%(?=\s|$)', '%', text)
-    # Collapse spaced-out single letters/numbers left from OCR (e.g. 'c a s e' -> 'case')
-    # But be conservative: only collapse when it's sequences of single letters separated by spaces
-    text = re.sub(r'(?:(?<=\s)|^)(?:[A-Za-z0-9]\s+){2,}[A-Za-z0-9](?=(?:\s|$))',
-                  lambda m: m.group(0).replace(' ', ''), text)
-
-    # Remove stray multi-space clusters again
-    text = re.sub(r'[ \t]{2,}', ' ', text)
-    return text.strip()
-
-
-def extract_tables_from_markdown(text: str) -> List[Dict[str, Optional[str]]]:
-    """Find simple markdown-style tables (pipe-separated) and TABLE label/caption blocks.
-    Returns a list of dicts: {'text': <table_text>, 'label': <label or None>, 'caption': <caption or None>}.
-
-    Heuristic approach:
-    - Detect contiguous blocks where a header line contains '|' and the next line looks like a separator (---|:---)
-      (common markdown table). Capture the whole contiguous block of pipe-containing lines.
-    - For each captured block, look up to 3 non-empty previous lines for a TABLE label/caption like "TABLE 4.1 ..." or "Table 4.1 ...".
-    - Remove found table blocks from the original text by replacing with a single blank line to avoid double-embedding.
-    """
-    lines = text.splitlines()
+    chunks = []
     i = 0
-    n = len(lines)
-    tables = []
-    to_remove_ranges = []
-    inline_substrings: List[str] = []
-
-    def find_label_caption(before_lines: List[str]) -> tuple[Optional[str], Optional[str]]:
-        label = None
-        caption = None
-        for ln in reversed(before_lines[-3:]):
-            m = re.match(r'(?i)^(TABLE|Table)\s+([^\-\n\r]+)\s*-?\s*(.*)$', ln.strip())
-            if m:
-                label = m.group(1) + ' ' + m.group(2).strip()
-                # remaining part may be caption
-                rem = m.group(3).strip()
-                if rem:
-                    caption = rem
+    cid = 0
+    total_sents = len(sents)
+    while i < total_sents:
+        cur = 0
+        start = i
+        parts = []
+        while i < total_sents and (cur < chunk_tokens or len(parts) == 0):
+            parts.append(sents[i])
+            cur += sent_tokens[i]
+            i += 1
+        chunk_text = ' '.join(parts).strip()
+        start_token = sum(sent_tokens[:start])
+        end_token = start_token + cur
+        chunks.append({'id': cid, 'text': chunk_text, 'start_token': start_token, 'end_token': end_token})
+        cid += 1
+        if i >= total_sents:
+            break
+        # create overlap: move i back to sentence index corresponding to end_token - overlap_tokens
+        target = max(0, end_token - overlap_tokens)
+        acc = 0
+        new_i = 0
+        for si, tlen in enumerate(sent_tokens):
+            if acc + tlen > target:
+                new_i = si
                 break
-        return label, caption
-
-    while i < n:
-        # pipe-style table detection: a line with | and following line that contains >=3 hyphens or pipes
-        if '|' in lines[i] and i + 1 < n and re.search(r'^[\s\|:>-]*-+[\s\|:-]*$', lines[i+1]):
-            start = i
-            # capture preceding header line if it's part of the table header
-            # grab contiguous pipe-containing lines
-            j = i
-            while j < n and ('|' in lines[j] or re.match(r'^[\s\|:>-]*-+[\s\|:-]*$', lines[j])):
-                j += 1
-            table_block = '\n'.join(lines[start:j]).strip()
-            # look back for label/caption within previous 3 non-empty lines
-            before = [ln for ln in lines[:start] if ln.strip()]
-            label, caption = find_label_caption(before)
-            tables.append({'text': table_block, 'label': label, 'caption': caption})
-            to_remove_ranges.append((start, j))
-            i = j
-            continue
-        # fallback: a standalone TABLE label line followed by an indented/code/table block
-        m = re.match(r'(?i)^(TABLE|Table)\b', lines[i].strip())
-        if m:
-            start = i
-            j = i + 1
-            # include subsequent non-empty lines until a blank line or a heading/page marker
-            # but limit capture to avoid swallowing the whole document when tables are inline in long paragraphs
-            max_lines = 20
-            while j < n and j < start + max_lines and lines[j].strip() and not re.match(r'(?i)^#\s*page\b', lines[j]) and not re.match(r'^#{1,6}\s', lines[j]):
-                j += 1
-            block = '\n'.join(lines[start:j]).strip()
-            label = lines[start].strip()
-            caption = None
-            # try to extract a short caption from the first line after label if present
-            if start + 1 < n and lines[start + 1].strip():
-                caption = lines[start + 1].strip()
-            tables.append({'text': block, 'label': label, 'caption': caption})
-            to_remove_ranges.append((start, j))
-            i = j
-            continue
-
-        # additional heuristic: detect inline 'TABLE' occurrences embedded in paragraphs
-        if re.search(r'(?i)\bTABLE\b', lines[i]) and '|' not in lines[i]:
-            # capture from this line until the next blank line or page/heading marker
-            # but limit the number of lines captured to avoid greedy matches in single-paragraph files
-            start = i
-            j = i + 1
-            max_lines_inline = 10
-            while j < n and j < start + max_lines_inline and lines[j].strip() and not re.match(r'(?i)^#\s*page\b', lines[j]) and not re.match(r'^#{1,6}\s', lines[j]):
-                j += 1
-            # extract the label token from the line if present
-            lm = re.search(r'(?i)(TABLE\s*\d+[\.\d]*)', lines[i])
-            label = lm.group(0) if lm else None
-            caption = None
-            if lm:
-                rest = lines[i][lm.end():].strip()
-                if rest:
-                    caption = rest[:120].strip()
-
-            # If the file is a single very long line or the line itself is huge, extract a window
-            # around the TABLE match instead of swallowing the whole long line.
-            LONG_LINE_THRESHOLD = 800
-            WINDOW = 400
-            line_text = lines[i]
-            if lm and (len(line_text) > LONG_LINE_THRESHOLD or (n == 1 and len(line_text) > 400)):
-                sidx, eidx = lm.span()
-                start_char = max(0, sidx - WINDOW)
-                end_char = min(len(line_text), eidx + WINDOW)
-                block = line_text[start_char:end_char].strip()
-                # record substring to remove later from the large single line
-                inline_substrings.append(block)
-                tables.append({'text': block, 'label': label, 'caption': caption})
-                i = j
-                continue
-
-            block = '\n'.join(lines[start:j]).strip()
-            tables.append({'text': block, 'label': label, 'caption': caption})
-            to_remove_ranges.append((start, j))
-            i = j
-            continue
-
-        i += 1
-
-    # Remove ranges from the original text by replacing with a single blank line (preserve positions roughly)
-    if to_remove_ranges:
-        new_lines = []
-        ri = 0
-        ranges = sorted(to_remove_ranges)
-        for (s, e) in ranges:
-            # append lines before s that haven't been appended
-            while ri < s and ri < n:
-                new_lines.append(lines[ri])
-                ri += 1
-            # insert a blank line placeholder
-            new_lines.append('')
-            ri = e
-        while ri < n:
-            new_lines.append(lines[ri])
-            ri += 1
-        new_text = '\n'.join(new_lines)
-    else:
-        new_text = text
-
-    return tables, new_text
+            acc += tlen
+        i = new_i
+    # merge very short chunks
+    chunks = merge_short_chunks(chunks, min_len=80)
+    return chunks
 
 
-def parse_structured_tables_file(text: str) -> List[Dict[str, Optional[str]]]:
-    """Parse an out_all_structured file content into table blocks.
-    Strategy: iterate lines, start a block when a line begins with TABLE/Table, collect until a blank line.
-    Returns list of {'text', 'label', 'caption'}.
-    """
-    lines = text.splitlines()
-    blocks = []
-    i = 0
-    n = len(lines)
-    while i < n:
-        ln = lines[i].strip()
-        if re.match(r'(?i)^(TABLE|Table)\b', ln):
-            start = i
-            # include subsequent lines until a blank line
-            j = i + 1
-            while j < n and lines[j].strip() != '':
-                j += 1
-            block_lines = lines[start:j]
-            block = '\n'.join(block_lines).strip()
-            # extract label and caption from first line
-            m = re.match(r'(?i)^(TABLE\s*[^\s]*)(?:\s*(.*))?$', block_lines[0].strip())
-            if m:
-                label = m.group(1).strip()
-                caption = m.group(2).strip() if m.group(2) else None
-            else:
-                label = None
-                caption = None
-            blocks.append({'text': block, 'label': label, 'caption': caption})
-            i = j
-            continue
-        i += 1
-    return blocks
+# ------------------ Embedding helpers ------------------
+
+def chunk_text_charwise(text: str, max_chars: int = 1000, overlap: int = 100):
+    chunks = []
+    start = 0
+    n = len(text)
+    cid = 0
+    while start < n:
+        end = min(n, start + max_chars)
+        chunk = text[start:end].strip()
+        chunks.append({"id": cid, "text": chunk})
+        cid += 1
+        start = max(0, end - overlap)
+    return chunks
+
+def mean_pooling(model_output, attention_mask):
+    token_embeddings = model_output.last_hidden_state
+    if attention_mask is None:
+        return token_embeddings.mean(1)
+    input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+    sum_embeddings = torch.sum(token_embeddings * input_mask_expanded, 1)
+    sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+    return sum_embeddings / sum_mask
+
+
+# ------------------ Main ------------------
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input-root', default='Processed', help='Root with markdown/ and images/')
-    parser.add_argument('--output-root', default='Processed', help='Root to write embeddings into <output-root>/embeddings/')
-    parser.add_argument('--model', default='openai/clip-vit-base-patch32', help='HF CLIP model name')
-    parser.add_argument('--device', default='cpu', help='torch device (cpu or cuda)')
-    parser.add_argument('--max-tokens', type=int, default=77, help='Max tokens per text chunk (CLIP default 77)')
-    parser.add_argument('--token-overlap', type=int, default=10, help='Token overlap between chunks')
-    parser.add_argument('--max-chars', type=int, default=1000, help='(fallback) char chunk size when tokenizer unavailable')
+    parser.add_argument('--input-root', default='Processed')
+    parser.add_argument('--output-root', default='Processed_embeddings')
+    parser.add_argument('--text-model', default='thelper/gte-small')
+    parser.add_argument('--image-model', default='openai/clip-vit-base-patch32')
+    parser.add_argument('--device', default='cpu')
+    parser.add_argument('--chunk-tokens', type=int, default=320)
+    parser.add_argument('--chunk-overlap', type=int, default=64)
+    parser.add_argument('--batch-size', type=int, default=4)
+    parser.add_argument('--markdown-img-dir', default='markdown_img')
+    parser.add_argument('--tables-dir', default='out_all_structured')
+    parser.add_argument('--debug', action='store_true')
     args = parser.parse_args()
 
     input_root = Path(args.input_root)
     markdown_dir = input_root / 'markdown'
+    markdown_img_dir = input_root / args.markdown_img_dir
     images_root = input_root / 'images'
-    out_emb = Path(args.output_root) / 'embeddings'
-    # out_emb.mkdir(parents=True, exist_ok=True)
-    out_text = out_emb / 'text'; out_img = out_emb / 'image'
+    tables_dir = input_root / args.tables_dir
+
+    out_root = Path(args.output_root)
+    out_emb = out_root / 'embeddings'
+    out_text = out_emb / 'text'; out_table = out_emb / 'table'; out_img = out_emb / 'image'
     out_text.mkdir(parents=True, exist_ok=True)
+    out_table.mkdir(parents=True, exist_ok=True)
     out_img.mkdir(parents=True, exist_ok=True)
 
     if not markdown_dir.exists():
-        print('Markdown folder not found:', markdown_dir)
+        print('markdown folder missing:', markdown_dir)
         return
 
-    # Load CLIP via transformers
+    # load models
     try:
-        from transformers import CLIPModel, CLIPProcessor
         import torch
+        from transformers import AutoTokenizer, AutoModel, CLIPModel, CLIPProcessor
     except Exception as e:
-        raise RuntimeError('Install transformers and torch: pip install transformers torch') from e
+        print('Please install transformers and torch:', e)
+        return
 
-    model = CLIPModel.from_pretrained(args.model).to(args.device)
-    processor = CLIPProcessor.from_pretrained(args.model)
-    tokenizer = processor.tokenizer  # use tokenizer for token-based chunking
+    device = torch.device(args.device if torch.cuda.is_available() and args.device.startswith('cuda') else 'cpu')
+
+    print('Loading text tokenizer/model', args.text_model)
+    try:
+        text_tokenizer = AutoTokenizer.from_pretrained(args.text_model)
+        text_model = AutoModel.from_pretrained(args.text_model).to(device)
+    except Exception as e:
+        print('Failed to load text model:', e)
+        text_tokenizer = None
+        text_model = None
+
+    print('Loading CLIP image model', args.image_model)
+    try:
+        clip_model = CLIPModel.from_pretrained(args.image_model).to(device)
+        clip_processor = CLIPProcessor.from_pretrained(args.image_model)
+    except Exception as e:
+        print('Failed to load CLIP model:', e)
+        clip_model = None
+        clip_processor = None
+
+    # determine safe batch size on CPU
+    def safe_batch(default):
+        if device.type == 'cpu':
+            return min(default, 4)
+        return default
+    bs = safe_batch(args.batch_size)
 
     summary = []
+
+    # pre-read markdown_img files
+    md_img_map: Dict[str, List[Dict[str, str]]] = {}
+    if markdown_img_dir.exists():
+        for mdf in sorted(markdown_img_dir.glob('*.md')):
+            txt = safe_read_text(mdf)
+            md_img_map[mdf.stem] = parse_markdown_img(txt)
+
+    # pre-read structured tables
+    tables_map: Dict[str, List[Dict[str, Optional[str]]]] = {}
+    if tables_dir.exists():
+        for tf in sorted(tables_dir.glob('*.md')):
+            txt = safe_read_text(tf)
+            parsed = []
+            try:
+                parsed = parse_structured_tables_file(txt)
+            except Exception:
+                parsed = []
+            if parsed:
+                tables_map[tf.stem] = parsed
+
+    # iterate markdown files
     for md in sorted(markdown_dir.glob('*.md')):
         stem = md.stem
-        text = md.read_text(encoding='utf-8')
+        raw = safe_read_text(md)
+        if not raw.strip():
+            print('Skipping empty', md.name)
+            continue
 
-        # --- Remove image blocks / references BEFORE cleaning ---
-        # Do this prior to clean_text so the cleaning rules don't accidentally
-        # collapse or remove the main prose and leave only image markers.
-        # Split at a heading like '## Images' (case-insensitive) if present and keep the part before it.
-        parts = re.split(r"\n#{1,6}\s*images\b", text, flags=re.IGNORECASE)
-        if parts:
-            text = parts[0]
+        # split out an images section if present (we will use markdown_img mapping instead)
+        # Remove inline image references from main text to avoid duplication
+        text_only = re.sub(r'!\[[^\]]*\]\([^\)]+\)', ' ', raw)
 
-        # Remove inline markdown image references: ![alt](path)
-        text = re.sub(r'!\[[^\]]*\]\([^\)]*\)', ' ', text)
-        # Remove stray image path fragments like '../images/...' or filenames ending in .jpeg/.jpg/.png
-        text = re.sub(r'\.{2}/images/\S+', ' ', text)
-        text = re.sub(r'\S+\.(?:jpe?g|png|webp)\b', ' ', text)
+        # clean common 'Further reading' and reference sections by splitting
+        text_only = re.split(r'(?i)^further reading', text_only, flags=re.MULTILINE)[0]
+        text_only = re.split(r'(?i)^references?:', text_only, flags=re.MULTILINE)[0]
 
-        # lightweight cleaning to fix OCR/extraction spacing artifacts
-        text = clean_text(text)
+        # We'll assemble a reading-order sequence of items: each item = (type, payload)
+        # types: 'text' (string), 'image' (dict label/caption/path), 'table' (dict)
+        reading_sequence: List[Tuple[str, object]] = []
 
-        # Prefer structured table files under <input_root>/out_all_structured if present
-        tables = []
-        structured_dir = input_root / 'out_all_structured'
-        if structured_dir.exists():
-            candidates = sorted(structured_dir.glob(f"{stem}*tables.md"))
-            if candidates:
-                for cf in candidates:
-                    s = cf.read_text(encoding='utf-8')
-                    parsed = parse_structured_tables_file(s)
-                    if parsed:
-                        tables.extend(parsed)
-        # If no structured tables found, fall back to inline detection and removal
-        if not tables:
-            tables, text = extract_tables_from_markdown(text)
+        # Strategy: naive approach — go through original raw text lines and whenever we
+        # encounter an image markdown or a caption token, we insert image-chunk; otherwise
+        # collect paragraphs into text blocks to be chunked.
 
-        # Token-based chunking (preferred) for the remaining prose
-        chunks = tokenize_chunks(tokenizer, text, max_tokens=args.max_tokens, overlap=args.token_overlap)
-        if not chunks:
-            # fallback to char-chunking
-            chunks = chunk_text_charwise(text, max_chars=args.max_chars, overlap=int(args.max_chars*0.1))
+        # Create quick lookup of images/captions for this stem
+        images_for_case = md_img_map.get(stem, [])
+        tables_for_case = tables_map.get(stem, []) if stem in tables_map else []
 
-        texts = [c['text'] for c in chunks]
-        # text embeddings saved under <output-root>/embeddings/text/
-        text_emb_path = out_text / (stem + '_text.npy')
-
-        if texts:
-            # process in batches to avoid OOM
-            batch_size = 16
-            all_embs = []
-            for i in range(0, len(texts), batch_size):
-                batch = texts[i:i+batch_size]
-                inputs = processor(text=batch, return_tensors='pt', padding=True, truncation=True).to(args.device)
-                with torch.no_grad():
-                    emb = model.get_text_features(**inputs)
-                all_embs.append(emb.cpu().numpy())
-            all_emb = np.vstack(all_embs)
-        else:
-            # model.text_projection may be a torch.nn.Linear (has out_features) or a Tensor.
-            try:
-                out_dim = int(model.text_projection.out_features)
-            except Exception:
-                try:
-                    out_dim = int(model.text_projection.weight.shape[0])
-                except Exception:
-                    # fallback: try numpy shape attribute (if it's a Tensor)
-                    out_dim = int(getattr(model.text_projection, 'shape', (0, 0))[1])
-            all_emb = np.zeros((0, out_dim), dtype=np.float32)
-
-        # --- Table embeddings (embed each table block as a single chunk) ---
-        table_emb_path = out_text / (stem + '_table.npy')
-        table_texts = [t['text'] for t in tables]
-        if table_texts:
-            batch_size = 16
-            all_table_embs = []
-            for i in range(0, len(table_texts), batch_size):
-                batch = table_texts[i:i+batch_size]
-                inputs = processor(text=batch, return_tensors='pt', padding=True, truncation=True).to(args.device)
-                with torch.no_grad():
-                    emb = model.get_text_features(**inputs)
-                all_table_embs.append(emb.cpu().numpy())
-            table_all_emb = np.vstack(all_table_embs)
-        else:
-            # if no table texts, create empty array with same dim as text projection
-            try:
-                tdim = int(model.text_projection.out_features)
-            except Exception:
-                try:
-                    tdim = int(model.text_projection.weight.shape[0])
-                except Exception:
-                    tdim = int(getattr(model.text_projection, 'shape', (0, 0))[1])
-            table_all_emb = np.zeros((0, tdim), dtype=np.float32)
-
-        np.save(text_emb_path, all_emb)
-        np.save(table_emb_path, table_all_emb)
-
-        np.save(text_emb_path, all_emb)
-
-        # images
-        img_dir = images_root / stem
-        # image embeddings saved under <output-root>/embeddings/image/
-        image_emb_path = out_img / (stem + '_images.npy')
-        image_list = []
-        if img_dir.exists():
-            image_paths = sorted([p for p in img_dir.iterdir() if p.suffix.lower() in ('.png','.jpg','.jpeg','.webp')])
-            if image_paths:
-                batch_size = 8
-                all_i_emb = []
-                from PIL import Image
-                for i in range(0, len(image_paths), batch_size):
-                    batch_paths = image_paths[i:i+batch_size]
-                    images = [Image.open(p).convert('RGB') for p in batch_paths]
-                    inputs = processor(images=images, return_tensors='pt').to(args.device)
-                    with torch.no_grad():
-                        i_emb = model.get_image_features(**inputs)
-                    all_i_emb.append(i_emb.cpu().numpy())
-                all_i_emb = np.vstack(all_i_emb)
-                np.save(image_emb_path, all_i_emb)
-                image_list = [str(p) for p in image_paths]
+        # Build a list of image placeholders positions in raw text (line index)
+        raw_lines = raw.splitlines()
+        image_positions = []  # list of (line_idx, path_or_none)
+        for idx, ln in enumerate(raw_lines):
+            m = IMAGE_MD_RE.search(ln)
+            if m:
+                pth = m.group(1).strip().strip('"').strip("'")
+                image_positions.append((idx, pth))
             else:
-                try:
-                    out_dim = int(model.visual_projection.out_features)
-                except Exception:
-                    try:
-                        out_dim = int(model.visual_projection.weight.shape[0])
-                    except Exception:
-                        out_dim = int(getattr(model.visual_projection, 'shape', (0, 0))[1])
-                np.save(image_emb_path, np.zeros((0, out_dim), dtype=np.float32))
-        else:
-            try:
-                out_dim = int(model.visual_projection.out_features)
-            except Exception:
-                try:
-                    out_dim = int(model.visual_projection.weight.shape[0])
-                except Exception:
-                    out_dim = int(getattr(model.visual_projection, 'shape', (0, 0))[1])
-            np.save(image_emb_path, np.zeros((0, out_dim), dtype=np.float32))
+                # also detect lines that look like 'Fig. X' captions
+                if CAPTION_LINE_RE.match(ln.strip()):
+                    image_positions.append((idx, None))
 
-        # Write index for this file
-        # index = {
-        #     'file': md.name,
-        #     'n_chunks': len(chunks),
-        #     'text_embedding': str(text_emb_path),
-        #     'image_embedding': str(image_emb_path),
-        #     'chunks': chunks,
-        #     'images': image_list,
-        # }
+        # We'll scan raw_lines and create text blocks between image positions
+        last_idx = 0
+        img_idx = 0
+        for pos_idx, pos in enumerate(image_positions):
+            line_idx, pth = pos
+            # take lines from last_idx up to line_idx as a text block
+            block = '\n'.join(raw_lines[last_idx:line_idx]).strip()
+            if block:
+                reading_sequence.append(('text', block))
+            # Insert image chunk: try to find match from markdown_img map by order
+            # prefer matching by path; else assign next available caption
+            assigned = None
+            if pth:
+                # normalize path tail
+                tail = Path(pth).name
+                for it in images_for_case:
+                    if it.get('path') and Path(it['path']).name == tail:
+                        assigned = it
+                        break
+            if assigned is None and images_for_case and img_idx < len(images_for_case):
+                assigned = images_for_case[img_idx]
+                img_idx += 1
+            if assigned:
+                reading_sequence.append(('image', assigned))
+            else:
+                # no assigned caption; create placeholder using path if present
+                reading_sequence.append(('image', {'caption': None, 'path': pth}))
+            last_idx = line_idx + 1
+        # tail text
+        tail_block = '\n'.join(raw_lines[last_idx:]).strip()
+        if tail_block:
+            reading_sequence.append(('text', tail_block))
+
+        # If there are images not yet used, append them at end
+        if images_for_case and any(it.get('path') for it in images_for_case):
+            used_paths = {it.get('path') for ttype, it in reading_sequence if ttype == 'image' and isinstance(it, dict) and it.get('path')}
+            for it in images_for_case:
+                if it.get('path') and it.get('path') not in used_paths:
+                    reading_sequence.append(('image', it))
+
+        # Insert tables: attempt to find insertion point by searching for 'Table' label in text blocks
+        for table in tables_for_case:
+            inserted = False
+            for idx, (ttype, payload) in enumerate(reading_sequence):
+                if ttype == 'text' and isinstance(payload, str) and table.get('label') and table['label'][:10] in payload:
+                    reading_sequence.insert(idx+1, ('table', table))
+                    inserted = True
+                    break
+            if not inserted:
+                reading_sequence.append(('table', table))
+
+        # DEBUG: write assembled reading-order markdown if requested
+        if args.debug:
+            dbg_path = out_root / f'{stem}_reading_order.md'
+            with dbg_path.open('w', encoding='utf-8') as fh:
+                for ttype, payload in reading_sequence:
+                    if ttype == 'text':
+                        fh.write('\n\n## TEXT BLOCK\n\n')
+                        fh.write(payload + '\n')
+                    elif ttype == 'image':
+                        fh.write('\n\n## IMAGE BLOCK\n\n')
+                        fh.write(json.dumps(payload, ensure_ascii=False) + '\n')
+                    else:
+                        fh.write('\n\n## TABLE BLOCK\n\n')
+                        fh.write(json.dumps(payload, ensure_ascii=False) + '\n')
+
+        # Now chunk each text block semantically and build final chunks list in reading order
+        final_chunks: List[Dict] = []
+        chunk_counter = 0
+        for ttype, payload in reading_sequence:
+            if ttype == 'text':
+                # semantic chunk into multiple chunks
+                if text_tokenizer is not None:
+                    parts = semantic_chunker_using_tokenizer(text_tokenizer, payload, chunk_tokens=args.chunk_tokens, overlap_tokens=args.chunk_overlap)
+                else:
+                    # fallback charwise
+                    parts = chunk_text_charwise(payload, max_chars=1000, overlap=100)
+                for p in parts:
+                    final_chunks.append({'id': f'{stem}_text_{chunk_counter}', 'type': 'text', 'text': p['text']})
+                    chunk_counter += 1
+            elif ttype == 'table':
+                final_chunks.append({'id': f'{stem}_table_{chunk_counter}', 'type': 'table', 'text': table.get('text'), 'label': table.get('label'), 'caption': table.get('caption')})
+                chunk_counter += 1
+            elif ttype == 'image':
+                # image payload: expect dict with path and caption
+                img_payload = payload if isinstance(payload, dict) else {'caption': None, 'path': str(payload)}
+                final_chunks.append({'id': f'{stem}_image_{chunk_counter}', 'type': 'image', 'caption': img_payload.get('caption'), 'path': img_payload.get('path')})
+                chunk_counter += 1
+
+        # Prepare lists for embedding
+        text_chunks = [c for c in final_chunks if c['type'] == 'text']
+        table_chunks = [c for c in final_chunks if c['type'] == 'table']
+        image_chunks = [c for c in final_chunks if c['type'] == 'image']
+
+        # Embed text_chunks using text_model
+        text_embs = np.zeros((0, 1), dtype=np.float32)
+        if text_chunks and text_model is not None:
+            # process in streaming batches
+            all_t_embs = []
+            for i in range(0, len(text_chunks), bs):
+                batch = [c['text'] for c in text_chunks[i:i+bs]]
+                try:
+                    inputs = text_tokenizer(batch, return_tensors='pt', padding=True, truncation=True).to(device)
+                    with torch.no_grad():
+                        outputs = text_model(**inputs)
+                        if hasattr(outputs, 'pooler_output') and outputs.pooler_output is not None:
+                            emb = outputs.pooler_output
+                        else:
+                            emb = mean_pooling(outputs, inputs.get('attention_mask'))
+                    all_t_embs.append(emb.cpu().numpy())
+                except RuntimeError as e:
+                    print('RuntimeError during text embedding batch, retrying smaller batch:', e)
+                    # try one-by-one fallback
+                    for s in batch:
+                        try:
+                            inp = text_tokenizer(s, return_tensors='pt', padding=True, truncation=True).to(device)
+                            with torch.no_grad():
+                                out = text_model(**inp)
+                                if hasattr(out, 'pooler_output') and out.pooler_output is not None:
+                                    embv = out.pooler_output
+                                else:
+                                    embv = mean_pooling(out, inp.get('attention_mask'))
+                            all_t_embs.append(embv.cpu().numpy())
+                        except Exception as e2:
+                            print('Failed to embed single text chunk:', e2)
+            if all_t_embs:
+                text_embs = np.vstack([a if a.ndim==2 else a.reshape(1,-1) for a in all_t_embs])
+        else:
+            # empty array with inferred dim if possible
+            text_embs = np.zeros((0, text_model.config.hidden_size if text_model is not None else 0), dtype=np.float32)
+
+        # Embed tables using text_model (each table as single chunk)
+        table_embs = np.zeros((0,1), dtype=np.float32)
+        if table_chunks and text_model is not None:
+            all_tab_embs = []
+            for i in range(0, len(table_chunks), bs):
+                batch = [c['text'] for c in table_chunks[i:i+bs]]
+                inputs = text_tokenizer(batch, return_tensors='pt', padding=True, truncation=True).to(device)
+                with torch.no_grad():
+                    outputs = text_model(**inputs)
+                    if hasattr(outputs, 'pooler_output') and outputs.pooler_output is not None:
+                        emb = outputs.pooler_output
+                    else:
+                        emb = mean_pooling(outputs, inputs.get('attention_mask'))
+                all_tab_embs.append(emb.cpu().numpy())
+            if all_tab_embs:
+                table_embs = np.vstack(all_tab_embs)
+        else:
+            table_embs = np.zeros((0, text_model.config.hidden_size if text_model is not None else 0), dtype=np.float32)
+
+        # Embed images using CLIP image encoder only
+        image_embs = np.zeros((0,1), dtype=np.float32)
+        image_paths_list: List[str] = []
+        if image_chunks and clip_model is not None and clip_processor is not None:
+            from PIL import Image
+            all_img_embs = []
+            batch_size_img = min(8, bs*2)
+            for i in range(0, len(image_chunks), batch_size_img):
+                batch_items = image_chunks[i:i+batch_size_img]
+                images = []
+                valid_paths = []
+                for it in batch_items:
+                    p = it.get('path')
+                    if not p:
+                        images.append(Image.new('RGB', (224,224), color=(255,255,255)))
+                        valid_paths.append(None)
+                        continue
+                    # try various base paths
+                    candidate = Path(p)
+                    if not candidate.exists():
+                        candidate = images_root / candidate
+                    if not candidate.exists():
+                        # try relative to markdown dir
+                        candidate = markdown_dir / candidate
+                    if not candidate.exists():
+                        print('Image not found:', p)
+                        images.append(Image.new('RGB', (224,224), color=(255,255,255)))
+                        valid_paths.append(str(p))
+                        continue
+                    try:
+                        img = Image.open(candidate).convert('RGB')
+                        images.append(img)
+                        valid_paths.append(str(candidate))
+                    except Exception as e:
+                        print('Failed open image', candidate, e)
+                        images.append(Image.new('RGB', (224,224), color=(255,255,255)))
+                        valid_paths.append(str(candidate))
+                inputs = clip_processor(images=images, return_tensors='pt', padding=True).to(device)
+                with torch.no_grad():
+                    i_out = clip_model.get_image_features(**inputs)
+                all_img_embs.append(i_out.cpu().numpy())
+                image_paths_list.extend(valid_paths)
+            if all_img_embs:
+                image_embs = np.vstack(all_img_embs)
+        else:
+            image_embs = np.zeros((0, clip_model.visual_projection.out_features if clip_model is not None else 0), dtype=np.float32)
+
+        # Persist embeddings
+        text_emb_path = out_text / (stem + '_text.npy')
+        table_emb_path = out_table / (stem + '_table.npy')
+        image_emb_path = out_img / (stem + '_images.npy')
+        np.save(text_emb_path, text_embs)
+        np.save(table_emb_path, table_embs)
+        np.save(image_emb_path, image_embs)
+
+        # write per-case index preserving reading order
         index = {
             'file': md.name,
-            'n_chunks': len(chunks) + len(tables),
+            'n_chunks': len(final_chunks),
             'text_embedding': str(text_emb_path),
             'table_embedding': str(table_emb_path),
             'image_embedding': str(image_emb_path),
-            'chunks': [
-                {'id': c['id'], 'text': c['text'], 'type': 'text'} for c in chunks
-            ],
-            'tables': [
-                {'id': idx, 'text': t.get('text'), 'label': t.get('label'), 'caption': t.get('caption'), 'type': 'table'}
-                for idx, t in enumerate(tables)
-            ],
-            'images': [{'path': p, 'type': 'image'} for p in image_list],
+            'chunks': []
         }
-        (out_emb / (stem + '.json')).write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding='utf-8')
+        # for each final chunk include pointer to embedding index (text/table/image) and order
+        t_idx = 0; tab_idx = 0; img_idx = 0
+        for c in final_chunks:
+            rec = {'id': c['id'], 'type': c['type']}
+            if c['type'] == 'text':
+                rec['text'] = c['text']
+                rec['embedding_index'] = t_idx
+                t_idx += 1
+            elif c['type'] == 'table':
+                rec['text'] = c.get('text')
+                rec['label'] = c.get('label')
+                rec['caption'] = c.get('caption')
+                rec['embedding_index'] = tab_idx
+                tab_idx += 1
+            elif c['type'] == 'image':
+                rec['caption'] = c.get('caption')
+                rec['path'] = c.get('path')
+                rec['embedding_index'] = img_idx
+                img_idx += 1
+            index['chunks'].append(rec)
+
+        write_json(out_emb / (stem + '.json'), index)
         summary.append(index)
-    metadata = {
-        'model': args.model,
-        'device': args.device,
-        'num_files': len(summary),
-        'embedding_dim_text': all_emb.shape[1] if len(summary) and 'text_embedding' in summary[-1] else 0,
-        'embedding_dim_table': table_all_emb.shape[1] if len(summary) and 'table_embedding' in summary[-1] else 0,
-        'embedding_dim_image': all_i_emb.shape[1] if len(summary) and 'image_embedding' in summary[-1] else 0
+
+    # write global summary
+    meta = {
+        'text_model': args.text_model,
+        'image_model': args.image_model,
+        'device': str(device),
+        'num_files': len(summary)
     }
-    (out_emb / 'summary.json').write_text(json.dumps(metadata, indent=2))
-    print('Saved embeddings to', out_emb)
+    write_json(out_emb / 'summary.json', meta)
+    print('Done. Saved embeddings to', out_emb)
+
 
 if __name__ == '__main__':
     main()
