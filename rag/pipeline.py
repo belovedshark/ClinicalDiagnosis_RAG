@@ -3,14 +3,40 @@
 # from .embedder import Embedder
 from .retriever import Retriever
 from .generator import Generator
+from .config import DEVICE as CONFIG_DEVICE
+import torch
+
 
 class RAGPipeline:
-    """Full retrieval-augmented generation pipeline."""
+    """Full retrieval-augmented generation pipeline.
+
+    This pipeline will detect the best device to use (GPU/CPU/mps) based on
+    the configuration in `rag.config` and on runtime availability, then pass
+    that device to the Retriever and Generator so models are loaded onto GPU
+    when available.
+    """
 
     def __init__(self):
+        # Decide runtime device
+        device_pref = (CONFIG_DEVICE or "auto").lower()
+        if device_pref == "auto":
+            if torch.cuda.is_available():
+                device = "cuda"
+            else:
+                # MPS for newer Mac hardware
+                try:
+                    if getattr(torch.backends, 'mps', None) is not None and torch.backends.mps.is_available():
+                        device = "mps"
+                    else:
+                        device = "cpu"
+                except Exception:
+                    device = "cpu"
+        else:
+            device = device_pref
+
         # self.embedder = Embedder()
-        self.retriever = Retriever()
-        self.generator = Generator()
+        self.retriever = Retriever(device=device)
+        self.generator = Generator(device=device)
 
     def query(self, question: str, image_path: str = None, k: int = 5) -> str:
         """Ask a question and/or provide an image → retrieve relevant → generate an answer."""

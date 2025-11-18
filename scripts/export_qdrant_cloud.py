@@ -59,26 +59,44 @@ RETRIES = int(os.environ.get('EXPORT_RETRIES', '5'))
 RETRY_BASE_DELAY = float(os.environ.get('EXPORT_RETRY_DELAY', '0.5'))
 collection_name = 'documents'
 
-# peek first page to determine vector dim
-first_page = None
+# Scan the local collection to determine if vectors are single or named, and
+# collect the full set of named vector names (so the cloud collection is
+# created with every vector name that will appear during upsert).
+vec_dim = None
+named_vectors = {}
+found_any = False
 for page in stream_local_points(collection_name, page_size=PAGE_SIZE):
-    first_page = page
-    break
+    found_any = True
+    for p in page:
+        v = getattr(p, 'vector', None)
+        if v is None:
+            continue
+        # qdrant can store either a single vector (list) or named vectors (dict)
+        if isinstance(v, dict):
+            for k, vv in v.items():
+                size = len(vv)
+                if k in named_vectors:
+                    if named_vectors[k].size != size:
+                        raise RuntimeError(f'Inconsistent vector size for named vector "{k}"')
+                else:
+                    named_vectors[k] = models.VectorParams(size=size, distance=models.Distance.COSINE)
+        else:
+            if vec_dim is None:
+                vec_dim = len(v)
+            elif vec_dim != len(v):
+                raise RuntimeError('Inconsistent vector sizes detected in collection')
 
-if first_page is None:
+if not found_any:
     raise RuntimeError(f'No points found in local collection "{collection_name}"')
 
-vec_dim = None
-for p in first_page:
-    if getattr(p, 'vector', None) is not None:
-        vec_dim = len(p.vector)
-        break
-
-if vec_dim is None:
-    raise RuntimeError('Could not determine vector dimension from local points')
-
-print(f'Detected vector_dim={vec_dim}; ensuring cloud collection "{collection_name}" exists (this will recreate it)')
-cloud.recreate_collection(collection_name=collection_name, vectors_config=models.VectorParams(size=vec_dim, distance=models.Distance.COSINE))
+if named_vectors:
+    print(f'Detected named vectors {list(named_vectors.keys())}; ensuring cloud collection "{collection_name}" exists (this will recreate it)')
+    cloud.recreate_collection(collection_name=collection_name, vectors_config=named_vectors)
+else:
+    if vec_dim is None:
+        raise RuntimeError('Could not determine vector dimension from local points')
+    print(f'Detected vector_dim={vec_dim}; ensuring cloud collection "{collection_name}" exists (this will recreate it)')
+    cloud.recreate_collection(collection_name=collection_name, vectors_config=models.VectorParams(size=vec_dim, distance=models.Distance.COSINE))
 
 def upsert_with_retries(points_batch, retries=RETRIES, base_delay=RETRY_BASE_DELAY):
     attempt = 0
