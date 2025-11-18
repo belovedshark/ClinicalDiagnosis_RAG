@@ -1,3 +1,2 @@
-• Fig. 27.1 Jaundice and subconjunctival haemorrhages TABLE 27.1 Laboratory Results on Admission Parameter Patient Reference WBC ( 109/L) (neutrophils: lymphocytes) 5.7 (68%: 31%) 4-10 Haemoglobin (g/dL) 14.812-16 Platelets ( 109/L) 96150-350 AST (IU/L) 6413-33 ALT (IU/L) 583-25 ALP (IU/L) 24640-130 Serum bilirubin total (μmol/L) 7713.7-30.8 Serum bilirubin direct (μmol/L) 54.7 <5 Blood urea nitrogen (μmol/L) 20.72.5-6.4 Serum creatinine (μmol/L) 212.271-106 C-reactive protein (mg/L) 48 <573 # Page 2 Discussion A Sri Lankan teenage boy presents with fever, severe body aches and a reduced urine output.
-
+• Fig. 27.1 Jaundice and subconjunctival haemorrhages 
 ![figure](../images/27---A-16-Year-Old-Boy-from-Sri-Lanka-With-Fever_2022_Clinical-Cases-in-Trop/27---A-16-Year-Old-Boy-from-Sri-Lanka-With-Fever_2022_Clinical-Cases-in-Trop_p1_img1.jpeg)

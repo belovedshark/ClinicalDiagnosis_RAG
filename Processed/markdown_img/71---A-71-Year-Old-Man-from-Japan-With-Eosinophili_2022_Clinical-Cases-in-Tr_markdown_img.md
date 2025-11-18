@@ -10,11 +10,15 @@
 
 ![figure](../images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p3_img2.jpeg)
 
-• Fig. 71.4 Multiple-dot ELISA for helminthiases showing positive reaction against P. westermani antigen.
+• Fig. 71.4 Multiple-dot ELISA for helminthiases showing positive reaction against P. westermani antigen. .NHS: normal  human serum for positive control; Pw:P.westermani; Pm: P.miyazakii; Fh:Fasciola
+ hepatica;Cs:Clonorchis sinensis; Se: Spirometra erinacei  europaei; Cc: Cysticercus cellulosae;Di:Dirofilaria immitis;Tc:Toxocara canis;
+ As: Ascaris sum; Asx: Anisakis simplex;Gd:Gnathostoma doloresi;
+ Sr: Strongyloides stercoralis
 
 ![figure](../images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p4_img1.jpeg)
 
-• Fig. 71.5 Histopathology of the nodular lung lesion that was surgically resected after diagnosis of lung cancer based on FDG-PET imaging.
+• Fig. 71.5 Histopathology of the nodular lung lesion that was surgically resected after diagnosis of lung cancer based on FDG-PET imaging.  Note the chronic granulomatous lesion containing numerous Paragoni-mus eggs (black arrows).Foreignbody giant cells(white arrows) are also
+ seen in the tissue.
 
 ![figure](../images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p4_img2.jpeg)
 

@@ -1,4 +1,4 @@
-• Fig. 79.1 Duodenal biopsy with signs of chronic duodenitis and mul-tiple elongated structures (arrows) compatible with a helminth infection (H&E stain, magnification 400). 220 # Page 2 Questions 1.
+• Fig. 79.1 Duodenal biopsy with signs of chronic duodenitis and mul-tiple elongated structures (arrows) compatible with a helminth infection (H&E stain, magnification 400). 
 
 ![figure](../images/79---A-34-Year-Old-Male-Immigrant-from-Peru-With-Ch_2022_Clinical-Cases-in-T/79---A-34-Year-Old-Male-Immigrant-from-Peru-With-Ch_2022_Clinical-Cases-in-T_p1_img1.jpeg)
 

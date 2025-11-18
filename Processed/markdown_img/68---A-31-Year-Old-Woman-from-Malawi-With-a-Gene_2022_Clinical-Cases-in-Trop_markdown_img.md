@@ -1,4 +1,4 @@
-• Fig. 68.1 The face of the patient, showing bilateral swelling of the eyes with conjunctivitis and swollen lips with haemorrhagic crusts.
+• Fig. 68.1 The face of the patient, showing bilateral swelling of the eyes with conjunctivitis and swollen lips with haemorrhagic crusts. The maculopapular rash was non-itchy and spared the scalp
 
 ![figure](../images/68---A-31-Year-Old-Woman-from-Malawi-With-a-Gene_2022_Clinical-Cases-in-Trop/68---A-31-Year-Old-Woman-from-Malawi-With-a-Gene_2022_Clinical-Cases-in-Trop_p1_img1.jpeg)
 
