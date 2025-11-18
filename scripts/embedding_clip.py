@@ -12,7 +12,7 @@ Upgraded embedding pipeline:
 
 Usage example:
 python scripts/embedding_clip.py --input-root Processed --output-root Processed_embeddings \
-  --text-model thelper/gte-small --image-model openai/clip-vit-base-patch32 --device cpu
+  --text-model thenlper/gte-small --image-model openai/clip-vit-base-patch32 --device cpu
 
 """
 from __future__ import annotations
@@ -85,6 +85,55 @@ def parse_markdown_img(md_text: str) -> List[Dict[str, str]]:
         if it['path']:
             it['path'] = it['path'].strip().strip('"').strip("'")
     return items
+
+
+def parse_structured_tables_file(md_text: str) -> List[Dict[str, Optional[str]]]:
+    """Parse a markdown file containing structured tables into a list of tables.
+    Each returned dict contains: 'label'(optional), 'caption'(optional), 'text' (markdown table text).
+    This is a best-effort parser: it collects contiguous lines that look like markdown tables
+    (lines containing '|' or separator lines with ---) and assigns the nearest preceding
+    caption/label line that matches 'Table' or 'Table X' within the previous 3 lines.
+    """
+    lines = md_text.splitlines()
+    tables = []
+    i = 0
+    while i < len(lines):
+        ln = lines[i]
+        # detect start of a markdown table (line containing '|' and at least one other '|')
+        if '|' in ln and ln.count('|') >= 2:
+            # collect contiguous table block
+            start = i
+            while i < len(lines) and ('|' in lines[i] or re.match(r'^\s*[:\-\| ]+$', lines[i])):
+                i += 1
+            table_lines = lines[start:i]
+            # look back up to 3 lines for a caption/label
+            caption = None
+            label = None
+            for j in range(max(0, start-3), start):
+                txt = lines[j].strip()
+                if txt:
+                    if re.search(r'(?i)^table\b', txt) or re.search(r'(?i)^table\s*\d+', txt):
+                        label = txt
+                        # try to use next non-empty line as caption if present
+                        if j+1 < start and lines[j+1].strip():
+                            caption = lines[j+1].strip()
+                        break
+                    # also accept general caption-like lines starting with 'Caption' or 'Table'
+                    if re.search(r'(?i)caption', txt) and caption is None:
+                        caption = txt
+            tables.append({'label': label, 'caption': caption, 'text': '\n'.join(table_lines)})
+            continue
+        i += 1
+    return tables
+
+
+def case_key_from_stem(stem: str) -> str:
+    """Normalize a file stem to a short case key (leading number if present).
+    Example: '4---A-4-Year-Old-...-tables' -> '4'"""
+    m = re.match(r'^(\d+)', stem)
+    if m:
+        return m.group(1)
+    return stem
 
 
 # ------------------ Chunking ------------------
@@ -211,6 +260,8 @@ def main():
     parser.add_argument('--markdown-img-dir', default='markdown_img')
     parser.add_argument('--tables-dir', default='out_all_structured')
     parser.add_argument('--debug', action='store_true')
+    parser.add_argument('--write-reading-order', action='store_true', help='If set, write assembled reading-order markdown to output (disabled by default)')
+    parser.add_argument('--file', default=None, help='If set, process only this markdown filename from the input markdown folder')
     args = parser.parse_args()
 
     input_root = Path(args.input_root)
@@ -272,7 +323,8 @@ def main():
     if markdown_img_dir.exists():
         for mdf in sorted(markdown_img_dir.glob('*.md')):
             txt = safe_read_text(mdf)
-            md_img_map[mdf.stem] = parse_markdown_img(txt)
+            key = case_key_from_stem(mdf.stem)
+            md_img_map[key] = parse_markdown_img(txt)
 
     # pre-read structured tables
     tables_map: Dict[str, List[Dict[str, Optional[str]]]] = {}
@@ -285,10 +337,20 @@ def main():
             except Exception:
                 parsed = []
             if parsed:
-                tables_map[tf.stem] = parsed
+                key = case_key_from_stem(tf.stem)
+                tables_map[key] = parsed
 
-    # iterate markdown files
-    for md in sorted(markdown_dir.glob('*.md')):
+    # iterate markdown files (optionally a single file for testing)
+    if args.file:
+        candidate = markdown_dir / args.file
+        if not candidate.exists():
+            print('Requested file not found in', markdown_dir, args.file)
+            return
+        md_files = [candidate]
+    else:
+        md_files = sorted(markdown_dir.glob('*.md'))
+
+    for md in md_files:
         stem = md.stem
         raw = safe_read_text(md)
         if not raw.strip():
@@ -311,9 +373,10 @@ def main():
         # encounter an image markdown or a caption token, we insert image-chunk; otherwise
         # collect paragraphs into text blocks to be chunked.
 
-        # Create quick lookup of images/captions for this stem
-        images_for_case = md_img_map.get(stem, [])
-        tables_for_case = tables_map.get(stem, []) if stem in tables_map else []
+        # Create quick lookup of images/captions and tables for this stem (normalize by case key)
+        case_key = case_key_from_stem(stem)
+        images_for_case = md_img_map.get(case_key, [])
+        tables_for_case = tables_map.get(case_key, []) if case_key in tables_map else []
 
         # Build a list of image placeholders positions in raw text (line index)
         raw_lines = raw.splitlines()
@@ -379,8 +442,8 @@ def main():
             if not inserted:
                 reading_sequence.append(('table', table))
 
-        # DEBUG: write assembled reading-order markdown if requested
-        if args.debug:
+        # DEBUG: optionally write assembled reading-order markdown if explicitly requested
+        if args.debug and args.write_reading_order:
             dbg_path = out_root / f'{stem}_reading_order.md'
             with dbg_path.open('w', encoding='utf-8') as fh:
                 for ttype, payload in reading_sequence:
@@ -409,7 +472,7 @@ def main():
                     final_chunks.append({'id': f'{stem}_text_{chunk_counter}', 'type': 'text', 'text': p['text']})
                     chunk_counter += 1
             elif ttype == 'table':
-                final_chunks.append({'id': f'{stem}_table_{chunk_counter}', 'type': 'table', 'text': table.get('text'), 'label': table.get('label'), 'caption': table.get('caption')})
+                final_chunks.append({'id': f'{stem}_table_{chunk_counter}', 'type': 'table', 'text': payload.get('text'), 'label': payload.get('label'), 'caption': payload.get('caption')})
                 chunk_counter += 1
             elif ttype == 'image':
                 # image payload: expect dict with path and caption
