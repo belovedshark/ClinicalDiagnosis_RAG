@@ -42,17 +42,43 @@ PROMPT_TEMPLATE = (
     Given this record content:\n\n{CONTEXT}\n\n
     You are creating evaluation data for a medical RAG system. Your job is to generate questions that are 100% answerable ONLY using the content of the provided medical record.
 
-    Generate exactly 2 clinically meaningful questions (include a short patient situation context like age, place they live, sickness history,...) that:
-    - MUST be fully answerable using ONLY information inside this record.
-    - MUST reflect the exact wording and facts from the record.
+    Generate **exactly 2** clinically meaningful questions (include a short patient situation (age, background, symptoms) that:
+    - MUST be fully answerable *using only sentences that are explicitly present in the record*.
+    - MUST NOT require any external medical knowledge, assumptions, or inference.
     - MUST be short (ideal length: 1-3 sentences).
-    - MUST NOT require external medical knowledge, assumptions, or reasoning beyond the text.
+    - MUST NOT include anything that is not literally stated in the record.
 
-    For each question, provide:
-    1. "question": A clear, specific (not vague) question using ONLY record-specific information.
-    2. "gold_answer": A correct, concise answer derived EXACTLY from the record.
-    3. "gold_evidence": The exact sentences, clauses, or lines in the record that support the answer. 
-    The `question` should include: most likely diagnosis, and a brief recommended treatment plan.
+    The question MUST combine:
+    1. a patient-specific situation summary (using exact wording from the record)
+    2. a question about:
+    - a diagnosis explicitly given in the record, OR
+    - a treatment explicitly given in the record, OR
+    - a clinical action explicitly described in the record
+    You MUST NOT ask about "most likely diagnosis" or "recommended treatment" unless that information appears *verbatim* in the record.
+
+    For each question, produce:
+
+    1. "question":  
+    - Must use ONLY facts from the record.  
+    - MUST NOT introduce any medical reasoning.  
+    - MUST be answerable with a quote from the record.
+
+    2. "gold_answer":  
+    - MUST be copied or minimally summarized from information explicitly stated in the record.  
+    - MUST NOT rely on medical knowledge or logic not present in the text.
+
+    3. "gold_evidence":  
+    - MUST be an array of exact sentences *copied verbatim* from the record.  
+    - Each evidence span must appear exactly in the record with no changes.  
+    - MUST include only the minimal text needed to answer the question.
+
+    STRICT RULES:
+    - DO NOT infer.  
+    - DO NOT paraphrase evidence.  
+    - DO NOT provide answers drawn from the Summary Box unless the question is explicitly based on it.  
+    - DO NOT use any knowledge outside the provided record.  
+    - If a detail is not explicitly in the record, you MUST NOT mention it.  
+    - If the question cannot be answered using EXACT sentences from the text, DO NOT generate that question.
     """
    )
 
