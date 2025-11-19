@@ -5,3 +5,9 @@ torch
 accelerate
 numpy
 python-dotenv
+ragas
+langchain
+langchain-groq
+langchain-community
+datasets
+pandas
