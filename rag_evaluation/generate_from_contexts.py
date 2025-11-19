@@ -41,23 +41,38 @@ PROMPT_TEMPLATE = (
     """
     Given this record content:\n\n{CONTEXT}\n\n
     You are creating evaluation data for a medical RAG system. Your job is to generate questions that are 100% answerable ONLY using the content of the provided medical record.
-    You must strictly avoid external medical knowledge, reasoning beyond the text, or fabricated clinical details.
-    Produce up to 3 clinically meaningful questions (include patient situations context, table (in markdown format)) that can be answered ONLY by information inside this record.
 
-    Generate exactly 3 clinically meaningful questions that:
+    Generate exactly 2 clinically meaningful questions (include a short patient situation context like age, place they live, sickness history,...) that:
     - MUST be fully answerable using ONLY information inside this record.
     - MUST reflect the exact wording and facts from the record.
-    - MUST be short and about a single part (ideal length: 1-3 sentences) since the maximum CLIP token limit is 77 tokens.
+    - MUST be short (ideal length: 1-3 sentences).
     - MUST NOT require external medical knowledge, assumptions, or reasoning beyond the text.
 
-    
     For each question, provide:
-    1. "question": A clear question using ONLY record-specific information.
+    1. "question": A clear, specific (not vague) question using ONLY record-specific information.
     2. "gold_answer": A correct, concise answer derived EXACTLY from the record.
     3. "gold_evidence": The exact sentences, clauses, or lines in the record that support the answer. 
-    The `question` should include: most likely diagnosis, key differential(s), and a brief recommended management approach when applicable. Return JSON only.
+    The `question` should include: most likely diagnosis, and a brief recommended treatment plan.
     """
    )
+
+# Make the model output strictly JSON only and show an explicit example to improve parsability.
+PROMPT_TEMPLATE = PROMPT_TEMPLATE + (
+"\n\nOUTPUT FORMAT (IMPORTANT): Return ONLY valid JSON with a top-level key \"questions\" whose value is a list of exactly 3 objects.\n"
+"Each object must have the keys \"question\", \"gold_answer\", and \"gold_evidence\". Do not include any extra text, commentary, or markdown.\n"
+"Example output (exact JSON structure):\n\n"
+"{{\n"
+"  \"questions\": [\n"
+"    {{\n"
+"      \"question\": \"What was the patient's temperature on admission?\",\n"
+"      \"gold_answer\": \"39.6°C\",\n"
+"      \"gold_evidence\": \"Vital signs: temperature 39.6°C\"\n"
+"    }},\n"
+"    {{ ... }},\n"
+"    {{ ... }}\n"
+"  ]\n"
+"}}\n"
+)
 
 
 def safe_parse_json(text: str) -> Optional[dict]:
@@ -120,7 +135,22 @@ def safe_parse_json(text: str) -> Optional[dict]:
         return None
 
     parsed = _extract_and_parse(t)
-    return parsed
+    if parsed is not None:
+        return parsed
+
+    # Fallback: attempt to heuristically extract the outermost JSON substring
+    # by finding the first '{' or '[' and the last matching '}' or ']' and parsing that.
+    for start_char, end_char in (('{', '}'), ('[', ']')):
+        start = t.find(start_char)
+        end = t.rfind(end_char)
+        if start != -1 and end != -1 and end > start:
+            candidate = t[start:end+1]
+            try:
+                return json.loads(candidate)
+            except Exception:
+                continue
+
+    return None
 
 
 def generate_with_gemini(model, prompt: str, max_retries: int = 3, backoff: float = 1.0) -> Optional[str]:
