@@ -7,3 +7,5 @@ numpy
 python-dotenv
 tqdm
 pillow
+ragas>=0.2.0
+langchain-google-genai>=2.0.0
