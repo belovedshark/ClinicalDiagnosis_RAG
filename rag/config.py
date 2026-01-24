@@ -7,7 +7,7 @@ COLLECTION_NAME = "documents"
 EMBED_MODEL = "openai/clip-vit-base-patch32"
 
 # Gemma model for generation
-LLM_MODEL = "google/gemma-2b-it"   # or "google/gemma-7b-it" if you have GPU VRAM
+LLM_MODEL = "google/gemma-3-4b-it"   # or "google/gemma-7b-it" if you have GPU VRAM
 # LLM_MODEL = "google/gemma-1.1-2b-it"
 
 DEVICE = "auto"  # "cuda" | "cpu" | "mps"

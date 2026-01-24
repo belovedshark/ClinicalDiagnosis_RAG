@@ -16,14 +16,14 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from rag.pipeline import RAGPipeline
 from rag.retriever import Retriever
-from config.evaluation_config import (
+from rag_evaluation.config.evaluation_config import (
     EVALUATION_DATA_PATH,
     TOP_K_RETRIEVAL,
     RAG_INFERENCE_RESULTS_FILE,
     RAG_INFERENCE_CHECKPOINT_FILE,
     SAVE_INTERVAL
 )
-from data_preparation import (
+from rag_evaluation.data_preparation import (
     load_jsonl,
     prepare_evaluation_cases,
     validate_case,
@@ -103,19 +103,44 @@ class RAGInferencePipeline:
             # Note: We modify the query method temporarily to get raw diagnosis
             context_text = "\n\n".join(contexts)
             
-            # Create a custom prompt for diagnosis only
-            diagnosis_prompt = f"""
-You are a clinical diagnostic assistant. Based on the patient case and medical literature provided, 
-give ONLY the final diagnosis. Be concise and specific.
+            # Create a custom prompt template for diagnosis
+            custom_prompt_template = """You are an expert clinical diagnostician. Analyze the patient case and provide a diagnosis.
 
-Patient case:
+REFERENCE LITERATURE:
+{context}
+
+PATIENT CASE:
 {question}
 
-Answer with just the diagnosis name (e.g., "Dengue fever", "Malaria", etc.):
-"""
+DIAGNOSIS RULES:
+- Severe JOINT PAIN = Chikungunya
+- CONJUNCTIVITIS + mild fever + rash = Zika virus infection
+- Cyclic fever + chills + Africa = Malaria
+- High fever + retro-orbital pain = Dengue fever
+- Freshwater + blood in stool = Schistosomiasis
+- Chronic limb swelling = Lymphatic filariasis
+- Painless ulcer + sandfly = Cutaneous leishmaniasis
+- Profuse watery diarrhea = Cholera
+- Prolonged fever + abdominal pain = Typhoid fever
+- Unvaccinated + jaundice = Yellow fever
+
+RESPONSE FORMAT:
+You must respond with ONLY the disease name. No explanations, no formatting, no punctuation.
+
+Examples of correct responses:
+Dengue fever
+Malaria
+Cholera
+Chikungunya
+
+DIAGNOSIS:"""
             
-            # Generate the diagnosis
-            answer = self.rag_pipeline.generator.generate(context_text, diagnosis_prompt)
+            # Generate the diagnosis using custom prompt
+            answer = self.rag_pipeline.generator.generate(
+                context_text, 
+                question,
+                custom_prompt=custom_prompt_template
+            )
             
             # Clean up the answer (remove extra text if present)
             answer = answer.strip()
