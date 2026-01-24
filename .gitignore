@@ -20,3 +20,4 @@ out_all/
 /evaluation_kits/context_packs_md/
 /evaluation_kits/debug_raw/
 /evaluation_kits/evaluated/
+evaluation/*/results/

@@ -50,9 +50,19 @@ class Generator:
 
         self.pipe = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer)
 
-    def generate(self, context: str, question: str) -> str:
-        """Generate an answer grounded in retrieved context."""
-        prompt = f"""
+    def generate(self, context: str, question: str, custom_prompt: str = None) -> str:
+        """Generate an answer grounded in retrieved context.
+        
+        Args:
+            context: Retrieved context text
+            question: The question/prompt to answer
+            custom_prompt: Optional custom prompt template. If provided, should contain
+                          {context} and {question} placeholders.
+        """
+        if custom_prompt:
+            prompt = custom_prompt.format(context=context, question=question)
+        else:
+            prompt = f"""
 You are a clinical assistant. Answer the question based only on the context below.
 
 Context:
@@ -63,10 +73,48 @@ Answer:
 """
         output = self.pipe(
             prompt,
-            max_new_tokens=128,
-            temperature=0.3,
+            max_new_tokens=256,
+            temperature=0.2,
             top_p=0.9,
+            return_full_text=False,  # Only return the generated text, not the prompt
         )[0]["generated_text"]
 
-        # Return the model's answer
-        return output.split("Answer:")[-1].strip()
+        # Clean up the generated output
+        answer = output.strip()
+        
+        # If the output still contains "Answer:", extract after it
+        if "Answer:" in answer:
+            answer = answer.split("Answer:")[-1].strip()
+        
+        # Remove markdown formatting
+        answer = answer.replace('**', '').replace('*', '')
+        
+        # Split into lines and filter out separators/empty lines
+        lines = []
+        for line in answer.split('\n'):
+            line = line.strip()
+            # Skip empty lines, separator lines (dashes, underscores, equals)
+            if not line:
+                continue
+            if set(line) <= {'-', '_', '=', '*', '#'}:
+                continue
+            # Skip lines that are too short (likely formatting artifacts)
+            if len(line) < 3:
+                continue
+            lines.append(line)
+        
+        if lines:
+            answer = lines[0]
+        else:
+            answer = "Unable to determine diagnosis"
+        
+        # Remove any trailing punctuation or extra text after the diagnosis
+        # Common patterns: "Diagnosis.", "Diagnosis - explanation", etc.
+        if ' - ' in answer:
+            answer = answer.split(' - ')[0].strip()
+        if answer.endswith('.'):
+            answer = answer[:-1]
+        if answer.endswith(':'):
+            answer = answer[:-1]
+            
+        return answer
