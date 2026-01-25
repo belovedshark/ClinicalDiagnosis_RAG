@@ -20,6 +20,11 @@ DEVICE = "auto"  # Device for models: "auto", "cuda", "mps", "cpu"
 BATCH_SIZE = 1  # Process one case at a time
 SAVE_INTERVAL = 5  # Save checkpoint every N cases
 
+# Matching settings for evaluation
+USE_SEMANTIC_MATCHING = True  # Enable semantic similarity fallback
+SEMANTIC_THRESHOLD = 0.85  # Similarity threshold (0.0-1.0) for semantic matching
+EMBEDDING_MODEL = "thenlper/gte-small"  # Model for semantic embeddings
+
 # Output paths for each evaluator type
 RAG_RESULTS_DIR = os.path.join(EVALUATION_ROOT, "rag", "results")
 RAG_RESULTS_FILE = os.path.join(RAG_RESULTS_DIR, "inference_results.json")
