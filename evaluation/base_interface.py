@@ -230,11 +230,14 @@ class BaseEvaluator(ABC):
         print(f"  ✅ Total correct: {total_correct}/{total_valid} ({accuracy:.1f}%)")
         print(f"  {'─'*50}")
         print(f"  Match breakdown:")
-        print(f"    • Exact matches:    {exact_matches:3d} ({exact_matches/total_valid*100:.1f}%)")
-        print(f"    • Alias matches:    {alias_matches:3d} ({alias_matches/total_valid*100:.1f}%)")
-        if use_semantic:
-            print(f"    • Semantic matches: {semantic_matches:3d} ({semantic_matches/total_valid*100:.1f}%) [threshold={semantic_threshold}]")
-        print(f"    • No match:         {no_matches:3d} ({no_matches/total_valid*100:.1f}%)")
+        if total_valid > 0:
+            print(f"    • Exact matches:    {exact_matches:3d} ({exact_matches/total_valid*100:.1f}%)")
+            print(f"    • Alias matches:    {alias_matches:3d} ({alias_matches/total_valid*100:.1f}%)")
+            if use_semantic:
+                print(f"    • Semantic matches: {semantic_matches:3d} ({semantic_matches/total_valid*100:.1f}%) [threshold={semantic_threshold}]")
+            print(f"    • No match:         {no_matches:3d} ({no_matches/total_valid*100:.1f}%)")
+        else:
+            print(f"    • No valid cases to evaluate (all cases had errors)")
         if errors:
             print(f"  ❌ Errors: {errors}")
         
