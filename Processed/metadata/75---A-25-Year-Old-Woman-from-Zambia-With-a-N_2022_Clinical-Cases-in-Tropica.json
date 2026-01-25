@@ -1,0 +1,18 @@
+{
+  "filename": "75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica.pdf",
+  "markdown_path": "./Processed/markdown/75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica.md",
+  "images": [
+    {
+      "page": 2,
+      "path": "./Processed/images/75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica/75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica_p2_img1.jpeg"
+    },
+    {
+      "page": 2,
+      "path": "./Processed/images/75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica/75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica_p2_img2.jpeg"
+    }
+  ],
+  "table_text": "TABLE 75.1 Blood Results on Admission\n| Parameter | Patient | Reference Range |\n|---|---|---|\n| WBC (10^9/L) | 5.8 | 4-10 |\n| Haemoglobin (g/dL) | 11.0 | 12-14 |\n| Platelets (10^9/L) | 215 | 150-350 |\n| CD4 count (cells/μL) | 15 | 350-1200 |\n| Serum sodium (mmol/L) | 135 | 130-145 |\n| Serum glucose (mmol/L) | 4.5 | 3.9-5.5 |\n\nTABLE 75.2 CSF Results on Admission\n| Parameter | Patient | Reference Range |\n|---|---|---|\n| Leukocytes (cells/μL) | 50 | 5 |\n| CSF protein (g/L) | 0.78 | 0.25-0.55 |\n| CSF glucose (mmol/L) | 2.9 | 2.25-2.97\\* |\n| Cryptococcal antigen (CrAG) | Negative | Negative |\n| India Ink stain | Negative | Negative |\n| Gram stain | Negative | Negative |\n| Ziehl-Neelsen stain | Negative | Negative |\n\\*½ to ⅔ of paired serum glucose sample.",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/75---A-25-Year-Old-Woman-from-Zambia-With-a-N_2022_Clinical-Cases-in-Tropica-tables.md",
+  "table_label": "TABLE 75.1",
+  "table_caption": "Blood Results on Admission"
+}

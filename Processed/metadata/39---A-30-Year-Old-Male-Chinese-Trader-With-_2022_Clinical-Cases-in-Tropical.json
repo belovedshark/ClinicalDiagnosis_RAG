@@ -1,0 +1,18 @@
+{
+  "filename": "39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical.pdf",
+  "markdown_path": "./Processed/markdown/39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical.md",
+  "images": [
+    {
+      "page": 2,
+      "path": "./Processed/images/39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical/39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical_p2_img1.jpeg"
+    },
+    {
+      "page": 2,
+      "path": "./Processed/images/39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical/39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical_p2_img2.jpeg"
+    }
+  ],
+  "table_text": "TABLE 39.1 Laboratory Results on Admission\n| Parameter (unit) | Patient | Reference range |\n|---|---|---|\n| ALT (U/L) | 301 | <40 |\n| AST (U/L) | 230 | <37 |\n| ALP (U/L) | 470 | <120 |\n| Total bilirubin (μmol/L) | 14 | <14.5 |\n| Direct bilirubin (μmol/L) | 6.4 | <4.3108 |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/39---A-30-Year-Old-Male-Chinese-Trader-With-_2022_Clinical-Cases-in-Tropical-tables.md",
+  "table_label": "TABLE 39.1",
+  "table_caption": "Laboratory Results on Admission"
+}

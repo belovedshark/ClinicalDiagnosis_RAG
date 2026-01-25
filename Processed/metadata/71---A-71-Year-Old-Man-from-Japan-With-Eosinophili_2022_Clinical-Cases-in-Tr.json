@@ -1,0 +1,30 @@
+{
+  "filename": "71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr.pdf",
+  "markdown_path": "./Processed/markdown/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr.md",
+  "images": [
+    {
+      "page": 2,
+      "path": "./Processed/images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p2_img1.jpeg"
+    },
+    {
+      "page": 3,
+      "path": "./Processed/images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p3_img1.jpeg"
+    },
+    {
+      "page": 3,
+      "path": "./Processed/images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p3_img2.jpeg"
+    },
+    {
+      "page": 4,
+      "path": "./Processed/images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p4_img1.jpeg"
+    },
+    {
+      "page": 4,
+      "path": "./Processed/images/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr_p4_img2.jpeg"
+    }
+  ],
+  "table_text": "TABLE 71.1 Full Blood Count Results at Presentation\n| Parameter                     | Patient | Reference |\n| :---------------------------- | :------ | :-------- |\n| WBC ( 109/L)                  | 6.5     | 4-10      |\n| Haemoglobin (g/dL)            | 15.3    | 14-16     |\n| Platelets ( 109/L)            | 190     | 150-300   |\n| Neutrophils (%)               | 46.1    | 30-80     |\n| Lymphocytes (%)               | 38.6    | 15-50     |\n| Monocytes (%)                 | 6.4     | 1-12      |\n| Eosinophils (%)               | 8.3     | 0-6       |\n| Total eosinophil count ( 109/L) | 0.54    | <0.45     |\n| Basophils (%)                 | 0.6     | 0-2       |\n| IgE (U/mL)                    | 185.7   | <100      |\n\nTABLE 71.2 Predominant Paragonimus Species by Region\n| Region                    | Predominant Paragonimus spp.     |\n| :------------------------ | :------------------------------- |\n| East Asia                 | P. westermani P. skrijabinia     |\n| South and South-east Asia | P. heterotremusb                 |\n| Africa                    | P. africanus P. uterobilateralis |\n| North America             | P. kelicottii                    |\n| Central and South America | P. mexicanus asyn. P. myazakii.  |\nbException: Philippines-P. westermani.",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/71---A-71-Year-Old-Man-from-Japan-With-Eosinophili_2022_Clinical-Cases-in-Tr-tables.md",
+  "table_label": "TABLE 71.1",
+  "table_caption": "Full Blood Count Results at Presentation"
+}

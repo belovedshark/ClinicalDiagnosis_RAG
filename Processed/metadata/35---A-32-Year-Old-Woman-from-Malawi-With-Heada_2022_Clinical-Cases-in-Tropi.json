@@ -1,0 +1,18 @@
+{
+  "filename": "35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi.pdf",
+  "markdown_path": "./Processed/markdown/35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi.md",
+  "images": [
+    {
+      "page": 1,
+      "path": "./Processed/images/35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi/35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi_p1_img1.jpeg"
+    },
+    {
+      "page": 2,
+      "path": "./Processed/images/35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi/35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi_p2_img1.jpeg"
+    }
+  ],
+  "table_text": "TABLE 35.1 Laboratory Results on Admission\n| Parameter                   | Patient  | Reference   |\n| :-------------------------- | :------- | :---------- |\n| WBC (10^9/L)                | 3.7      | 4-10        |\n| Haemoglobin (g/dL)          | 10.2     | 12-16       |\n| MCV (fL)                    | 92       | 80-98       |\n| Platelets (10^9/L)          | 91       | 150-350     |\n| Fasting blood glucose (mmol/L) | 5.43     | 5.0-6.7     |\n| Malaria RDT                 | Negative | Negative    |\n\nTABLE 35.2 CSF Results on Admission\n| Parameter             | Patient       | Reference    |\n| :-------------------- | :------------ | :----------- |\n| Leukocytes (cells/μL) | 180           | 0-5          |\n| Protein (g/L)         | 0.8           | 0.15-0.40    |\n| Glucose (mmol/L)      | 1.97          | 2.22-3.88    |\n| India Ink             | Negative      | Negative     |\n| Culture               | C. neoformans | Negative     |",
+  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/35---A-32-Year-Old-Woman-from-Malawi-With-Heada_2022_Clinical-Cases-in-Tropi-tables.md",
+  "table_label": "TABLE 35.1",
+  "table_caption": "Laboratory Results on Admission"
+}
