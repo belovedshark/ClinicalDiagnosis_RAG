@@ -132,8 +132,14 @@ class Generator:
         self.tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
 
         # Choose dtype based on device
+        # Use bfloat16 instead of float16 for better numerical stability
+        # float16 can cause NaN/inf issues with multinomial sampling
         if device == "cuda":
-            dtype = torch.float16
+            # Prefer bfloat16 if supported (Ampere+), fallback to float32
+            if torch.cuda.is_bf16_supported():
+                dtype = torch.bfloat16
+            else:
+                dtype = torch.float32  # float16 causes numerical issues
         elif device == "mps":
             # MPS has limited float16 support; use bfloat16 or float32
             dtype = torch.bfloat16 if hasattr(torch, 'bfloat16') else torch.float32
@@ -186,13 +192,28 @@ Context:
 Question: {question}
 Answer:
 """
-        output = self.pipe(
-            prompt,
-            max_new_tokens=256,
-            temperature=0.2,
-            top_p=0.9,
-            return_full_text=False,  # Only return the generated text, not the prompt
-        )[0]["generated_text"]
+        # Use greedy decoding (do_sample=False) for deterministic output
+        # This avoids numerical instability issues with multinomial sampling
+        # that can occur with float16/low temperature combinations
+        try:
+            output = self.pipe(
+                prompt,
+                max_new_tokens=256,
+                do_sample=False,  # Greedy decoding - avoids multinomial issues
+                return_full_text=False,
+            )[0]["generated_text"]
+        except RuntimeError as e:
+            # Fallback: if CUDA error occurs, try with explicit temperature handling
+            if "CUDA" in str(e) or "multinomial" in str(e):
+                print(f"Warning: Generation error, retrying with sampling disabled")
+                output = self.pipe(
+                    prompt,
+                    max_new_tokens=256,
+                    do_sample=False,
+                    return_full_text=False,
+                )[0]["generated_text"]
+            else:
+                raise
 
         # Clean up the generated output
         answer = output.strip()
