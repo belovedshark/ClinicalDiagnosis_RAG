@@ -15,7 +15,9 @@ from .utils import (
     validate_case,
     save_results,
     load_checkpoint,
-    save_checkpoint
+    save_checkpoint,
+    is_diagnosis_match,
+    normalize_diagnosis
 )
 from .config import SAVE_INTERVAL
 
@@ -142,24 +144,117 @@ class BaseEvaluator(ABC):
         
         return all_results
     
-    def _print_summary(self, results: List[Dict[str, Any]]):
-        """Print evaluation summary."""
+    def _print_summary(
+        self, 
+        results: List[Dict[str, Any]], 
+        use_semantic: bool = True,
+        semantic_threshold: float = 0.85
+    ):
+        """
+        Print detailed evaluation summary with hybrid matching.
+        
+        Args:
+            results: List of inference results
+            use_semantic: Whether to use semantic similarity matching
+            semantic_threshold: Threshold for semantic similarity
+        """
         print("\n" + "="*80)
         print("EVALUATION COMPLETE")
         print("="*80)
         print(f"Model type: {self.MODEL_TYPE}")
         print(f"Total cases processed: {len(results)}")
         
-        # Calculate accuracy
-        correct = sum(1 for r in results 
-                     if r.get("answer", "").lower().strip() == 
-                        r.get("ground_truth", "").lower().strip())
-        accuracy = correct / len(results) * 100 if results else 0
+        if not results:
+            print("No results to evaluate.")
+            return
         
-        print(f"\n📊 Summary:")
-        print(f"  ✅ Correct: {correct}/{len(results)} ({accuracy:.1f}%)")
+        # Compute detailed metrics using hybrid matching
+        exact_matches = 0
+        alias_matches = 0
+        semantic_matches = 0
+        no_matches = 0
+        errors = 0
         
-        # Count errors
-        errors = sum(1 for r in results if r.get("answer", "").startswith("ERROR"))
+        mismatched_cases = []
+        semantic_match_details = []
+        
+        for r in results:
+            answer = r.get("answer", "")
+            ground_truth = r.get("ground_truth", "")
+            
+            # Skip error cases
+            if answer.startswith("ERROR"):
+                errors += 1
+                continue
+            
+            # Use hybrid matching
+            is_match, match_type, confidence = is_diagnosis_match(
+                answer, 
+                ground_truth,
+                use_semantic=use_semantic,
+                semantic_threshold=semantic_threshold
+            )
+            
+            if is_match:
+                if match_type == "exact":
+                    exact_matches += 1
+                elif match_type == "alias":
+                    alias_matches += 1
+                elif match_type == "semantic":
+                    semantic_matches += 1
+                    semantic_match_details.append({
+                        "case_id": r.get("case_id"),
+                        "answer": answer,
+                        "ground_truth": ground_truth,
+                        "similarity": confidence
+                    })
+            else:
+                no_matches += 1
+                mismatched_cases.append({
+                    "case_id": r.get("case_id"),
+                    "answer": answer,
+                    "ground_truth": ground_truth,
+                    "answer_normalized": normalize_diagnosis(answer),
+                    "truth_normalized": normalize_diagnosis(ground_truth),
+                    "similarity": confidence
+                })
+        
+        total_valid = len(results) - errors
+        total_correct = exact_matches + alias_matches + semantic_matches
+        accuracy = total_correct / total_valid * 100 if total_valid else 0
+        
+        # Print summary
+        print(f"\n📊 Evaluation Summary (Hybrid Matching):")
+        print(f"  {'─'*50}")
+        print(f"  Total valid cases: {total_valid}")
+        print(f"  ✅ Total correct: {total_correct}/{total_valid} ({accuracy:.1f}%)")
+        print(f"  {'─'*50}")
+        print(f"  Match breakdown:")
+        print(f"    • Exact matches:    {exact_matches:3d} ({exact_matches/total_valid*100:.1f}%)")
+        print(f"    • Alias matches:    {alias_matches:3d} ({alias_matches/total_valid*100:.1f}%)")
+        if use_semantic:
+            print(f"    • Semantic matches: {semantic_matches:3d} ({semantic_matches/total_valid*100:.1f}%) [threshold={semantic_threshold}]")
+        print(f"    • No match:         {no_matches:3d} ({no_matches/total_valid*100:.1f}%)")
         if errors:
             print(f"  ❌ Errors: {errors}")
+        
+        # Show semantic match details
+        if semantic_match_details:
+            print(f"\n🔍 Semantic Matches (accepted via similarity):")
+            for detail in semantic_match_details[:5]:  # Show first 5
+                print(f"    [{detail['case_id']}] \"{detail['answer']}\" ≈ \"{detail['ground_truth']}\" (sim={detail['similarity']:.3f})")
+            if len(semantic_match_details) > 5:
+                print(f"    ... and {len(semantic_match_details) - 5} more")
+        
+        # Show mismatched cases
+        if mismatched_cases:
+            print(f"\n❌ Mismatched Cases ({len(mismatched_cases)} total):")
+            for case in mismatched_cases[:5]:  # Show first 5
+                print(f"    [{case['case_id']}]")
+                print(f"      Answer:       \"{case['answer']}\" → normalized: \"{case['answer_normalized']}\"")
+                print(f"      Ground truth: \"{case['ground_truth']}\" → normalized: \"{case['truth_normalized']}\"")
+                print(f"      Similarity:   {case['similarity']:.3f}")
+            if len(mismatched_cases) > 5:
+                print(f"    ... and {len(mismatched_cases) - 5} more")
+        
+        print(f"\n{'='*80}")
