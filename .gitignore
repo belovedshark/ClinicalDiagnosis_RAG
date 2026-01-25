@@ -21,3 +21,12 @@ out_all/
 /evaluation_kits/debug_raw/
 /evaluation_kits/evaluated/
 evaluation/*/results/
+
+# Fine-tuned model outputs (keep structure, ignore large files)
+outputs/*/pytorch_model.bin
+outputs/*/model.safetensors
+outputs/*/adapter_model.safetensors
+outputs/*/optimizer.pt
+outputs/*/*.bin
+outputs/*/*.safetensors
+outputs/*/checkpoint-*
