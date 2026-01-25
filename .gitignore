@@ -25,4 +25,3 @@ evaluation/*/results/
 
 model_quantized_4bits/
 *.jsonl
-*.safetensors
