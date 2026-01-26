@@ -3,6 +3,10 @@ RAG Evaluator - Evaluates the RAG (Retrieval-Augmented Generation) system.
 
 This evaluator retrieves relevant context from the vector database
 and uses it to augment the LLM's diagnosis.
+
+Enhanced features:
+- Hybrid search (semantic + BM25 keyword matching)
+- Cross-encoder reranking for better context relevance
 """
 import sys
 import os
@@ -26,17 +30,39 @@ class RAGEvaluator(BaseEvaluator):
     
     MODEL_TYPE = "rag"
     
-    def __init__(self, top_k: int = TOP_K_RETRIEVAL):
+    def __init__(self, 
+                 top_k: int = TOP_K_RETRIEVAL,
+                 use_hybrid_search: bool = True,
+                 use_reranking: bool = True,
+                 semantic_weight: float = 0.7,
+                 bm25_weight: float = 0.3):
         """
         Initialize the RAG evaluator.
         
         Args:
             top_k: Number of contexts to retrieve for each query
+            use_hybrid_search: Enable BM25 + semantic hybrid search
+            use_reranking: Enable cross-encoder reranking
+            semantic_weight: Weight for semantic similarity (0-1)
+            bm25_weight: Weight for BM25 scores (0-1)
         """
         super().__init__()
         self.top_k = top_k
+        self.use_hybrid_search = use_hybrid_search
+        self.use_reranking = use_reranking
+        
         print("🚀 Initializing RAG pipeline...")
-        self.rag_pipeline = RAGPipeline()
+        print(f"   Hybrid search: {use_hybrid_search}")
+        print(f"   Reranking: {use_reranking}")
+        if use_hybrid_search:
+            print(f"   Weights: semantic={semantic_weight}, BM25={bm25_weight}")
+        
+        self.rag_pipeline = RAGPipeline(
+            use_hybrid_search=use_hybrid_search,
+            use_reranking=use_reranking,
+            semantic_weight=semantic_weight,
+            bm25_weight=bm25_weight
+        )
         print("✅ RAG pipeline initialized successfully")
     
     def run_inference(self, case: Dict[str, Any]) -> Dict[str, Any]:
@@ -55,39 +81,25 @@ class RAGEvaluator(BaseEvaluator):
         print(f"❓ Question: {question[:100]}...")
         
         try:
-            # Get contexts with metadata using retriever
+            # Use the enhanced retrieve_with_scores method
             retriever = self.rag_pipeline.retriever
-            query_emb = retriever.embed_query(query_text=question)
-            
-            # Retrieve with more details
-            results = retriever.client.query_points(
-                collection_name=retriever.collection,
-                query=query_emb.tolist(),
-                using='text',
-                limit=self.top_k,
-                with_payload=True,
+            retrieved_results = retriever.retrieve_with_scores(
+                query_text=question,
+                top_k=self.top_k
             )
-            
-            points = results.points if hasattr(results, 'points') else results
             
             contexts = []
             similarity_scores = []
+            bm25_scores = []
+            rerank_scores = []
             source_documents = []
             
-            for p in points:
-                if isinstance(p, dict):
-                    payload = p.get('payload', {}) or {}
-                    score = p.get('score', 0.0)
-                else:
-                    payload = getattr(p, 'payload', {}) or {}
-                    score = getattr(p, 'score', 0.0)
-                
-                text = payload.get('text', '')
-                source = payload.get('source', 'unknown')
-                
-                contexts.append(text)
-                similarity_scores.append(float(score))
-                source_documents.append(source)
+            for r in retrieved_results:
+                contexts.append(r['text'])
+                similarity_scores.append(r['semantic_score'])
+                bm25_scores.append(r.get('bm25_score', 0.0))
+                rerank_scores.append(r.get('rerank_score', 0.0))
+                source_documents.append(r.get('source', 'unknown'))
             
             # Generate answer using the full RAG pipeline
             context_text = "\n\n".join(contexts)
@@ -122,6 +134,8 @@ DIAGNOSIS:"""
                     answer = answer.split('.')[0].strip()
             
             print(f"🔍 Retrieved {len(contexts)} contexts")
+            if self.use_reranking and rerank_scores:
+                print(f"📊 Top rerank score: {rerank_scores[0]:.3f}")
             print(f"💡 Generated diagnosis: {answer}")
             print(f"✅ Ground truth: {case['ground_truth']}")
             
@@ -134,8 +148,12 @@ DIAGNOSIS:"""
                 "metadata": {
                     "model_type": self.MODEL_TYPE,
                     "similarity_scores": similarity_scores,
+                    "bm25_scores": bm25_scores if self.use_hybrid_search else [],
+                    "rerank_scores": rerank_scores if self.use_reranking else [],
                     "source_documents": source_documents,
-                    "num_contexts": len(contexts)
+                    "num_contexts": len(contexts),
+                    "use_hybrid_search": self.use_hybrid_search,
+                    "use_reranking": self.use_reranking
                 },
                 "diagnostic_reasoning": case.get("diagnostic_reasoning", "")
             }
@@ -156,6 +174,8 @@ DIAGNOSIS:"""
                 "metadata": {
                     "model_type": self.MODEL_TYPE,
                     "similarity_scores": [],
+                    "bm25_scores": [],
+                    "rerank_scores": [],
                     "source_documents": [],
                     "num_contexts": 0,
                     "error": str(e)

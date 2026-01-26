@@ -22,96 +22,167 @@ DIAGNOSIS_ALIASES = {
         "plasmodium falciparum", "plasmodium vivax", "plasmodium ovale", 
         "plasmodium malariae", "plasmodium knowlesi", "plasmodium",
         "falciparum malaria", "vivax malaria", "cerebral malaria",
-        "malaria infection", "malarial infection"
+        "malaria infection", "malarial infection", "severe malaria",
+        "uncomplicated malaria", "complicated malaria"
     ],
     # Dengue variants
     "dengue fever": [
         "dengue", "denv", "dengue virus", "dengue virus infection",
-        "classic dengue", "dengue infection"
+        "classic dengue", "dengue infection", "acute dengue"
     ],
     "severe dengue": [
         "dengue hemorrhagic fever", "dhf", "dengue shock syndrome", "dss",
-        "hemorrhagic dengue"
+        "hemorrhagic dengue", "severe dengue fever", "dengue with warning signs"
     ],
     # Chikungunya
     "chikungunya": [
         "chikungunya fever", "chikungunya virus", "chikungunya infection",
-        "chikv", "chik"
+        "chikv", "chik", "chikungunya virus infection"
     ],
     # Zika
     "zika virus infection": [
-        "zika", "zika virus", "zika fever", "zikv"
+        "zika", "zika virus", "zika fever", "zikv", "zika virus disease"
     ],
     # Yellow fever
     "yellow fever": [
-        "yellow fever virus", "yfv", "yellow fever infection"
+        "yellow fever virus", "yfv", "yellow fever infection",
+        "sylvatic yellow fever", "urban yellow fever"
     ],
-    # Leishmaniasis
+    # Leishmaniasis - expanded with more variants
     "leishmaniasis (cutaneous)": [
         "cutaneous leishmaniasis", "skin leishmaniasis", "oriental sore",
-        "cl", "localized cutaneous leishmaniasis"
+        "cl", "localized cutaneous leishmaniasis", "leishmania tropica",
+        "leishmania major", "leishmania braziliensis", "mucocutaneous leishmaniasis",
+        "new world cutaneous leishmaniasis", "old world cutaneous leishmaniasis"
     ],
     "leishmaniasis (visceral)": [
         "visceral leishmaniasis", "kala-azar", "kala azar", "vl",
-        "black fever", "dumdum fever"
+        "black fever", "dumdum fever", "leishmania donovani",
+        "leishmania infantum", "visceral leishmaniasis (vl)"
     ],
     # Schistosomiasis
     "schistosomiasis": [
         "bilharzia", "bilharziasis", "snail fever", "schistosoma",
-        "schistosoma mansoni", "schistosoma haematobium", "schistosoma japonicum"
+        "schistosoma mansoni", "schistosoma haematobium", "schistosoma japonicum",
+        "intestinal schistosomiasis", "urinary schistosomiasis",
+        "hepatosplenic schistosomiasis", "acute schistosomiasis", "katayama fever"
     ],
     # Filariasis
     "lymphatic filariasis": [
         "elephantiasis", "filariasis", "wuchereria bancrofti",
-        "brugia malayi", "lf"
+        "brugia malayi", "lf", "bancroftian filariasis",
+        "lymphoedema", "chronic lymphoedema", "filarial lymphoedema"
     ],
     # Trypanosomiasis
     "african trypanosomiasis": [
         "sleeping sickness", "african sleeping sickness", "trypanosomiasis",
-        "trypanosoma brucei", "hat", "human african trypanosomiasis"
+        "trypanosoma brucei", "hat", "human african trypanosomiasis",
+        "trypanosoma brucei gambiense", "trypanosoma brucei rhodesiense",
+        "gambiense sleeping sickness", "rhodesiense sleeping sickness"
     ],
     # Helminthiasis
     "soil-transmitted helminthiasis": [
-        "sth", "intestinal worms", "geohelminths", "soil transmitted helminths"
+        "sth", "intestinal worms", "geohelminths", "soil transmitted helminths",
+        "intestinal helminth infection", "enteric helminth infection"
     ],
     "hookworm infection": [
         "hookworm", "ancylostomiasis", "necatoriasis", "ancylostoma",
-        "necator americanus", "ancylostoma duodenale"
+        "necator americanus", "ancylostoma duodenale", "hookworm disease"
     ],
     "strongyloidiasis": [
-        "strongyloides", "strongyloides stercoralis", "threadworm infection"
+        "strongyloides", "strongyloides stercoralis", "threadworm infection",
+        "strongyloides infection", "hyperinfection syndrome"
     ],
     "trichuriasis": [
-        "whipworm", "whipworm infection", "trichuris trichiura"
+        "whipworm", "whipworm infection", "trichuris trichiura",
+        "trichuris infection"
     ],
     # Amoebiasis
     "amoebiasis": [
         "amebiasis", "amoebic dysentery", "entamoeba histolytica",
-        "intestinal amoebiasis", "amoebic colitis"
+        "intestinal amoebiasis", "amoebic colitis", "amoebic liver abscess",
+        "hepatic amoebiasis", "invasive amoebiasis"
     ],
     # Cholera
     "cholera": [
-        "vibrio cholerae", "cholera infection", "asiatic cholera"
+        "vibrio cholerae", "cholera infection", "asiatic cholera",
+        "acute watery diarrhea", "cholera gravis"
     ],
     # Leptospirosis
     "leptospirosis": [
         "weil's disease", "weils disease", "leptospira", "rat fever",
-        "canicola fever", "leptospiral infection"
+        "canicola fever", "leptospiral infection", "weil syndrome",
+        "icteric leptospirosis", "anicteric leptospirosis"
     ],
     # Scrub typhus
     "scrub typhus": [
         "tsutsugamushi disease", "orientia tsutsugamushi", "mite typhus",
-        "bush typhus"
+        "bush typhus", "scrub typhus fever"
     ],
     # Relapsing fever
     "relapsing fever (tropical form)": [
         "relapsing fever", "borrelia recurrentis", "tick-borne relapsing fever",
-        "louse-borne relapsing fever", "epidemic relapsing fever"
+        "louse-borne relapsing fever", "epidemic relapsing fever",
+        "borrelia duttonii", "endemic relapsing fever"
     ],
-    # Neurocysticercosis
+    # Neurocysticercosis - expanded
     "neurocysticercosis": [
         "ncc", "cysticercosis", "taenia solium", "pork tapeworm",
-        "cerebral cysticercosis", "brain cysticercosis"
+        "cerebral cysticercosis", "brain cysticercosis",
+        "subarachnoid neurocysticercosis", "parenchymal neurocysticercosis",
+        "intraventricular neurocysticercosis", "racemose neurocysticercosis"
+    ],
+    # Typhoid/Enteric fever
+    "typhoid fever": [
+        "typhoid", "enteric fever", "salmonella typhi", "salmonella paratyphi",
+        "paratyphoid fever", "typhoid infection"
+    ],
+    # Tuberculosis
+    "tuberculosis": [
+        "tb", "pulmonary tuberculosis", "mycobacterium tuberculosis",
+        "mtb", "extrapulmonary tuberculosis", "miliary tuberculosis",
+        "tuberculous meningitis", "tb meningitis"
+    ],
+    # Rabies
+    "rabies": [
+        "rabies virus", "hydrophobia", "lyssa", "rabies infection"
+    ],
+    # Tetanus
+    "tetanus": [
+        "lockjaw", "clostridium tetani", "tetanus infection",
+        "generalized tetanus", "neonatal tetanus"
+    ],
+    # Meningitis
+    "bacterial meningitis": [
+        "acute bacterial meningitis", "meningococcal meningitis",
+        "pneumococcal meningitis", "meningitis", "pyogenic meningitis"
+    ],
+    # Loiasis
+    "loiasis": [
+        "loa loa", "african eye worm", "calabar swelling",
+        "loa loa filariasis", "eye worm"
+    ],
+    # Onchocerciasis
+    "onchocerciasis": [
+        "river blindness", "onchocerca volvulus", "onchocercal skin disease"
+    ],
+    # Buruli ulcer
+    "buruli ulcer": [
+        "mycobacterium ulcerans", "bairnsdale ulcer", "bu"
+    ],
+    # Rickettsial diseases
+    "african tick-bite fever": [
+        "atbf", "rickettsia africae", "tick bite fever"
+    ],
+    # Giardiasis
+    "giardiasis": [
+        "giardia", "giardia lamblia", "giardia intestinalis",
+        "giardia duodenalis", "beaver fever"
+    ],
+    # Ascariasis
+    "ascariasis": [
+        "ascaris", "ascaris lumbricoides", "roundworm infection",
+        "intestinal ascariasis"
     ],
 }
 

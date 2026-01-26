@@ -20,9 +20,24 @@ DEVICE = "auto"  # Device for models: "auto", "cuda", "mps", "cpu"
 BATCH_SIZE = 1  # Process one case at a time
 SAVE_INTERVAL = 5  # Save checkpoint every N cases
 
+# =============================================================================
+# RAG Retrieval Enhancement Settings
+# =============================================================================
+
+# Hybrid search: combines semantic similarity with BM25 keyword matching
+USE_HYBRID_SEARCH = True
+SEMANTIC_WEIGHT = 0.7  # Weight for semantic similarity scores
+BM25_WEIGHT = 0.3      # Weight for BM25 keyword scores
+
+# Cross-encoder reranking for improved relevance
+USE_RERANKING = True
+RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+
+# =============================================================================
 # Matching settings for evaluation
+# =============================================================================
 USE_SEMANTIC_MATCHING = True  # Enable semantic similarity fallback
-SEMANTIC_THRESHOLD = 0.85  # Similarity threshold (0.0-1.0) for semantic matching
+SEMANTIC_THRESHOLD = 0.80  # Similarity threshold (0.0-1.0) for semantic matching (lowered from 0.85)
 EMBEDDING_MODEL = "thenlper/gte-small"  # Model for semantic embeddings
 
 # Output paths for each evaluator type

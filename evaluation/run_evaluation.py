@@ -6,6 +6,10 @@ Usage:
     python -m evaluation.run_evaluation rag
     python -m evaluation.run_evaluation base_model
     python -m evaluation.run_evaluation all
+
+RAG Evaluation Features:
+    - Hybrid search (semantic + BM25)
+    - Cross-encoder reranking
     
 Future (not implemented yet):
     python -m evaluation.run_evaluation finetuned
@@ -16,7 +20,7 @@ import sys
 
 
 def run_rag():
-    """Run RAG evaluation."""
+    """Run RAG evaluation with hybrid search and reranking."""
     from evaluation.rag.evaluator import main
     main()
 

@@ -14,9 +14,26 @@ class RAGPipeline:
     the configuration in `rag.config` and on runtime availability, then pass
     that device to the Retriever and Generator so models are loaded onto GPU
     when available.
+    
+    Supports enhanced retrieval with:
+    - Hybrid search (semantic + BM25)
+    - Cross-encoder reranking
     """
 
-    def __init__(self):
+    def __init__(self, 
+                 use_hybrid_search: bool = True,
+                 use_reranking: bool = True,
+                 semantic_weight: float = 0.7,
+                 bm25_weight: float = 0.3):
+        """
+        Initialize the RAG pipeline.
+        
+        Args:
+            use_hybrid_search: Enable BM25 + semantic hybrid search
+            use_reranking: Enable cross-encoder reranking
+            semantic_weight: Weight for semantic similarity (0-1)
+            bm25_weight: Weight for BM25 scores (0-1)
+        """
         # Decide runtime device
         device_pref = (CONFIG_DEVICE or "auto").lower()
         if device_pref == "auto":
@@ -35,7 +52,13 @@ class RAGPipeline:
             device = device_pref
 
         # self.embedder = Embedder()
-        self.retriever = Retriever(device=device)
+        self.retriever = Retriever(
+            device=device,
+            use_hybrid_search=use_hybrid_search,
+            use_reranking=use_reranking,
+            semantic_weight=semantic_weight,
+            bm25_weight=bm25_weight
+        )
         self.generator = Generator(device=device)
 
     def query(self, question: str, image_path: str = None, k: int = 5) -> str:

@@ -16,6 +16,7 @@ class Generator:
     def __init__(self, device: str = "cpu"):
         print(f"Loading Gemma model: {LLM_MODEL} (preferred device={device})")
         self.tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
+        self.model_name = LLM_MODEL
 
         # Choose dtype based on device
         # Use bfloat16 instead of float16 for better numerical stability
