@@ -5,11 +5,9 @@ Main entry point for running evaluations.
 Usage:
     python -m evaluation.run_evaluation rag
     python -m evaluation.run_evaluation base_model
-    python -m evaluation.run_evaluation all
-    
-Future (not implemented yet):
     python -m evaluation.run_evaluation finetuned
     python -m evaluation.run_evaluation finetuned_rag
+    python -m evaluation.run_evaluation all
 """
 import argparse
 import sys
@@ -24,6 +22,18 @@ def run_rag():
 def run_base_model():
     """Run base model evaluation."""
     from evaluation.base_model.evaluator import main
+    main()
+
+
+def run_finetuned():
+    """Run fine-tuned model evaluation (no RAG)."""
+    from evaluation.finetuned.evaluator import main
+    main()
+
+
+def run_finetuned_rag():
+    """Run fine-tuned model + RAG evaluation."""
+    from evaluation.finetuned_rag.evaluator import main
     main()
 
 
@@ -43,15 +53,9 @@ def main():
     available = {
         "rag": run_rag,
         "base_model": run_base_model,
+        "finetuned": run_finetuned,
+        "finetuned_rag": run_finetuned_rag,
     }
-    
-    # Placeholder evaluators (not implemented yet)
-    placeholders = ["finetuned", "finetuned_rag"]
-    
-    if args.evaluator in placeholders:
-        print(f"❌ {args.evaluator} evaluator is not implemented yet.")
-        print("   Available evaluators: rag, base_model")
-        sys.exit(1)
     
     if args.evaluator == "all":
         print("Running all available evaluators...")
