@@ -6,12 +6,22 @@ Unified evaluation framework for comparing different clinical diagnosis model co
 
 This framework provides a consistent interface for evaluating:
 
+### Inference Evaluators
+
 | Evaluator | Status | Description |
 |-----------|--------|-------------|
 | `rag` | ✅ Ready | RAG (Retrieval-Augmented Generation) - retrieves context from vector DB |
 | `base_model` | ✅ Ready | Base LLM without retrieval |
 | `finetuned` | 📝 Placeholder | Fine-tuned model without retrieval |
 | `finetuned_rag` | 📝 Placeholder | Fine-tuned model with RAG retrieval |
+
+### Framework Evaluators (Post-Inference)
+
+| Framework | Status | Description |
+|-----------|--------|-------------|
+| `ragas` | ✅ Ready | RAGAS metrics for RAG quality (faithfulness, context precision, etc.) |
+| `deepeval` | ✅ Ready | DeepEval G-Eval for clinical reasoning evaluation |
+| `frameworks` | ✅ Ready | Run both RAGAS and DeepEval together |
 
 All evaluators use the same input format (`test_cases.jsonl`) and produce the same output format for easy comparison.
 
@@ -30,7 +40,7 @@ All evaluators use the same input format (`test_cases.jsonl`) and produce the sa
    pip install -r requirements.txt
    ```
 
-### Running Evaluations
+### Running Inference Evaluations
 
 From the project root directory:
 
@@ -41,7 +51,7 @@ python -m evaluation.run_evaluation rag
 # Run Base Model evaluation
 python -m evaluation.run_evaluation base_model
 
-# Run all available evaluators
+# Run all inference evaluators
 python -m evaluation.run_evaluation all
 ```
 
@@ -51,6 +61,33 @@ Or run evaluators directly:
 python -m evaluation.rag.evaluator
 python -m evaluation.base_model.evaluator
 ```
+
+### Running Framework Evaluations (RAGAS & DeepEval)
+
+Framework evaluations run on existing inference results to compute additional quality metrics:
+
+```bash
+# Run RAGAS evaluation on RAG results
+python -m evaluation.run_evaluation ragas --results evaluation/rag/results/inference_results.json
+
+# Run DeepEval reasoning evaluation
+python -m evaluation.run_evaluation deepeval --results evaluation/rag/results/inference_results.json
+
+# Run both frameworks together
+python -m evaluation.run_evaluation frameworks --results evaluation/rag/results/inference_results.json
+```
+
+Or run framework evaluators directly:
+
+```bash
+# RAGAS
+python -m evaluation.frameworks.ragas_evaluator evaluation/rag/results/inference_results.json -o ragas_results.json
+
+# DeepEval
+python -m evaluation.frameworks.deepeval_evaluator evaluation/rag/results/inference_results.json -o deepeval_results.json
+```
+
+**Note**: Framework evaluations require an OpenAI API key set as `OPENAI_API_KEY` environment variable.
 
 ## Output
 
@@ -64,6 +101,10 @@ evaluation/
 ├── base_model/results/
 │   ├── inference_results.json
 │   └── checkpoint.json
+├── frameworks/results/           # Framework evaluation results
+│   ├── ragas_inference_results.json
+│   ├── deepeval_inference_results.json
+│   └── combined_inference_results.json
 ```
 
 ### Output Format
@@ -116,11 +157,10 @@ print(compare_models(all_results))
 ```
 evaluation/
 ├── README.md               # This file
-├── test_cases.jsonl        # Input test cases (10 WHO clinical cases)
+├── test_cases.jsonl        # Input test cases (WHO clinical cases)
 ├── base_interface.py       # Abstract BaseEvaluator class
 ├── config.py               # Shared configuration
 ├── utils.py                # Data loading/saving utilities
-├── metrics.py              # Evaluation metrics
 ├── run_evaluation.py       # Main entry point
 │
 ├── rag/                    # RAG evaluator
@@ -134,9 +174,39 @@ evaluation/
 ├── finetuned/              # Fine-tuned evaluator (placeholder)
 │   └── evaluator.py
 │
-└── finetuned_rag/          # Fine-tuned + RAG evaluator (placeholder)
-    └── evaluator.py
+├── finetuned_rag/          # Fine-tuned + RAG evaluator (placeholder)
+│   └── evaluator.py
+│
+└── frameworks/             # External evaluation frameworks
+    ├── __init__.py
+    ├── ragas_evaluator.py      # RAGAS metrics wrapper
+    ├── deepeval_evaluator.py   # DeepEval reasoning metrics
+    └── results/                # Framework evaluation outputs
 ```
+
+## Framework Metrics
+
+### RAGAS Metrics
+
+RAGAS (Retrieval Augmented Generation Assessment) evaluates RAG pipeline quality:
+
+| Metric | Description |
+|--------|-------------|
+| `faithfulness` | Is the answer factually grounded in the retrieved contexts? |
+| `answer_relevancy` | How relevant is the answer to the question? |
+| `context_precision` | How much of the retrieved context is actually relevant? |
+| `context_recall` | Does the context contain the information needed to answer? |
+
+### DeepEval Reasoning Metrics
+
+DeepEval uses G-Eval (LLM-as-judge) for clinical reasoning evaluation:
+
+| Metric | Description |
+|--------|-------------|
+| `coherence` | Is the diagnostic reasoning logically structured? |
+| `correctness` | Does reasoning align with reference diagnostic reasoning? |
+| `factual_accuracy` | Does the model avoid fabricating clinical facts? |
+| `relevancy` | Is the answer relevant to the clinical question? |
 
 ## Adding New Evaluators
 
@@ -172,4 +242,29 @@ Evaluations automatically checkpoint progress every 5 cases. To resume an interr
 To start fresh, delete the checkpoint file:
 ```bash
 rm evaluation/rag/results/checkpoint.json
+```
+
+## Configuration
+
+Framework settings can be configured in `config.py`:
+
+```python
+# RAGAS settings
+RAGAS_LLM_MODEL = "gpt-4o-mini"      # OpenAI model for RAGAS
+RAGAS_EMBEDDING_MODEL = "text-embedding-3-small"
+RAGAS_METRICS = ["faithfulness", "answer_relevancy", "context_precision", "context_recall"]
+
+# DeepEval settings
+DEEPEVAL_MODEL = "gpt-4o-mini"       # Model for G-Eval
+DEEPEVAL_THRESHOLD = 0.5             # Minimum threshold for passing
+DEEPEVAL_INCLUDE_HALLUCINATION = True
+DEEPEVAL_INCLUDE_RELEVANCY = True
+```
+
+## Environment Variables
+
+For framework evaluations, set your OpenAI API key:
+
+```bash
+export OPENAI_API_KEY="your-api-key-here"
 ```
