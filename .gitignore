@@ -25,3 +25,7 @@ out_all/
 model_quantized_4bits/
 *.jsonl
 *.safetensors
+lora_gemma3_4b_medical/
+lora_gemma3_4b_medical_2/
+lora_gemma3_4b_medical_3/
+pubmedqa_tropical_filtered.csv

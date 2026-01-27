@@ -1,18 +1,14 @@
 {
   "filename": "80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-.pdf",
-  "markdown_path": "./Processed/markdown/80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-.md",
+  "markdown_path": "./Processed\\markdown\\80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-.md",
   "images": [
     {
       "page": 2,
-      "path": "./Processed/images/80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-/80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-_p2_img1.jpeg"
+      "path": "./Processed\\images\\80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-\\80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-_p2_img1.jpeg"
     },
     {
       "page": 2,
-      "path": "./Processed/images/80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-/80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-_p2_img2.jpeg"
+      "path": "./Processed\\images\\80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-\\80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical-_p2_img2.jpeg"
     }
-  ],
-  "table_text": "TABLE 80.1 Laboratory Results of the Thai Patient With a Liver Mass\n| Parameter | Patient | Reference |\n|---|---|---|\n| AST (U/L) | 264 | 36 |\n| ALT (U/L) | 3212 | 32 |\n| ALP (U/L) | 8442 | 121 |\n| Total bilirubin (mg/dL) | 0.6 | 0.3-1.5 |\n| Direct bilirubin (mg/dL) | 0.2 | 0.0-0.5 |\n| HBsAg (MEIA) | Negative | Negative |\n| Anti-HBs (ELISA, IU/L) | 24.13 | 0.0-10.0 |\n| HBeAg (ELISA) | Negative | Negative |\n| Anti-HBc (ELISA) | Positive | Negative |\n| Anti-HCV | Negative | Negative |\n| AFP (U/mL) | 2.8 | 0.0-10.0 |\n| CEA (μg/L) | 18.96 | 0.0-2.5 |\n| CA19-9 (U/mL) | 342.80 | 0.0-37.0 |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/80---A-62-Year-Old-Man-from-Thailand-With-a_2022_Clinical-Cases-in-Tropical--tables.md",
-  "table_label": "TABLE 80.1",
-  "table_caption": "Laboratory Results of the Thai Patient With a Liver Mass"
+  ]
 }

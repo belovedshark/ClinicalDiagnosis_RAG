@@ -1,9 +1,5 @@
 {
   "filename": "9---A-52-Year-Old-Man-from-Vietnam-With-Evo_2022_Clinical-Cases-in-Tropical-.pdf",
-  "markdown_path": "./Processed/markdown/9---A-52-Year-Old-Man-from-Vietnam-With-Evo_2022_Clinical-Cases-in-Tropical-.md",
-  "images": [],
-  "table_text": "TABLE 9.1 Laboratory Results on Admission\n| Parameter | Patient | Reference Range |\n| :------------------------------ | :------: | :--------------: |\n| Haemoglobin (g/dL) | 14.6 | 12.5-17.2 |\n| Haematocrit (%) | 53.9 | 40-52 |\n| Platelets ( 109/L) | 58 | 160-370 |\n| WCC ( 109/L) | 2.1 | 3.6-10.5 |\n| Neutrophils ( 109/L) | 0.9 | 1.5-7.7 |\n| Lymphocytes ( 109/L) | 0.8 | 1.1-4.0 |\n| C-reactive protein (mg/L) | 20 | <4 |\n| Urea (mmol/L) | 7.8 | 2.5-7.8 |\n| Creatinine (μmol/L) | 114 | 62-115 |\n| Alanine aminotransferase (U/L) | 81 | 27-40 |\n| Alkaline phosphatase (U/L) | 260 | 30-130 |\n| Total bilirubin (μmol/L) | 18 | 0-20 |\n| Lactate (mmol/L) | 3.5 | 0.6-1.4 |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/9---A-52-Year-Old-Man-from-Vietnam-With-Evo_2022_Clinical-Cases-in-Tropical--tables.md",
-  "table_label": "TABLE 9.1",
-  "table_caption": "Laboratory Results on Admission"
+  "markdown_path": "./Processed\\markdown\\9---A-52-Year-Old-Man-from-Vietnam-With-Evo_2022_Clinical-Cases-in-Tropical-.md",
+  "images": []
 }

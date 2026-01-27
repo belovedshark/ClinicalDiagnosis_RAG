@@ -1,0 +1,147 @@
+{
+  "last_processed_index": 9,
+  "results": [
+    {
+      "case_id": "who_case_001",
+      "question": "A 21-year-old male presents with 4 days of high fever, severe headache, pain behind the eyes, muscle and joint pain, and a skin rash. He recently traveled to a tropical urban area with frequent mosquito exposure.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Dengue fever",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "The combination of high fever, retro-orbital pain, muscle and joint pain, and rash in a traveler from a tropical region with mosquito exposure is characteristic of dengue fever. Dengue is a mosquito-borne viral disease transmitted by Aedes mosquitoes."
+    },
+    {
+      "case_id": "who_case_002",
+      "question": "A 36-year-old woman presents with recurrent episodes of fever, chills, sweating, and headache after returning from a rural area in sub-Saharan Africa.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Malaria",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Intermittent fever accompanied by chills and sweating following travel to a malaria-endemic region strongly suggests malaria. Malaria is caused by Plasmodium parasites transmitted by Anopheles mosquitoes."
+    },
+    {
+      "case_id": "who_case_003",
+      "question": "A 29-year-old man reports sudden onset of fever and severe joint pain affecting his hands and knees after traveling to a tropical region experiencing mosquito-borne disease outbreaks.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Chikungunya",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Acute fever with severe and persistent joint pain after exposure in a tropical region is characteristic of chikungunya. This disease is distinguished from dengue by prominent arthralgia."
+    },
+    {
+      "case_id": "who_case_004",
+      "question": "A 27-year-old woman presents with mild fever, conjunctivitis, joint pain, and a maculopapular rash after returning from a tropical region.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Zika virus infection",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Mild fever combined with conjunctivitis, rash, and joint pain following travel to a tropical area is consistent with Zika virus infection, which often presents with milder symptoms than dengue."
+    },
+    {
+      "case_id": "who_case_005",
+      "question": "A 45-year-old unvaccinated traveler presents with sudden onset of fever, chills, headache, back pain, and nausea after visiting a forested area in South America.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Yellow fever",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Sudden febrile illness with headache, back pain, and nausea in an unvaccinated individual returning from a yellow fever–endemic area suggests yellow fever, a mosquito-borne viral disease."
+    },
+    {
+      "case_id": "who_case_006",
+      "question": "A 34-year-old farmer reports abdominal pain and blood in the stool several weeks after frequent contact with freshwater lakes in a rural tropical area.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Schistosomiasis",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Freshwater exposure in tropical regions followed by gastrointestinal symptoms and blood in the stool is characteristic of intestinal schistosomiasis, caused by parasitic worms transmitted through contaminated water."
+    },
+    {
+      "case_id": "who_case_007",
+      "question": "A 41-year-old man presents with a painless skin ulcer on his arm that developed several weeks after living in a rural tropical area with known sandfly exposure.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Cutaneous leishmaniasis",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "A chronic painless skin ulcer following sandfly exposure in a tropical region is typical of cutaneous leishmaniasis, a parasitic disease transmitted by sandflies."
+    },
+    {
+      "case_id": "who_case_008",
+      "question": "A 52-year-old man presents with progressive swelling of the lower limbs after many years living in a tropical region with high mosquito density.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Lymphatic filariasis",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Chronic limb swelling in individuals from mosquito-endemic tropical regions suggests lymphatic filariasis, a parasitic infection that damages the lymphatic system."
+    },
+    {
+      "case_id": "who_case_009",
+      "question": "A 19-year-old student presents with prolonged fever, fatigue, abdominal pain, and headache after traveling to a region with limited access to clean water.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Typhoid fever",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Prolonged fever with abdominal symptoms and exposure to unsafe food or water sources is suggestive of typhoid fever, a bacterial infection transmitted via contaminated food and water."
+    },
+    {
+      "case_id": "who_case_010",
+      "question": "A 33-year-old man presents with acute onset of profuse watery diarrhea and signs of dehydration after consuming untreated water in a tropical area experiencing an outbreak.",
+      "contexts": [],
+      "answer": "ERROR: Generator.generate() got an unexpected keyword argument 'custom_prompt'",
+      "ground_truth": "Cholera",
+      "metadata": {
+        "model_type": "base_model",
+        "model_name": "google/gemma-2b-it",
+        "num_contexts": 0,
+        "error": "Generator.generate() got an unexpected keyword argument 'custom_prompt'"
+      },
+      "diagnostic_reasoning": "Severe watery diarrhea leading to dehydration after ingestion of contaminated water during an outbreak is characteristic of cholera, caused by Vibrio cholerae."
+    }
+  ],
+  "timestamp": 1769326758.0499067,
+  "model_type": "base_model"
+}

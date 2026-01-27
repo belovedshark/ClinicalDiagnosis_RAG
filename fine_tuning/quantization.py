@@ -1,7 +1,7 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
-model_path = "google/gemma-2b-it"
+model_path = "google/gemma-3-4b-it"
 
 print("CUDA available:", torch.cuda.is_available())
 

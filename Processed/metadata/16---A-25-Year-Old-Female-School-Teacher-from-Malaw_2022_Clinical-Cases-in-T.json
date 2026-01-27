@@ -1,9 +1,5 @@
 {
   "filename": "16---A-25-Year-Old-Female-School-Teacher-from-Malaw_2022_Clinical-Cases-in-T.pdf",
-  "markdown_path": "./Processed/markdown/16---A-25-Year-Old-Female-School-Teacher-from-Malaw_2022_Clinical-Cases-in-T.md",
-  "images": [],
-  "table_text": "TABLE 16.1 Blood Results on Admission\n| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10^9/L) | 10.5 | 4-10 |\n| Neutrophil count (10^9/L) | 8.9 | 2.5-6 |\n| Haemoglobin (g/dL) | 8.9 | 12-14 |\n| MCV (fL) | 85 | 78-90 |\n| Platelets (10^9/L) | 255 | 150-400 |\n| Creatinine (μmol/L) | 106 | 35-106 |\n| Random blood glucose (mmol/L) | 5.6 | 3.9-7.8 |\n\nTABLE 16.2 Results on Admission\n| Parameter | Patient | Reference |\n|---|---|---|\n| Leukocytes (cells/μL) | 35 (60% neutrophils) | 0-5/μL |\n| Protein (g/L) | 2.6 | 0.15-0.42 |\n| Glucose (mmol/L) | 1.2 | 2.5-540 |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/16---A-25-Year-Old-Female-School-Teacher-from-Malaw_2022_Clinical-Cases-in-T-tables.md",
-  "table_label": "TABLE 16.1",
-  "table_caption": "Blood Results on Admission"
+  "markdown_path": "./Processed\\markdown\\16---A-25-Year-Old-Female-School-Teacher-from-Malaw_2022_Clinical-Cases-in-T.md",
+  "images": []
 }

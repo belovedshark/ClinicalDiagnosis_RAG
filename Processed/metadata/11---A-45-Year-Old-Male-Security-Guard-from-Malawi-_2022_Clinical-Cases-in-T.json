@@ -1,18 +1,14 @@
 {
   "filename": "11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T.pdf",
-  "markdown_path": "./Processed/markdown/11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T.md",
+  "markdown_path": "./Processed\\markdown\\11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T.md",
   "images": [
     {
       "page": 1,
-      "path": "./Processed/images/11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T/11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T_p1_img1.jpeg"
+      "path": "./Processed\\images\\11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T\\11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T_p1_img1.jpeg"
     },
     {
       "page": 3,
-      "path": "./Processed/images/11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T/11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T_p3_img1.jpeg"
+      "path": "./Processed\\images\\11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T\\11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T_p3_img1.jpeg"
     }
-  ],
-  "table_text": "TABLE 11.1 Important Causes of Spinal Cord Disease in the Tropics and Their Typical Clinical Features\n| Cause | Typical Onset and Course | Clinical Features |\n|---|---|---|\n| Spinal tuberculosis | Insidious onset, chronically progressive over weeks, with months of back pain | Spasticity common, bladder may be spared, spinal deformity on examination |\n| Spinal metastases | Subacute onset, chronically progressive over weeks | Spasticity or flaccidity, bladder may be spared |\n| Transverse myelitis (incl. autoimmune) | Acute onset, often non-progressive | Bladder involvement common |\n| Schistosomiasis | Acute (days) or subacute (a couple of weeks) | Often flaccid paresis, bladder involvement common |\n\nTABLE 11.2 Diagnostic Clues and Possible Treatment Regimens for Important Causes of Spinal Cord Disease in Resource-Limited Settings\n| Cause | Diagnostic Clues | Treatment |\n|---|---|---|\n| Spinal tuberculosis | Typical spinal radiograph (see Box) Epidemiological evidence | Antituberculous treatment Spinal surgery if available and applicable (see Box) |\n| Spinal metastases | Clinical evidence of the primary tumour (e.g. prostate, breast) | Very limited options: radiotherapy rarely available; corticosteroids to decrease oedema |\n| Transverse myelitis (incl. autoimmune) | Young adults Inflammatory CSF | Corticosteroids |\n| Schistosomiasis | Exposure to freshwater in endemic regions, young adults in endemic countries or non-immune travellers; CSF eosinophilia; other manifestations of schistosomiasis may or may not be present. | Praziquantel, corticosteroids |\n\nTABLE 11.3 Common Complications of Spinal Cord Disease and Their Prevention and Management\n| Complication | Prevention/Management |\n|---|---|\n| Pressure sores | Nursing, training and counselling of guardians (two hourly turning) |\n| Urinary retention | Catheterization |\n| Contractures | Physiotherapy, training of guardians for home-based physiotherapy |\n| Pain | Pain relief by NSAID/opiates, involvement of local palliative care team |\n| Immobilization | If available, prescription of walking aids/ wheelchairs |\n| Depression | Spiritual and mental support, occupational therapy/community projects, pharmacotherapy, involvement of local palliative care team |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/11---A-45-Year-Old-Male-Security-Guard-from-Malawi-_2022_Clinical-Cases-in-T-tables.md",
-  "table_label": "TABLE 11.1",
-  "table_caption": "Important Causes of Spinal Cord Disease in the Tropics and Their Typical Clinical Features"
+  ]
 }

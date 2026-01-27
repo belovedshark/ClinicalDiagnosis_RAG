@@ -1,18 +1,14 @@
 {
   "filename": "52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop.pdf",
-  "markdown_path": "./Processed/markdown/52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop.md",
+  "markdown_path": "./Processed\\markdown\\52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop.md",
   "images": [
     {
       "page": 2,
-      "path": "./Processed/images/52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop/52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop_p2_img1.jpeg"
+      "path": "./Processed\\images\\52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop\\52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop_p2_img1.jpeg"
     },
     {
       "page": 2,
-      "path": "./Processed/images/52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop/52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop_p2_img2.jpeg"
+      "path": "./Processed\\images\\52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop\\52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop_p2_img2.jpeg"
     }
-  ],
-  "table_text": "TABLE 52.1 Blood Results on Admission\n| Parameter                  | Patient | Reference Range |\n| :------------------------- | :------ | :-------------- |\n| WBC (10^9/L)               | 14.9    | 4-10            |\n| Neutrophils (10^9/L)       | 13.1    | 1.8-7.2         |\n| Lymphocytes (10^9/L)       | 0.9     | 1.5-4           |\n| Band forms (%)             | 40      | 0-5             |\n| Haemoglobin (g/dL)         | 6       | 13-15           |\n| Reticulocytes (%)          | 8       | 0.5-1.5         |\n| Platelets (10^9/L)         | 454     | 150-350         |\n| LDH (U/L)                  | 1500    | <250            |\n| Total bilirubin (μmol/L)   | 239     | <19             |\n| Direct bilirubin (μmol/L)  | 103     | <5              |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/52---A-56-Year-Old-Man-from-Peru-With-Prolonged-_2022_Clinical-Cases-in-Trop-tables.md",
-  "table_label": "TABLE 52.1",
-  "table_caption": "Blood Results on Admission"
+  ]
 }

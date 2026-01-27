@@ -1,14 +1,10 @@
 {
   "filename": "36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi.pdf",
-  "markdown_path": "./Processed/markdown/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi.md",
+  "markdown_path": "./Processed\\markdown\\36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi.md",
   "images": [
     {
       "page": 1,
-      "path": "./Processed/images/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi_p1_img1.jpeg"
+      "path": "./Processed\\images\\36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi\\36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi_p1_img1.jpeg"
     }
-  ],
-  "table_text": "TABLE 36.1 Direct Effect of Most Commonly Used Drugs on Different Stages of W. bancrofti and Brugia species\n| Drug                       | Microfilariae | Adults |\n| :------------------------- | :------------ | :----- |\n| Diethylcarbamazine (DEC)   | ++            | +      |\n| Ivermectin                 | ++            |        |\n| Albendazole                | +             |        |\n| Doxycycline                | ++            | ++     |\n\n**Legend:**\n*   `++`: most eliminated\n*   `+`: few/some eliminated\n*   (blank): no effect",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/36---A-23-Year-Old-Farmer-from-Myanmar-With-Uni_2022_Clinical-Cases-in-Tropi-tables.md",
-  "table_label": "TABLE 36.1",
-  "table_caption": "Direct Effect of Most Commonly Used Drugs on Different Stages of W. bancrofti and Brugia species"
+  ]
 }

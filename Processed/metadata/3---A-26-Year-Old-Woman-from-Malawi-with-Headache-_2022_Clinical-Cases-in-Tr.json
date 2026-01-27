@@ -1,18 +1,14 @@
 {
   "filename": "3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr.pdf",
-  "markdown_path": "./Processed/markdown/3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr.md",
+  "markdown_path": "./Processed\\markdown\\3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr.md",
   "images": [
     {
       "page": 1,
-      "path": "./Processed/images/3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr/3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr_p1_img1.jpeg"
+      "path": "./Processed\\images\\3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr\\3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr_p1_img1.jpeg"
     },
     {
       "page": 3,
-      "path": "./Processed/images/3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr/3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr_p3_img1.jpeg"
+      "path": "./Processed\\images\\3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr\\3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr_p3_img1.jpeg"
     }
-  ],
-  "table_text": "TABLE 3.3 Clinical and CSF Features of Acute Bacterial, Tuberculous and Cryptococcal Meningitis\n| Meningitis Type | Pathogen | Clinical Features | CSF Features |\n|---|---|---|---|\n| Acute Bacterial Meningitis | Streptococcus pneumoniae, Neisseria meningitidis, Streptococcus suis (Asia) | Often very rapid onset with high fever and meningism, cranial nerve involvement less common | Often cloudy, high leukocyte cell count, predominance of polymorphs, low glucose |\n| Tuberculous Meningitis | Mycobacterium tuberculosis | Often a history of several days of illness, onset less abrupt, cranial nerve involvement common | Often clear, high CSF protein, low CSF glucose |\n| Cryptococcal Meningitis | Cryptococcus neoformans | Often subacute onset, severe headache common, cranial nerve involvement common | CSF can be normal in at least 25% of cases |\n\nTABLE 3.1 Blood Results on Admission\n| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10^9/L) | 3.2 | 4-10 |\n| Hb (g/dL) | 10.2 | 12-14 |\n| Platelets (10^9/L) | 155 | 150-350 |\n| Serum glucose (mmol/L) | 4.0 | 3.9-11.1 |\n| Thick film for malaria and trypanosomes | Negative | Negative |\n\nTABLE 3.2 CSF Results on Admission\n| Parameter | Patient | Reference |\n|---|---|---|\n| White cell count (/μL) | 54 | 0-5 |\n| CSF protein (g/L) | 3.0 | 0.25-0.55 |\n| CSF glucose (mmol/L) | 1.3 | 2.0-2.64∗ |\n\nTABLE 3.4 The Four Pillars of Clinical Diagnosis of Tuberculous Meningitis\n| Pillar | Criteria |\n|---|---|\n| Clinical Criteria | Symptom duration >5 days<br>Systemic symptoms suggestive of tuberculosis (one or more of the following): weight loss (or poor weight gain in children), night sweats, or persistent cough for more than 2 weeks<br>History of close contact with an individual with pulmonary tuberculosis or a positive tuberculin skin test within the past year<br>Focal neurological deficit<br>Cranial nerve palsy<br>Altered consciousness |\n| CSF Criteria | Clear appearance<br>Leukocytes: 10-500/μL<br>Lymphocytic predominance (>50%)<br>Protein concentration >1g/L<br>CSF to plasma-glucose ratio <50% or absolute CSF glucose concentration <2.2mmol/L |\n| Neuroimaging Criteria | Hydrocephalus<br>Basal meningeal enhancement<br>Tuberculoma<br>Infarct<br>Pre-contrast basal hyperdensity |\n| Evidence of TB Elsewhere | Chest radiography suggestive of active TB<br>Evidence for TB outside the CNS on CT, MRI or ultrasound<br>AFB identified or M. tuberculosis cultured from another source (sputum, lymph node, gastric washing, urine, blood culture)<br>Positive commercial M. tuberculosis-PCR from extraneural specimen |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/3---A-26-Year-Old-Woman-from-Malawi-with-Headache-_2022_Clinical-Cases-in-Tr-tables.md",
-  "table_label": "TABLE 3.3",
-  "table_caption": "Clinical and CSF Features of Acute Bacterial, Tuberculous and Cryptococcal Meningitis"
+  ]
 }

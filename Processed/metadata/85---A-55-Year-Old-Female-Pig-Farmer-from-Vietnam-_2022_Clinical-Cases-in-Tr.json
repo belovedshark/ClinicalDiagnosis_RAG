@@ -1,18 +1,14 @@
 {
   "filename": "85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr.pdf",
-  "markdown_path": "./Processed/markdown/85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr.md",
+  "markdown_path": "./Processed\\markdown\\85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr.md",
   "images": [
     {
       "page": 1,
-      "path": "./Processed/images/85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr/85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr_p1_img1.jpeg"
+      "path": "./Processed\\images\\85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr\\85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr_p1_img1.jpeg"
     },
     {
       "page": 1,
-      "path": "./Processed/images/85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr/85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr_p1_img2.jpeg"
+      "path": "./Processed\\images\\85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr\\85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr_p1_img2.jpeg"
     }
-  ],
-  "table_text": "TABLE 85.1 Laboratory Results on Admission\n| Parameter | Patient | Reference |\n|---|---|---|\n| WBC (10^9/L) | 10.2 | 5.4-10 |\n| % Neutrophils | 86.5 | 45-75 |\n| Haemoglobin (g/dL) | 11.8 | 12-17 |\n| Platelets (10^9/L) | 56 | 200-400 |\n| Creatinine (mg/dL) | 0.86 | 0.7-1.5 |\n| Blood urea nitrogen (mg/dL) | 7 | 7-20 |\n| Na+ (mmol/L) | 137 | 135-150 |\n| K+ (mmol/L) | 3.2 | 3.5-5.5 |\n| Random blood glucose (mmol/L) | 15.4 | 3.9-7.8 |\n| HbA1c (%) | 8.5 | 4-7 |\n| Lactate (mmol/L) | 11.2 | 0.5-2.2 |",
-  "table_source": "/Users/macintoshhd/Downloads/Project-Dr.Khanh/Clinical-RAG/Processed/out_all_structured/85---A-55-Year-Old-Female-Pig-Farmer-from-Vietnam-_2022_Clinical-Cases-in-Tr-tables.md",
-  "table_label": "TABLE 85.1",
-  "table_caption": "Laboratory Results on Admission"
+  ]
 }
