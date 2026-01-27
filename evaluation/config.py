@@ -42,7 +42,42 @@ FINETUNED_RAG_RESULTS_DIR = os.path.join(EVALUATION_ROOT, "finetuned_rag", "resu
 FINETUNED_RAG_RESULTS_FILE = os.path.join(FINETUNED_RAG_RESULTS_DIR, "inference_results.json")
 FINETUNED_RAG_CHECKPOINT_FILE = os.path.join(FINETUNED_RAG_RESULTS_DIR, "checkpoint.json")
 
+# =============================================================================
+# FRAMEWORK EVALUATION SETTINGS (RAGAS & DeepEval)
+# =============================================================================
+
+# RAGAS settings
+RAGAS_ENABLED = True
+RAGAS_LLM_MODEL = "gpt-4o-mini"  # OpenAI model for RAGAS metrics
+RAGAS_EMBEDDING_MODEL = "text-embedding-3-small"  # OpenAI embedding model
+RAGAS_METRICS = [
+    "faithfulness",       # Is answer grounded in context?
+    "answer_relevancy",   # Is answer relevant to question?
+    "context_precision",  # How much context is relevant?
+    "context_recall"      # Does context have needed info?
+]
+
+# DeepEval settings
+DEEPEVAL_ENABLED = True
+DEEPEVAL_MODEL = "gpt-4o-mini"  # Cost-effective option; also supports gpt-4, claude-3-opus
+DEEPEVAL_THRESHOLD = 0.5  # Minimum threshold for passing (0.0-1.0)
+DEEPEVAL_INCLUDE_HALLUCINATION = True  # Check for fabricated facts
+DEEPEVAL_INCLUDE_RELEVANCY = True  # Check answer relevancy
+
+# Clinical reasoning evaluation criteria (used by DeepEval G-Eval)
+CLINICAL_REASONING_CRITERIA = """
+Evaluate the clinical diagnostic reasoning based on:
+1. Symptom Recognition: Are key symptoms correctly identified?
+2. Differential Diagnosis: Are alternative diagnoses considered?
+3. Evidence-Based: Is the conclusion supported by clinical evidence?
+4. Logical Flow: Does the reasoning follow a logical diagnostic process?
+"""
+
+# Framework results directory
+FRAMEWORKS_RESULTS_DIR = os.path.join(EVALUATION_ROOT, "frameworks", "results")
+
 # Ensure all results directories exist
 for results_dir in [RAG_RESULTS_DIR, BASE_MODEL_RESULTS_DIR, 
-                    FINETUNED_RESULTS_DIR, FINETUNED_RAG_RESULTS_DIR]:
+                    FINETUNED_RESULTS_DIR, FINETUNED_RAG_RESULTS_DIR,
+                    FRAMEWORKS_RESULTS_DIR]:
     os.makedirs(results_dir, exist_ok=True)
