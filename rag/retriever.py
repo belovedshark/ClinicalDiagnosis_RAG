@@ -58,7 +58,7 @@ class Retriever:
 
     def embed_query(self, query_text=None, query_image=None):
         """Generate embeddings from text or image query using appropriate models."""
-        if query_text:
+        if query_text is not None:
             # Use GTE text model for text queries (384-dim)
             inputs = self.text_tokenizer(query_text, return_tensors='pt', padding=True, truncation=True, max_length=512)
             inputs = {k: v.to(self.device) for k, v in inputs.items()}

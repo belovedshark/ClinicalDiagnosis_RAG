@@ -1,0 +1,1044 @@
+{
+    "ragas": {
+      "average_scores": {
+        "faithfulness": 0.9206349206349206,
+        "answer_relevancy": 0.3492063492063492,
+        "context_precision": 0.015873015873015872,
+        "context_recall": 0.015873015873015872
+      },
+      "metrics": [
+        "faithfulness",
+        "answer_relevancy",
+        "context_precision",
+        "context_recall"
+      ],
+      "description": "Retrieval-Augmented Generation Assessment"
+    },
+    "deepeval": {
+      "average_scores": {
+        "reasoning_coherence": 0.3492063492063492,
+        "correctness": 0.30952380952380953
+      },
+      "metrics": [
+        "reasoning_coherence",
+        "correctness"
+      ],
+      "description": "LLM Evaluation with G-Eval methodology"
+    },
+    "per_case_scores": [
+      {
+        "case_id": "who_case_001",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "8 of 8 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 8,
+        "explanation": "The diagnosis of dengue fever is appropriate given the symptoms and history of mosquito exposure. All claims made in the answer are supported by the case information, but there were no retrieved contexts to evaluate for relevance or recall."
+      },
+      {
+        "case_id": "who_case_002",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "8 of 8 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 8,
+        "explanation": "The diagnosis of dengue fever is appropriate given the symptoms and travel history. All claims are supported, but there are no retrieved contexts to evaluate context precision and recall."
+      },
+      {
+        "case_id": "who_case_003",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 6,
+        "explanation": "The diagnosis of dengue fever is appropriate given the symptoms and history of mosquito bites. All claims made in the answer are supported by the case information, but there are no retrieved contexts to evaluate context precision and recall."
+      },
+      {
+        "case_id": "who_case_004",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "7 of 7 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 0.5
+        },
+        "claims_extracted": 7,
+        "explanation": "The model's answer of 'Dengue Hemorrhagic Fever' is partially correct as it relates to the symptoms presented, but the ground truth diagnosis is 'Severe dengue,' which is a broader category that includes Dengue Hemorrhagic Fever. The reasoning is sound, but the context provided does not support the diagnosis directly."
+      },
+      {
+        "case_id": "who_case_005",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 0.5
+        },
+        "claims_extracted": 6,
+        "explanation": "The diagnosis of Dengue Hemorrhagic Fever is related to the symptoms presented, but the ground truth diagnosis is more accurately termed 'severe dengue.' The reasoning is sound, but the context is missing, leading to a partial match in correctness."
+      },
+      {
+        "case_id": "who_case_006",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 0.5
+        },
+        "claims_extracted": 5,
+        "explanation": "The model's answer identifies a related condition (Dengue Hemorrhagic Shock Syndrome) which is a severe manifestation of dengue, but it does not match the ground truth diagnosis of severe dengue directly. The claims made are all supported, but the context is missing, leading to a lack of relevant information for a definitive diagnosis."
+      },
+      {
+        "case_id": "who_case_007",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "7 of 7 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 7,
+        "explanation": "The diagnosis of malaria is appropriate given the symptoms and travel history. All claims are supported, but there is no retrieved context to evaluate context precision or recall."
+      },
+      {
+        "case_id": "who_case_008",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 6,
+        "explanation": "The diagnosis of malaria is appropriate given the symptoms and the endemic context. All claims are supported, but there are no retrieved contexts to evaluate context precision and recall."
+      },
+      {
+        "case_id": "who_case_009",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 5,
+        "explanation": "While all claims about the patient are accurate, the diagnosis of trypanosomiasis is incorrect given the symptoms and travel history, which align with malaria. The reasoning lacks relevance and coherence, and the context does not support the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_010",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 6,
+        "explanation": "While all claims about the patient's presentation are accurate, the diagnosis of Dengue Fever is incorrect as the symptoms align more closely with Chikungunya. The reasoning lacks relevance and coherence, and the context does not support the diagnosis of Dengue Fever."
+      },
+      {
+        "case_id": "who_case_011",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 5,
+        "explanation": "While all claims about the patient's symptoms are accurate, the diagnosis of Rheumatoid Arthritis is incorrect given the ground truth diagnosis of Chikungunya. The reasoning does not logically connect the symptoms to the correct diagnosis, and there is no relevant context provided to support the diagnosis made."
+      },
+      {
+        "case_id": "who_case_012",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 6,
+        "explanation": "While all claims about the patient's symptoms and travel history are accurate, the diagnosis of Dengue Fever is incorrect as the ground truth is Chikungunya. The reasoning does not logically support the diagnosis given the symptoms presented."
+      },
+      {
+        "case_id": "who_case_013",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "7 of 7 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 7,
+        "explanation": "While all claims about the patient's presentation are accurate, the diagnosis of Dengue Fever is incorrect as the symptoms align more closely with Zika virus infection. The reasoning lacks relevance and coherence in relation to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_014",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 5,
+        "explanation": "The answer correctly identifies Zika virus infection as the diagnosis based on the symptoms and travel history. All claims are supported, but there is no retrieved context to evaluate context precision and recall."
+      },
+      {
+        "case_id": "who_case_015",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 6,
+        "explanation": "While all claims about the patient's presentation are accurate, the diagnosis of Dengue Fever is incorrect as the ground truth is Zika virus infection. The reasoning does not logically support the diagnosis given the symptoms presented."
+      },
+      {
+        "case_id": "who_case_016",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "8 of 8 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 8,
+        "explanation": "While all claims about the patient's details are supported, the diagnosis of Lyme disease is irrelevant given the symptoms and travel history, which align more closely with yellow fever. The reasoning lacks coherence and does not support the ground truth diagnosis."
+      },
+      {
+        "case_id": "who_case_017",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 5,
+        "explanation": "While all claims about the patient are accurate, the diagnosis of Plasmodium vivax malaria is incorrect given the symptoms and context. The correct diagnosis is yellow fever, which aligns with the symptoms of jaundice and fever after jungle exposure."
+      },
+      {
+        "case_id": "who_case_018",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 5,
+        "explanation": "The diagnosis of yellow fever is appropriate given the travel history to an endemic zone and the symptoms presented. All claims are supported, but there is no retrieved context to evaluate context precision or recall."
+      },
+      {
+        "case_id": "who_case_019",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 4,
+        "explanation": "The diagnosis of leishmaniasis is appropriate given the patient's symptoms and history of sandfly exposure. All claims made in the answer are supported by the case information, but there were no retrieved contexts to evaluate for relevance or recall."
+      },
+      {
+        "case_id": "who_case_020",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While the claims about the patient's age, skin lesions, and living in a tropical area are accurate, the diagnosis of leprosy is incorrect. The correct diagnosis is cutaneous leishmaniasis, which aligns with the symptoms described. The reasoning lacks relevance and coherence, as it does not support the ground truth diagnosis."
+      },
+      {
+        "case_id": "who_case_021",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims about the patient are accurate, the diagnosis of sporotrichosis is incorrect given the context of insect bites and skin ulcers, which aligns more with cutaneous leishmaniasis. The reasoning lacks relevance and coherence in relation to the ground truth diagnosis."
+      },
+      {
+        "case_id": "who_case_022",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 6,
+        "explanation": "While all claims about the patient's presentation are accurate, the diagnosis of malaria is completely irrelevant to the symptoms presented, which align more closely with visceral leishmaniasis. There is no context provided to support the diagnosis of malaria, and the reasoning lacks coherence with the ground truth."
+      },
+      {
+        "case_id": "who_case_023",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims made in the answer are supported by the case information, the diagnosis of malaria is not relevant given the ground truth diagnosis of visceral leishmaniasis. The reasoning lacks coherence as it does not logically lead to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_024",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 5,
+        "explanation": "While all claims about the patient's presentation are accurate, the diagnosis of HIV is completely irrelevant to the symptoms presented, which align more closely with visceral leishmaniasis. The reasoning lacks coherence and does not support the ground truth diagnosis."
+      },
+      {
+        "case_id": "who_case_025",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 5,
+        "explanation": "While all claims about the patient's presentation are accurate, the diagnosis of Giardiasis is incorrect given the context of freshwater exposure and gastrointestinal bleeding, which aligns more with schistosomiasis. The reasoning lacks coherence and does not support the ground truth diagnosis."
+      },
+      {
+        "case_id": "who_case_026",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims about the patient are accurate, the diagnosis of giardiasis is incorrect given the context of chronic diarrhea after freshwater exposure, which aligns more with schistosomiasis. The reasoning lacks coherence and relevance to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_027",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The diagnosis of schistosomiasis is appropriate given the symptoms of hematuria and the patient's long-term exposure to freshwater. All claims made in the answer are supported, but there is no retrieved context to evaluate, leading to low scores in context precision and recall."
+      },
+      {
+        "case_id": "who_case_028",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 4,
+        "explanation": "The diagnosis of lymphatic filariasis is appropriate given the patient's symptoms and history. All claims are supported, but there is no retrieved context to evaluate context precision or recall."
+      },
+      {
+        "case_id": "who_case_029",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The diagnosis of lymphatic filariasis is appropriate given the presentation of elephantiasis in the patient. All claims made in the answer are supported, but there were no retrieved contexts to evaluate for relevance or recall."
+      },
+      {
+        "case_id": "who_case_030",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims about the patient are accurate, the diagnosis of syphilis is completely irrelevant to the symptoms presented, which align with lymphatic filariasis. There is no context provided to support the diagnosis, and the reasoning lacks coherence."
+      },
+      {
+        "case_id": "who_case_031",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 6,
+        "explanation": "While all claims about the patient's symptoms and travel history are accurate, the diagnosis of malaria is incorrect. The symptoms and travel history align more closely with African trypanosomiasis, which is not addressed in the answer. Therefore, the answer is not relevant, and the reasoning is not coherent or correct."
+      },
+      {
+        "case_id": "who_case_032",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 5,
+        "explanation": "The model's diagnosis of Creutzfeldt-Jakob Disease is incorrect given the context of tsetse fly exposure, which is associated with African trypanosomiasis. While all claims about the patient are accurate, they do not support the incorrect diagnosis provided."
+      },
+      {
+        "case_id": "who_case_033",
+        "ragas": {
+          "faithfulness": 0.5,
+          "faithfulness_detail": "2 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "The model's answer of malaria does not align with the ground truth diagnosis of African trypanosomiasis, which is more consistent with the symptoms of prolonged fever and behavioral changes in an endemic region. The claims made are partially supported, but the overall reasoning and context do not lead to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_034",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 5,
+        "explanation": "While all claims about the patient's demographics and symptoms are accurate, the diagnosis of soil-associated Phytophthora infection is irrelevant and incorrect compared to the ground truth diagnosis of soil-transmitted helminthiasis. The reasoning lacks clinical soundness and does not support the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_035",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While the claims made in the answer are accurate regarding the child's symptoms and the nature of Chagas disease, the diagnosis itself is incorrect. The ground truth diagnosis is soil-transmitted helminthiasis, which is more consistent with the symptoms of growth retardation and chronic parasitic infection. The reasoning lacks relevance and coherence in relation to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_036",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While all claims made in the answer are supported by the case information, the diagnosis of giardiasis is not relevant to the chronic intestinal symptoms presented, as the ground truth diagnosis is soil-transmitted helminthiasis. Additionally, there is no retrieved context to support the diagnosis or reasoning, leading to a lack of coherence and correctness."
+      },
+      {
+        "case_id": "who_case_037",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "6 of 6 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 6,
+        "explanation": "While all claims made in the answer are factually correct regarding the patient's presentation, the diagnosis of 'soil-associated Phytophthora infection' is completely irrelevant to the clinical question and does not align with the ground truth diagnosis of hookworm infection, which is the correct diagnosis based on the patient's symptoms and history of barefoot soil exposure."
+      },
+      {
+        "case_id": "who_case_038",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "1 of 1 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 1,
+        "explanation": "The model's answer of 'Pica' is not relevant to the clinical question regarding iron-deficiency anemia in a pregnant woman, as the ground truth diagnosis is 'Hookworm infection,' which is a common cause of such anemia. The reasoning lacks coherence and does not support the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_039",
+        "ragas": {
+          "faithfulness": 0.0,
+          "faithfulness_detail": "0 of 2 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 2,
+        "explanation": "The model's answer of 'Cobalt Hemorrhagic Meningitis' is not relevant to the symptoms presented, and there is no supporting context for the claims made. The ground truth diagnosis of 'Hookworm infection' is not addressed at all."
+      },
+      {
+        "case_id": "who_case_040",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 4,
+        "explanation": "The diagnosis of Strongyloides infection is appropriate given the symptoms of chronic diarrhea and rash, along with the history of barefoot soil exposure. All claims made in the answer are supported, and the reasoning is logical. However, there were no retrieved contexts to evaluate for precision and recall."
+      },
+      {
+        "case_id": "who_case_041",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While all claims made in the answer are supported, the diagnosis of visceral leishmaniasis is incorrect given the ground truth diagnosis of strongyloidiasis, which is more relevant for an immunocompromised patient with disseminated parasitic infection. The reasoning lacks coherence and does not align with the necessary clinical context."
+      },
+      {
+        "case_id": "who_case_042",
+        "ragas": {
+          "faithfulness": 0.0,
+          "faithfulness_detail": "0 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The model's answer does not accurately reflect the ground truth diagnosis of strongyloidiasis, and none of the claims made are supported by the retrieved context. The reasoning lacks logical coherence and fails to connect the symptoms to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_043",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While the claims about chronic diarrhea and rectal prolapse are accurate, the diagnosis of Giardia lamblia infection is incorrect. The ground truth diagnosis is trichuriasis, which is associated with rectal prolapse in children. The reasoning lacks relevance and coherence as it does not support the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_044",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While the claims about growth delay and intestinal symptoms are accurate, the diagnosis of Celiac Disease is not relevant to the case, as the ground truth diagnosis is Trichuriasis. The reasoning lacks coherence and does not align with the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_045",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While the claims made in the answer are supported by the patient's symptoms, the diagnosis of schistosomiasis is not relevant to the case, as the ground truth diagnosis is trichuriasis. The reasoning lacks coherence and does not align with the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_046",
+        "ragas": {
+          "faithfulness": 0.0,
+          "faithfulness_detail": "0 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The model's diagnosis of shigellosis is incorrect as the ground truth diagnosis is amoebiasis. None of the claims made in the answer are supported by the context, and the reasoning does not align with the symptoms presented."
+      },
+      {
+        "case_id": "who_case_047",
+        "ragas": {
+          "faithfulness": 0.0,
+          "faithfulness_detail": "0 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The model's answer of 'perianal abscess' is not relevant to the case of liver abscess after intestinal infection, which is indicative of amoebiasis. None of the claims made in the answer are supported by the context, and the reasoning does not logically lead to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_048",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "2 of 2 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 2,
+        "explanation": "The model's answer of giardiasis does not match the ground truth diagnosis of amoebiasis, which is more consistent with chronic dysentery. The reasoning lacks relevance and coherence, and there is no supporting context provided."
+      },
+      {
+        "case_id": "who_case_049",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims made in the answer are accurate regarding the patient's symptoms and exposure, the diagnosis of Giardiasis is incorrect given the context of severe watery diarrhea and flood exposure, which aligns more with Cholera. The reasoning lacks relevance and coherence in supporting the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_050",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The diagnosis of cholera is appropriate given the acute diarrheal outbreak and water disruption. All claims made in the answer are supported, but there were no retrieved contexts to evaluate for precision or recall."
+      },
+      {
+        "case_id": "who_case_051",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While the claims about the patient's symptoms and unsafe water consumption are accurate, the diagnosis of giardiasis is incorrect as the ground truth is cholera, which is characterized by rice-water stools. The reasoning does not logically support the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_052",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "5 of 5 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 1.0,
+          "context_recall": 1.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 5,
+        "explanation": "The diagnosis of leptospirosis is fully supported by the symptoms presented and the context provided. All claims are accurate and relevant to the diagnosis."
+      },
+      {
+        "case_id": "who_case_053",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The diagnosis of leptospirosis is appropriate given the symptoms of renal impairment following a febrile illness after floods. All claims made in the answer are supported by the clinical context, but no specific context was retrieved to evaluate precision or recall."
+      },
+      {
+        "case_id": "who_case_054",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 4,
+        "explanation": "The diagnosis of leptospirosis is appropriate given the symptoms of jaundice and fever following animal urine exposure. All claims made in the answer are supported, but there is no retrieved context to evaluate context precision or recall."
+      },
+      {
+        "case_id": "who_case_055",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims made in the answer are supported by the case information, the diagnosis of Yersinia pestis is completely irrelevant to the clinical question, as the correct diagnosis is scrub typhus. The reasoning lacks coherence and does not align with the ground truth diagnosis."
+      },
+      {
+        "case_id": "who_case_056",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims about the patient's symptoms are accurate, the diagnosis of Rocky Mountain Spotted Fever is incorrect as the ground truth is Scrub typhus. The reasoning lacks relevance and coherence, and the context does not support the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_057",
+        "ragas": {
+          "faithfulness": 0.5,
+          "faithfulness_detail": "2 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The model's diagnosis of Rocky Mountain Spotted Fever is incorrect given the context of mite exposure, which aligns more with scrub typhus. The claims about the acute febrile illness and mite exposure are supported, but the diagnosis itself is not relevant or correct."
+      },
+      {
+        "case_id": "who_case_058",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.5,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.5,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While the claims made in the answer are accurate regarding the travel history and symptoms, the diagnosis of malaria is not correct given the ground truth of relapsing fever. The reasoning lacks the necessary context to support the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_059",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.5,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.5,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "While the claims made in the answer are supported by the patient's symptoms, the diagnosis of malaria does not match the ground truth of relapsing fever caused by Borrelia infection. The reasoning lacks context and does not lead to the correct diagnosis."
+      },
+      {
+        "case_id": "who_case_060",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 4,
+        "explanation": "While all claims made in the answer are supported, the diagnosis of malaria is not relevant to the symptoms presented, which align more closely with relapsing fever. Additionally, there is no context provided to support the diagnosis of malaria, leading to a lack of precision and recall. The reasoning is not coherent as it does not logically connect to the ground truth diagnosis."
+      },
+      {
+        "case_id": "who_case_061",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "4 of 4 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 4,
+        "explanation": "The diagnosis of neurocysticercosis is appropriate given the symptoms of seizures and chronic headaches in an endemic region. All claims made in the answer are supported, but there is no retrieved context to evaluate context precision or recall."
+      },
+      {
+        "case_id": "who_case_062",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 0.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 0.0,
+          "correctness": 0.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The model's diagnosis of trichinellosis is incorrect given the symptoms and context. The correct diagnosis is neurocysticercosis, which is associated with the consumption of undercooked pork containing Taenia solium eggs. The claims made are accurate but do not support the diagnosis provided."
+      },
+      {
+        "case_id": "who_case_063",
+        "ragas": {
+          "faithfulness": 1.0,
+          "faithfulness_detail": "3 of 3 claims supported",
+          "answer_relevancy": 1.0,
+          "context_precision": 0.0,
+          "context_recall": 0.0
+        },
+        "deepeval": {
+          "reasoning_coherence": 1.0,
+          "correctness": 1.0
+        },
+        "claims_extracted": 3,
+        "explanation": "The diagnosis of neurocysticercosis is appropriate given the patient's symptoms of intracranial cysts and neurological deficits. All claims made in the answer are supported, but there is no retrieved context to evaluate context precision or recall."
+      }
+    ],
+    "metadata": {
+      "num_cases": 63,
+      "model": "gpt-4o-mini",
+      "method": "2-step: extract_claims + verify_and_evaluate",
+      "timestamp": "2026-01-26T21:27:39.260848"
+    }
+  }

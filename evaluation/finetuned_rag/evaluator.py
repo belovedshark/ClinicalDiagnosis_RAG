@@ -20,8 +20,7 @@ from evaluation.config import (
     FINETUNED_RAG_CHECKPOINT_FILE,
     DEVICE
 )
-from rag.generator import Generator
-from rag.retriever import Retriever
+from rag.pipeline import RAGPipeline
 from rag.config import LORA_BASE_MODEL, LORA_ADAPTER_PATH
 
 
@@ -48,23 +47,8 @@ class FinetunedRAGEvaluator(BaseEvaluator):
         print(f"   LoRA adapter: {self.lora_path}")
         print(f"   Top-k retrieval: {top_k}")
         
-        # Determine device
-        if device == "auto":
-            import torch
-            if torch.cuda.is_available():
-                device = "cuda"
-            elif hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
-                device = "mps"
-            else:
-                device = "cpu"
-        
-        # Initialize retriever
-        print("📚 Initializing retriever...")
-        self.retriever = Retriever()
-        
-        # Initialize fine-tuned generator
-        print("🤖 Loading fine-tuned model...")
-        self.generator = Generator(device=device, use_lora=True, lora_path=self.lora_path)
+        # Initialize RAG pipeline with fine-tuned model
+        self.rag_pipeline = RAGPipeline(use_lora=True, lora_path=self.lora_path)
         self.model_name = f"{LORA_BASE_MODEL} + LoRA + RAG"
         print("✅ Fine-tuned + RAG pipeline initialized successfully")
     
@@ -85,10 +69,10 @@ class FinetunedRAGEvaluator(BaseEvaluator):
         
         try:
             # Retrieve relevant contexts
-            query_emb = self.retriever.embed_query(query_text=question)
+            query_emb = self.rag_pipeline.retriever.embed_query(query_text=question)
             
-            results = self.retriever.client.query_points(
-                collection_name=self.retriever.collection,
+            results = self.rag_pipeline.retriever.client.query_points(
+                collection_name=self.rag_pipeline.retriever.collection,
                 query=query_emb.tolist(),
                 using='text',
                 limit=self.top_k,
@@ -136,7 +120,7 @@ Based on the symptoms described and the reference literature above, what is the 
 """
             
             # Generate the diagnosis
-            answer = self.generator.generate(
+            answer = self.rag_pipeline.generator.generate(
                 context=context_text,
                 question=question,
                 custom_prompt=finetuned_rag_prompt

@@ -14,9 +14,19 @@ class RAGPipeline:
     the configuration in `rag.config` and on runtime availability, then pass
     that device to the Retriever and Generator so models are loaded onto GPU
     when available.
+    
+    Supports both base model and fine-tuned LoRA model via the use_lora parameter.
     """
 
-    def __init__(self):
+    def __init__(self, use_lora: bool = False, lora_path: str = None):
+        """
+        Initialize the RAG pipeline.
+        
+        Args:
+            use_lora: Whether to load a fine-tuned LoRA adapter for the generator.
+                      Defaults to False (uses base model).
+            lora_path: Path to LoRA adapter. If None, uses LORA_ADAPTER_PATH from config.
+        """
         # Decide runtime device
         device_pref = (CONFIG_DEVICE or "auto").lower()
         if device_pref == "auto":
@@ -36,7 +46,8 @@ class RAGPipeline:
 
         # self.embedder = Embedder()
         self.retriever = Retriever(device=device)
-        self.generator = Generator(device=device)
+        self.generator = Generator(device=device, use_lora=use_lora, lora_path=lora_path)
+        self.use_lora = use_lora
 
     def query(self, question: str, image_path: str = None, k: int = 5) -> str:
         """Ask a question and/or provide an image → retrieve relevant → generate an answer."""

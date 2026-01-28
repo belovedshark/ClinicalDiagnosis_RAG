@@ -1,0 +1,821 @@
+[
+  {
+    "case_id": "who_case_001",
+    "question": "A 24-year-old man presents with high fever, retro-orbital pain, severe muscle and joint pain, and rash after visiting a tropical city with mosquito exposure.",
+    "contexts": [],
+    "answer": "Dengue Fever",
+    "ground_truth": "Dengue fever",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "The combination of high fever, retro-orbital pain, myalgia, arthralgia, and rash after mosquito exposure is characteristic of dengue fever."
+  },
+  {
+    "case_id": "who_case_002",
+    "question": "A 30-year-old woman develops fever, headache, nausea, and rash four days after travel to a dengue-endemic region.",
+    "contexts": [],
+    "answer": "Dengue Fever",
+    "ground_truth": "Dengue fever",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Acute febrile illness with headache, nausea, and rash in a dengue-endemic area suggests dengue fever."
+  },
+  {
+    "case_id": "who_case_003",
+    "question": "A 19-year-old student presents with sudden onset of fever, eye pain, and body aches after multiple mosquito bites.",
+    "contexts": [],
+    "answer": "Dengue Fever",
+    "ground_truth": "Dengue fever",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Fever with eye pain and body aches following mosquito exposure is consistent with dengue fever."
+  },
+  {
+    "case_id": "who_case_004",
+    "question": "A 42-year-old woman presents with persistent fever, severe abdominal pain, vomiting, and bleeding gums after recent dengue infection.",
+    "contexts": [],
+    "answer": "Dengue Hemorrhagic Fever",
+    "ground_truth": "Severe dengue",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Warning signs such as abdominal pain, vomiting, and bleeding following dengue suggest progression to severe dengue."
+  },
+  {
+    "case_id": "who_case_005",
+    "question": "A 35-year-old man develops shock, fatigue, and mucosal bleeding several days after initial dengue symptoms.",
+    "contexts": [],
+    "answer": "Dengue Hemorrhagic Fever",
+    "ground_truth": "Severe dengue",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Hemorrhagic manifestations and shock following dengue indicate severe dengue."
+  },
+  {
+    "case_id": "who_case_006",
+    "question": "A 28-year-old woman presents with persistent high fever and plasma leakage signs after dengue diagnosis.",
+    "contexts": [],
+    "answer": "DenguehemorrhagicShockSyndrome",
+    "ground_truth": "Severe dengue",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Plasma leakage and systemic deterioration are hallmarks of severe dengue."
+  },
+  {
+    "case_id": "who_case_007",
+    "question": "A 33-year-old traveler presents with cyclical fever, chills, sweating, and headache after visiting a malaria-endemic region.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "Malaria",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Cyclical fever with chills and sweating after travel to endemic regions is typical of malaria."
+  },
+  {
+    "case_id": "who_case_008",
+    "question": "A 6-year-old child presents with fever, pallor, and lethargy in a malaria-endemic rural area.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "Malaria",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Fever and anemia in children from endemic regions strongly suggest malaria."
+  },
+  {
+    "case_id": "who_case_009",
+    "question": "A 40-year-old man develops intermittent fever every 48 hours after returning from tropical Africa.",
+    "contexts": [],
+    "answer": "Trypanosomiasis",
+    "ground_truth": "Malaria",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Regular periodic fever after travel to endemic areas is characteristic of malaria."
+  },
+  {
+    "case_id": "who_case_010",
+    "question": "A 29-year-old woman presents with sudden fever and severe joint pain affecting hands and ankles after mosquito exposure.",
+    "contexts": [],
+    "answer": "Dengue Fever",
+    "ground_truth": "Chikungunya",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Acute fever with severe arthralgia following mosquito exposure is typical of chikungunya."
+  },
+  {
+    "case_id": "who_case_011",
+    "question": "A 37-year-old man reports fever and disabling joint pain lasting several weeks.",
+    "contexts": [],
+    "answer": "Rheumatoid Arthritis",
+    "ground_truth": "Chikungunya",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Persistent joint pain after acute febrile illness suggests chikungunya."
+  },
+  {
+    "case_id": "who_case_012",
+    "question": "A 25-year-old traveler presents with fever, rash, and joint swelling after visiting a tropical island.",
+    "contexts": [],
+    "answer": "Dengue Fever",
+    "ground_truth": "Chikungunya",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Fever, rash, and prominent joint involvement point to chikungunya infection."
+  },
+  {
+    "case_id": "who_case_013",
+    "question": "A 27-year-old woman presents with mild fever, rash, conjunctivitis, and joint pain after tropical travel.",
+    "contexts": [],
+    "answer": "Dengue Fever",
+    "ground_truth": "Zika virus infection",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Mild febrile illness with rash and conjunctivitis is characteristic of Zika virus infection."
+  },
+  {
+    "case_id": "who_case_014",
+    "question": "A pregnant woman develops low-grade fever and rash after travel to a Zika-endemic area.",
+    "contexts": [],
+    "answer": "Zika",
+    "ground_truth": "Zika virus infection",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Zika often presents with mild fever and rash, especially concerning in pregnancy."
+  },
+  {
+    "case_id": "who_case_015",
+    "question": "A 31-year-old man presents with conjunctivitis, rash, and arthralgia following mosquito bites.",
+    "contexts": [],
+    "answer": "Dengue Fever",
+    "ground_truth": "Zika virus infection",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "This symptom constellation is consistent with Zika virus infection."
+  },
+  {
+    "case_id": "who_case_016",
+    "question": "A 45-year-old unvaccinated traveler presents with fever, headache, back pain, and nausea after visiting forested regions.",
+    "contexts": [],
+    "answer": "Lyme disease",
+    "ground_truth": "Yellow fever",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Unvaccinated travel to endemic forest areas with acute febrile illness suggests yellow fever."
+  },
+  {
+    "case_id": "who_case_017",
+    "question": "A 50-year-old man develops jaundice and fever after jungle exposure in South America.",
+    "contexts": [],
+    "answer": "Plasmodium vivax malaria",
+    "ground_truth": "Yellow fever",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Jaundice and fever following jungle exposure are consistent with yellow fever."
+  },
+  {
+    "case_id": "who_case_018",
+    "question": "A 38-year-old traveler presents with fever and myalgia after travel to a yellow fever endemic zone.",
+    "contexts": [],
+    "answer": "YellowFever",
+    "ground_truth": "Yellow fever",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Acute febrile illness in yellow fever endemic regions suggests yellow fever."
+  },
+  {
+    "case_id": "who_case_019",
+    "question": "A 34-year-old man presents with a painless ulcer on his arm weeks after sandfly exposure.",
+    "contexts": [],
+    "answer": "Leishmaniasis",
+    "ground_truth": "Leishmaniasis (cutaneous)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Chronic painless skin ulcers after sandfly exposure suggest cutaneous leishmaniasis."
+  },
+  {
+    "case_id": "who_case_020",
+    "question": "A 29-year-old woman develops non-healing skin lesions after living in a rural tropical area.",
+    "contexts": [],
+    "answer": "Leprosy",
+    "ground_truth": "Leishmaniasis (cutaneous)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Non-healing skin ulcers in tropical regions are typical of cutaneous leishmaniasis."
+  },
+  {
+    "case_id": "who_case_021",
+    "question": "A 41-year-old man presents with multiple skin ulcers following insect bites.",
+    "contexts": [],
+    "answer": "Sporotrichosis",
+    "ground_truth": "Leishmaniasis (cutaneous)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Sandfly-transmitted infection causing skin ulcers suggests cutaneous leishmaniasis."
+  },
+  {
+    "case_id": "who_case_022",
+    "question": "A 36-year-old man presents with fever, weight loss, anemia, and enlarged spleen.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "Leishmaniasis (visceral)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Systemic illness with hepatosplenomegaly and anemia suggests visceral leishmaniasis."
+  },
+  {
+    "case_id": "who_case_023",
+    "question": "A child presents with prolonged fever and splenomegaly in an endemic region.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "Leishmaniasis (visceral)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Prolonged systemic symptoms with splenomegaly suggest visceral leishmaniasis."
+  },
+  {
+    "case_id": "who_case_024",
+    "question": "A 44-year-old woman presents with fever, cachexia, and pancytopenia.",
+    "contexts": [],
+    "answer": "HIV",
+    "ground_truth": "Leishmaniasis (visceral)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Pancytopenia and wasting illness are typical of visceral leishmaniasis."
+  },
+  {
+    "case_id": "who_case_025",
+    "question": "A 28-year-old farmer presents with abdominal pain and blood in stool after freshwater exposure.",
+    "contexts": [],
+    "answer": "Giardiasis",
+    "ground_truth": "Schistosomiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Freshwater exposure followed by gastrointestinal bleeding suggests schistosomiasis."
+  },
+  {
+    "case_id": "who_case_026",
+    "question": "A 35-year-old woman develops chronic diarrhea after bathing in freshwater lakes.",
+    "contexts": [],
+    "answer": "Giardiasis",
+    "ground_truth": "Schistosomiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Chronic gastrointestinal symptoms after freshwater exposure suggest schistosomiasis."
+  },
+  {
+    "case_id": "who_case_027",
+    "question": "A fisherman presents with hematuria after long-term river exposure.",
+    "contexts": [],
+    "answer": "Schistosomiasis",
+    "ground_truth": "Schistosomiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Urinary symptoms after freshwater exposure are consistent with schistosomiasis."
+  },
+  {
+    "case_id": "who_case_028",
+    "question": "A 55-year-old man presents with progressive swelling of the legs after years in a mosquito-endemic region.",
+    "contexts": [],
+    "answer": "Lymphatic filariasis",
+    "ground_truth": "Lymphatic filariasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Chronic lymphatic obstruction causing limb swelling suggests lymphatic filariasis."
+  },
+  {
+    "case_id": "who_case_029",
+    "question": "A 48-year-old woman presents with elephantiasis of the lower limbs.",
+    "contexts": [],
+    "answer": "Lymphatic filariasis",
+    "ground_truth": "Lymphatic filariasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Severe chronic lymphedema in tropical regions suggests lymphatic filariasis."
+  },
+  {
+    "case_id": "who_case_030",
+    "question": "A 60-year-old man develops genital swelling after decades of exposure.",
+    "contexts": [],
+    "answer": "Syphilis",
+    "ground_truth": "Lymphatic filariasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Genital lymphedema is a classic manifestation of lymphatic filariasis."
+  },
+  {
+    "case_id": "who_case_031",
+    "question": "A 31-year-old traveler presents with fever, headache, and lymphadenopathy after visiting Central Africa.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "African trypanosomiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Fever with lymph node enlargement after travel to Central Africa suggests African trypanosomiasis."
+  },
+  {
+    "case_id": "who_case_032",
+    "question": "A 45-year-old man develops sleep disturbances and confusion after tsetse fly exposure.",
+    "contexts": [],
+    "answer": "Creutzfeldt-Jakob Disease",
+    "ground_truth": "African trypanosomiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Neurological involvement following tsetse fly exposure is characteristic of African trypanosomiasis."
+  },
+  {
+    "case_id": "who_case_033",
+    "question": "A woman presents with prolonged fever and behavioral changes in an endemic region.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "African trypanosomiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Neuropsychiatric symptoms in endemic regions suggest African trypanosomiasis."
+  },
+  {
+    "case_id": "who_case_034",
+    "question": "A 22-year-old agricultural worker presents with anemia and abdominal pain after soil exposure.",
+    "contexts": [],
+    "answer": "Soil-associated Phytophthora infection",
+    "ground_truth": "Soil-transmitted helminthiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Anemia due to chronic soil exposure suggests soil-transmitted helminthiasis."
+  },
+  {
+    "case_id": "who_case_035",
+    "question": "A child presents with growth retardation and chronic parasitic infection.",
+    "contexts": [],
+    "answer": "Chagas disease",
+    "ground_truth": "Soil-transmitted helminthiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Growth impairment in endemic regions suggests soil-transmitted helminthiasis."
+  },
+  {
+    "case_id": "who_case_036",
+    "question": "A rural resident presents with chronic intestinal symptoms.",
+    "contexts": [],
+    "answer": "Giardiasis",
+    "ground_truth": "Soil-transmitted helminthiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Persistent intestinal parasitic infection suggests soil-transmitted helminthiasis."
+  },
+  {
+    "case_id": "who_case_037",
+    "question": "A 30-year-old farmer presents with anemia and fatigue after barefoot soil exposure.",
+    "contexts": [],
+    "answer": "Soil-associated Phytophthora infection",
+    "ground_truth": "Hookworm infection",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Hookworm penetrates skin causing anemia in exposed individuals."
+  },
+  {
+    "case_id": "who_case_038",
+    "question": "A pregnant woman presents with iron-deficiency anemia in rural tropics.",
+    "contexts": [],
+    "answer": "Pica",
+    "ground_truth": "Hookworm infection",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Hookworm infection commonly causes iron-deficiency anemia."
+  },
+  {
+    "case_id": "who_case_039",
+    "question": "A laborer develops weakness and pallor after prolonged soil contact.",
+    "contexts": [],
+    "answer": "Cobalt Hemorrhagic Meningitis",
+    "ground_truth": "Hookworm infection",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Chronic blood loss from hookworm infection causes anemia."
+  },
+  {
+    "case_id": "who_case_040",
+    "question": "A man presents with chronic diarrhea and rash after barefoot soil exposure.",
+    "contexts": [],
+    "answer": "Strongyloides infection",
+    "ground_truth": "Strongyloidiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Skin penetration and autoinfection are characteristic of strongyloidiasis."
+  },
+  {
+    "case_id": "who_case_041",
+    "question": "An immunocompromised patient develops disseminated parasitic infection.",
+    "contexts": [],
+    "answer": "Visceral leishmaniasis",
+    "ground_truth": "Strongyloidiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Strongyloides can cause severe disease in immunocompromised hosts."
+  },
+  {
+    "case_id": "who_case_042",
+    "question": "A farmer presents with gastrointestinal symptoms after soil exposure.",
+    "contexts": [],
+    "answer": "Soil-associated gastroenteritis",
+    "ground_truth": "Strongyloidiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Soil-transmitted larvae causing GI symptoms suggest strongyloidiasis."
+  },
+  {
+    "case_id": "who_case_043",
+    "question": "A child presents with chronic diarrhea and rectal prolapse.",
+    "contexts": [],
+    "answer": "Giardia lamblia infection",
+    "ground_truth": "Trichuriasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Rectal prolapse in children suggests trichuriasis."
+  },
+  {
+    "case_id": "who_case_044",
+    "question": "A rural child presents with growth delay and intestinal symptoms.",
+    "contexts": [],
+    "answer": "Celiac Disease",
+    "ground_truth": "Trichuriasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Heavy whipworm infection causes trichuriasis."
+  },
+  {
+    "case_id": "who_case_045",
+    "question": "A patient presents with anemia and chronic bowel symptoms.",
+    "contexts": [],
+    "answer": "Schistosomiasis",
+    "ground_truth": "Trichuriasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Whipworm infection leads to chronic intestinal disease."
+  },
+  {
+    "case_id": "who_case_046",
+    "question": "A traveler presents with bloody diarrhea after consuming contaminated food.",
+    "contexts": [],
+    "answer": "Shigellosis",
+    "ground_truth": "Amoebiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Bloody diarrhea in endemic areas suggests amoebiasis."
+  },
+  {
+    "case_id": "who_case_047",
+    "question": "A man presents with liver abscess after intestinal infection.",
+    "contexts": [],
+    "answer": "Perianal Abscess",
+    "ground_truth": "Amoebiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Extraintestinal manifestations suggest amoebiasis."
+  },
+  {
+    "case_id": "who_case_048",
+    "question": "A woman presents with chronic dysentery.",
+    "contexts": [],
+    "answer": "Giardiasis",
+    "ground_truth": "Amoebiasis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Persistent dysentery suggests amoebiasis."
+  },
+  {
+    "case_id": "who_case_049",
+    "question": "A patient presents with profuse watery diarrhea and dehydration after flood exposure.",
+    "contexts": [],
+    "answer": "Giardiasis",
+    "ground_truth": "Cholera",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Severe watery diarrhea following contaminated water exposure suggests cholera."
+  },
+  {
+    "case_id": "who_case_050",
+    "question": "A community experiences acute diarrheal outbreak after water disruption.",
+    "contexts": [],
+    "answer": "Cholera",
+    "ground_truth": "Cholera",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Rapid dehydration during outbreaks suggests cholera."
+  },
+  {
+    "case_id": "who_case_051",
+    "question": "A man presents with rice-water stools after consuming unsafe water.",
+    "contexts": [],
+    "answer": "Giardiasis",
+    "ground_truth": "Cholera",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Rice-water stools are characteristic of cholera."
+  },
+  {
+    "case_id": "who_case_052",
+    "question": "A farmer presents with fever, myalgia, and conjunctival suffusion after floodwater exposure.",
+    "contexts": [],
+    "answer": "Leptospirosis",
+    "ground_truth": "Leptospirosis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Leptospira infection causes fever and conjunctival suffusion after flood exposure."
+  },
+  {
+    "case_id": "who_case_053",
+    "question": "A man develops renal impairment after febrile illness following floods.",
+    "contexts": [],
+    "answer": "Leptospirosis",
+    "ground_truth": "Leptospirosis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Renal involvement with febrile illness suggests leptospirosis."
+  },
+  {
+    "case_id": "who_case_054",
+    "question": "A woman presents with jaundice and fever after animal urine exposure.",
+    "contexts": [],
+    "answer": "Leptospirosis",
+    "ground_truth": "Leptospirosis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Zoonotic exposure causing systemic illness suggests leptospirosis."
+  },
+  {
+    "case_id": "who_case_055",
+    "question": "A hiker presents with fever and eschar after visiting rural Asia.",
+    "contexts": [],
+    "answer": "Yersinia pestis",
+    "ground_truth": "Scrub typhus",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Eschar with febrile illness suggests scrub typhus."
+  },
+  {
+    "case_id": "who_case_056",
+    "question": "A farmer presents with fever, rash, and lymphadenopathy.",
+    "contexts": [],
+    "answer": "Rocky Mountain Spotted Fever",
+    "ground_truth": "Scrub typhus",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Scrub typhus presents with fever, rash, and eschar."
+  },
+  {
+    "case_id": "who_case_057",
+    "question": "A patient presents with acute febrile illness after mite exposure.",
+    "contexts": [],
+    "answer": "Rocky Mountain Spotted Fever",
+    "ground_truth": "Scrub typhus",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Mite-borne infection suggests scrub typhus."
+  },
+  {
+    "case_id": "who_case_058",
+    "question": "A traveler presents with recurring fever episodes after East Africa travel.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "Relapsing fever (tropical form)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Relapsing fever episodes suggest tropical relapsing fever."
+  },
+  {
+    "case_id": "who_case_059",
+    "question": "A patient presents with recurrent febrile episodes separated by afebrile periods.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "Relapsing fever (tropical form)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Borrelia infection causes relapsing fever."
+  },
+  {
+    "case_id": "who_case_060",
+    "question": "A refugee presents with cyclical fever and headache.",
+    "contexts": [],
+    "answer": "Malaria",
+    "ground_truth": "Relapsing fever (tropical form)",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Louse-borne relapsing fever occurs in tropical settings."
+  },
+  {
+    "case_id": "who_case_061",
+    "question": "A man presents with seizures and chronic headaches in an endemic region.",
+    "contexts": [],
+    "answer": "Neurocysticercosis",
+    "ground_truth": "Neurocysticercosis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Neurocysticercosis causes seizures due to brain cysts."
+  },
+  {
+    "case_id": "who_case_062",
+    "question": "A woman presents with epilepsy after consuming undercooked pork.",
+    "contexts": [],
+    "answer": "Trichinellosis",
+    "ground_truth": "Neurocysticercosis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Ingestion of Taenia solium eggs leads to neurocysticercosis."
+  },
+  {
+    "case_id": "who_case_063",
+    "question": "A patient presents with intracranial cysts and neurological deficits.",
+    "contexts": [],
+    "answer": "Neurocysticercosis",
+    "ground_truth": "Neurocysticercosis",
+    "metadata": {
+      "model_type": "base_model",
+      "model_name": "google/gemma-3-4b-it",
+      "num_contexts": 0
+    },
+    "diagnostic_reasoning": "Brain cysts due to parasitic infection indicate neurocysticercosis."
+  }
+]

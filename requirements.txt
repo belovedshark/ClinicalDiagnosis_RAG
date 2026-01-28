@@ -7,3 +7,9 @@ numpy
 python-dotenv
 tqdm
 pillow
+
+# Evaluation frameworks
+ragas>=0.1.0
+deepeval>=0.21.0
+datasets>=2.14.0
+langchain-openai>=0.1.0
